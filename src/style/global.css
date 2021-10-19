@@ -1,0 +1,21 @@
+:root {
+  /* colors */
+  --orange: #ff5200;
+  --black: #000;
+  --white: #fff;
+  --gray-light: #f0eeee;
+
+  /* typography */
+  --text-color: var(--black);
+  --font-family: "Roboto", Arial, Helvetica, sans-serif;
+
+  /* layout */
+  --body-background-color: var(--gray-light);
+  
+  /* button */
+  --button-font-family: var(--font-family);
+  --button-color: var(--orange);
+  --button-text-color: var(--white);
+  --button-letter-spacing: 2;
+  --button-text-transform: uppercase;
+}
