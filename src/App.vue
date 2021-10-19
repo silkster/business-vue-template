@@ -1,4 +1,23 @@
+<script>
+import AppHeader from '@/components/Header/Header.vue';
+
+export default {
+  name: 'hero-page',
+
+  components: { AppHeader },
+
+  props: {
+    user: {
+      type: Object,
+    },
+  },
+
+  emits: ['login', 'logout', 'createAccount'],
+};
+</script>
 <template>
+  <app-header />
+
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -8,7 +27,7 @@
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
