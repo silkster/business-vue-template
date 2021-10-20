@@ -1,5 +1,4 @@
 <script>
-import './button.css';
 import { reactive, computed, useCssModule } from 'vue';
 
 export default {
@@ -10,7 +9,16 @@ export default {
       type: String,
       required: true,
     },
-    primary: {
+    showLabel: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isPrimary: {
+      type: Boolean,
+      default: true,
+    },
+    isIcon: {
       type: Boolean,
       default: false,
     },
@@ -36,8 +44,9 @@ export default {
     });
     const classes = computed(() => ({
       [$style.button]: true,
-      [$style.buttonPrimary]: props.primary,
-      [$style.buttonSecondary]: !props.primary,
+      [$style.buttonPrimary]: props.isPrimary,
+      [$style.buttonSecondary]: !props.isPrimary && !props.isIcon,
+      [$style.buttonIcon]: props.isIcon,
       [$style[buttonSize]]: true,
     }));
     return {
@@ -56,7 +65,8 @@ export default {
 
 <template>
   <button type="button" :class="classes" @click="onClick" :style="style">
-    {{ label }}
+    <span v-if="showLabel" :class="$style.btnText">{{ label }}</span>
+    <slot></slot>
   </button>
 </template>
 
@@ -69,7 +79,7 @@ export default {
 */
 .button {
   border: 0;
-  border-radius: 2px;
+  border-radius: 0;
   color: var(--buton-text-color);
   cursor: pointer;
   display: inline-block;
@@ -77,15 +87,26 @@ export default {
   letter-spacing: var(--button-letter-spacing);
   line-height: 1;
   text-transform: var(--button-text-transform);
+  height: 42px;
+  min-width: 306px;
+}
+.buttonText {
+  color: var(--button-text-color);
 }
 .buttonPrimary {
-  color: white;
-  background-color: #1ea7fd;
+  color: var(--button-text-color);
+  background-color: var(--button-background-color);
 }
 .buttonSecondary {
   color: #333;
   background-color: transparent;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+.buttonIcon {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: unset;
 }
 .buttonSmall {
   font-size: 12px;
