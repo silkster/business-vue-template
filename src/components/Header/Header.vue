@@ -28,8 +28,6 @@ export default {
       }
     },
   },
-
-  emits: ['login', 'logout', 'createAccount'],
 };
 </script>
 
