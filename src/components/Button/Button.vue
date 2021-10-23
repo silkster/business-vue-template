@@ -1,13 +1,10 @@
 <script>
-import { reactive, computed, useCssModule } from 'vue';
-
 export default {
-  name: 'my-button',
+  name: 'app-button',
 
   props: {
     label: {
       type: String,
-      required: true,
     },
     showLabel: {
       type: Boolean,
@@ -36,35 +33,32 @@ export default {
 
   emits: ['click'],
 
-  setup(props, { emit }) {
-    props = reactive(props);
-    const $style = useCssModule();
-    const buttonSize = computed(() => {
-      return props.size[0].toUpperCase() + props.size.substr(1);
-    });
-    const classes = computed(() => ({
-      [$style.button]: true,
-      [$style.buttonPrimary]: props.isPrimary,
-      [$style.buttonSecondary]: !props.isPrimary && !props.isIcon,
-      [$style.buttonIcon]: props.isIcon,
-      [$style[buttonSize]]: true,
-    }));
-    return {
-      buttonSize,
-      classes,
-      style: computed(() => ({
-        backgroundColor: props.backgroundColor,
-      })),
-      onClick() {
-        emit('click');
-      },
-    };
+  computed: {
+    buttonSize() {
+      const { size } = this;
+      return `button${size[0].toUpperCase()}${size.substr(1)}`;
+    },
+    classes() {
+      const { $style, buttonSize } = this;
+      return {
+        [$style.button]: true,
+        [$style.buttonPrimary]: this.isPrimary,
+        [$style.buttonSecondary]: !this.isPrimary && !this.isIcon,
+        [$style.buttonIcon]: this.isIcon,
+        [$style[buttonSize]]: true,
+      };
+    },
+  },
+  methods: {
+    onClick() {
+      this.$emit('click');
+    },
   },
 };
 </script>
 
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">
+  <button type="button" :class="classes" @click="onClick">
     <span v-if="showLabel" :class="$style.btnText">{{ label }}</span>
     <slot></slot>
   </button>
@@ -121,4 +115,3 @@ export default {
   padding: 12px 24px;
 }
 </style>
-
