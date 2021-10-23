@@ -1,28 +1,28 @@
-import MyHeader from './Header.vue';
+import AppHeader from './Header.vue';
+import vueRouter from 'storybook-vue3-router';
+import { action } from '@storybook/addon-actions';
+import { routes } from '@/router';
 
 export default {
-  title: 'Example/Header',
-  component: MyHeader,
+  title: 'Header',
+  component: AppHeader,
 };
 
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { MyHeader },
+  components: { AppHeader },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     // Story args can be spread into the returned object
     return { ...args };
   },
   // Then, the spread values can be accessed directly in the template
-  template: '<my-header :user="user" />',
+  template: '<app-header />',
 });
 
-export const LoggedIn = Template.bind({});
-LoggedIn.args = {
-  user: {},
-};
-
-export const LoggedOut = Template.bind({});
-LoggedOut.args = {
-  user: null,
-};
+export const Header = Template.bind({});
+Header.decorators = [
+  vueRouter(routes, (to, from) =>
+    action('ROUTE CHANGED')({ to: to, from: from }),
+  ),
+];

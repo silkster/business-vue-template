@@ -1,19 +1,14 @@
-
 <script>
-import AppButton from '@/components/Button/Button.vue';
 import logoSrc from '@/assets/logo.png';
-import burgerSrc from '@/assets/burger.png';
 import namedRoutes from '@/router/namedRoutes.js';
+import AppMenu from '@/components/Menu/Menu.vue';
 
 export default {
   name: 'app-header',
-
-  components: { AppButton },
-
+  components: { AppMenu },
   data() {
     return {
       logoSrc,
-      burgerSrc,
     };
   },
 
@@ -34,20 +29,11 @@ export default {
 <template>
   <header>
     <div :class="$style.wrapper">
-      <div @click="logoClick">
+      <div :class="$style.logo" @click="logoClick">
         <img :src="logoSrc" />
       </div>
-      <div :class="$style.burgerWrap">
-        <app-button
-          primary
-          size="small"
-          @click="$emit('createAccount')"
-          :showLabel="false"
-          :isPrimary="false"
-          :isIcon="true"
-        >
-          <img :src="burgerSrc" alt="Menu" />
-        </app-button>
+      <div :class="$style.menuWrap">
+        <app-menu />
       </div>
     </div>
   </header>
@@ -55,32 +41,25 @@ export default {
 
 <style module>
 .wrapper {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 15px 20px;
+  align-items: flex-start;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  padding: 0;
 }
-
-svg {
-  display: inline-block;
-  vertical-align: top;
+.logo {
+  padding: 15px 20px;
 }
-
 h1 {
-  font-weight: 900;
+  display: inline-block;
   font-size: 20px;
+  font-weight: 900;
   line-height: 1;
   margin: 6px 0 6px 10px;
-  display: inline-block;
   vertical-align: top;
 }
-
-button + button {
-  margin-left: 10px;
-}
-.burgerWrap {
-  align-self: flex-start;
+.menuWrap {
+  flex-basis: 230px;
+  align-self: right;
+  height: 385px;
 }
 </style>
