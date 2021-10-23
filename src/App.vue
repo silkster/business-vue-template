@@ -16,12 +16,12 @@ export default {
 };
 </script>
 <template>
-  <app-header />
+  <app-header :class="$style.appHeader" />
 
   <router-view />
 </template>
 
-<style lang="scss">
+<style lang="scss" module>
 #app {
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
@@ -41,5 +41,12 @@ export default {
       color: #42b983;
     }
   }
+}
+.appHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 </style>
