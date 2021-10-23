@@ -7,8 +7,18 @@
   --gray-med: #98908c;
 
   /* typography */
-  --text-color: var(--black);
+  --heading-text-color: var(--black);
+  --text-color: var(--gray-med);
   --font-family: "Roboto", Arial, Helvetica, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-medium: 400;
+  --font-weight-bold: 700;
+  
+  /* headings */
+  --h1-font-size: 60px;
+
+  /* paragraph */
+  --p-font-size: 30px;
 
   /* layout */
   --body-background-color: var(--gray-light);
@@ -24,7 +34,20 @@
 }
 
 body {
+  background-color: var(--body-background-color);
   font-family: var(--font-family);
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: var(--heading-text-color);
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-weight-light);
+}
+
+p {
+  color: var(--text-color);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-light);
 }
