@@ -1,8 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
+import Contact from '@/views/Contact.vue';
+import Culture from '@/views/Culture.vue';
+import Home from '@/views/Home.vue';
+import InProgress from '@/views/InProgress.vue';
+import Team from '@/views/Team.vue';
+import Work from '@/views/Work.vue';
 import namedRoutes from './namedRoutes.js';
 
-const routes = [
+export const routes = [
   {
     ...namedRoutes.home,
     component: Home,
@@ -15,6 +20,26 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
+  },
+  {
+    ...namedRoutes.work,
+    component: Work,
+  },
+  {
+    ...namedRoutes.wip,
+    component: InProgress,
+  },
+  {
+    ...namedRoutes.culture,
+    component: Culture,
+  },
+  {
+    ...namedRoutes.team,
+    component: Team,
+  },
+  {
+    ...namedRoutes.contact,
+    component: Contact,
   },
 ];
 
