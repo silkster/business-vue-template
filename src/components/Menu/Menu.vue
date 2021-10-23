@@ -80,6 +80,10 @@ export default {
 }
 .burgerWrap {
   cursor: pointer;
+  width: 210px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 .menuWrap {
   height: 365px;
