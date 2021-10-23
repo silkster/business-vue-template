@@ -40,6 +40,9 @@ export default {
 </template>
 
 <style module>
+header {
+  margin: 75px 0 0 100px;
+}
 .wrapper {
   align-items: flex-start;
   display: flex;
@@ -47,7 +50,9 @@ export default {
   padding: 0;
 }
 .logo {
-  padding: 15px 20px;
+  margin-top: 25px;
+  padding: 5px;
+  background: var(--white);
 }
 h1 {
   display: inline-block;
