@@ -4,6 +4,7 @@
   --black: #000;
   --white: #fff;
   --gray-light: #f0eeee;
+  --gray-med: #98908c;
 
   /* typography */
   --text-color: var(--black);
@@ -18,4 +19,12 @@
   --button-text-color: var(--white);
   --button-letter-spacing: 2;
   --button-text-transform: uppercase;
+
+  --header-menu-link-color: var(--gray-med);
+}
+
+body {
+  font-family: var(--font-family);
+  padding: 0;
+  margin: 0;
 }
