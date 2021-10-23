@@ -81,7 +81,7 @@ export default {
   letter-spacing: var(--button-letter-spacing);
   line-height: 1;
   text-transform: var(--button-text-transform);
-  height: 42px;
+  height: 50px;
   min-width: 306px;
 }
 .buttonText {
@@ -111,7 +111,9 @@ export default {
   padding: 11px 20px;
 }
 .buttonLarge {
-  font-size: 16px;
+  font-size: 30px;
+  font-weight: var(--font-weight-med);
+  letter-spacing: 6px;
   padding: 12px 24px;
 }
 </style>
