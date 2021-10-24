@@ -6,12 +6,35 @@ import AppMenu from '@/components/Menu/Menu.vue';
 export default {
   name: 'app-header',
   components: { AppMenu },
+  props: {
+    isFixed: {
+      type: Boolean,
+      default: true,
+    },
+    logoSize: {
+      type: String,
+    },
+  },
   data() {
     return {
       logoSrc,
     };
   },
-
+  computed: {
+    headerClasses() {
+      const { $style, isFixed } = this;
+      return {
+        [$style.fixed]: isFixed,
+      };
+    },
+    logoClasses() {
+      const { $style, logoSize } = this;
+      return {
+        [$style.logo]: true,
+        [$style.logoSmall]: logoSize === 'small',
+      };
+    },
+  },
   methods: {
     logoClick() {
       const { $router } = this;
@@ -27,21 +50,37 @@ export default {
 </script>
 
 <template>
-  <header>
+  <header :class="headerClasses">
     <div :class="$style.wrapper">
-      <div :class="$style.logo" @click="logoClick">
-        <img :src="logoSrc" />
+      <div :class="$style.logoWrap">
+        <div :class="logoClasses" @click="logoClick">
+          <img
+            :src="logoSrc"
+            alt="Kohlmark Flach logo"
+            aria-label="Kohlmark Flach logo"
+            height="250"
+            width="190"
+          />
+        </div>
       </div>
-      <div :class="$style.menuWrap">
-        <app-menu />
-      </div>
+      <app-menu />
     </div>
   </header>
 </template>
 
 <style module>
 header {
-  margin: 75px 0 0 100px;
+  padding: 0 72px 0 100px;
+  height: 176px;
+  background-color: var(--white);
+}
+.fixed {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 .wrapper {
   align-items: flex-start;
@@ -49,22 +88,26 @@ header {
   justify-content: space-between;
   padding: 0;
 }
+.logoWrap {
+  position: relative;
+  width: 200px;
+  height: 175px;
+}
 .logo {
-  margin-top: 25px;
-  padding: 5px;
+  padding: 0px;
   background: var(--white);
+  position: absolute;
+  top: 100px;
+  width: 190px;
+  z-index: 1000;
+  overflow: hidden;
+  height: 255px;
 }
-h1 {
-  display: inline-block;
-  font-size: 20px;
-  font-weight: 900;
-  line-height: 1;
-  margin: 6px 0 6px 10px;
-  vertical-align: top;
+.logo svg {
+  width: 100%;
+  height: 100%;
 }
-.menuWrap {
-  flex-basis: 230px;
-  align-self: right;
-  height: 385px;
+.logoSmall {
+  height: 145px;
 }
 </style>

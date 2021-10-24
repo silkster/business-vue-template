@@ -1,10 +1,11 @@
 <script>
 import AppHeader from '@/components/Header/Header.vue';
+import AppFooter from '@/components/Footer/Footer.vue';
 
 export default {
-  name: 'hero-page',
+  name: 'app',
 
-  components: { AppHeader },
+  components: { AppHeader, AppFooter },
 
   props: {
     user: {
@@ -12,13 +13,27 @@ export default {
     },
   },
 
+  computed: {
+    isFixed() {
+      const { $router } = this;
+      return $router.currentRoute.value.meta.header === 'fixed';
+    },
+    logoSize() {
+      const { $router } = this;
+      const { meta } = $router.currentRoute.value || null;
+      return (meta && meta.logo) || null;
+    },
+  },
+
   emits: ['login', 'logout', 'createAccount'],
 };
 </script>
 <template>
-  <app-header :class="$style.appHeader" />
+  <app-header :is-fixed="isFixed" :logo-size="logoSize" />
 
   <router-view />
+
+  <app-footer />
 </template>
 
 <style lang="scss" module>
@@ -41,12 +56,5 @@ export default {
       color: #42b983;
     }
   }
-}
-.appHeader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
 }
 </style>

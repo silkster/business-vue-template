@@ -17,7 +17,11 @@ const Template = (args) => ({
     return { ...args };
   },
   // Then, the spread values can be accessed directly in the template
-  template: '<app-header />',
+  template: `
+    <div style="min-height: 1vh; min-width: 1vw; background-color: var(--body-background-color);">
+      <app-header />
+    </div>
+  `,
 });
 
 export const Header = Template.bind({});
