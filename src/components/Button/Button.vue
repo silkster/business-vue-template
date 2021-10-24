@@ -65,12 +65,6 @@ export default {
 </template>
 
 <style module>
-/*
-  --button-color: var(--orange);
-  --button-text-color: var(--white);
-  --button-letter-spacing: 2;
-  --button-text-transform: uppercase;
-*/
 .button {
   border: 0;
   border-radius: 0;
@@ -101,6 +95,7 @@ export default {
   border: none;
   box-shadow: none;
   min-width: unset;
+  height: auto;
 }
 .buttonSmall {
   font-size: 12px;
