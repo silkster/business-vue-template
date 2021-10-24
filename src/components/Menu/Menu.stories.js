@@ -28,20 +28,18 @@ const Template = (args) => ({
   },
   // And then the `args` are bound to your component with `v-bind="args"`
   template: `
-    <div style="position: relative;justify-content: flex-end;display: flex; padding: 0;">
-      <div style="flex-basis: 230px;height: 385px">
-        <app-menu v-bind="args" />
-      </div>
+    <div style="position: relative;padding: 0;height: 175px; background-color: #fff;display: flex;align-items: center;justify-content: flex-end;">
+      <app-menu v-bind="args" />
     </div>
   `,
 });
 
 export const Menu = Template.bind({});
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
-// Menu.args = {
-//   primary: true,
-//   label: 'Button',
-// };
+Menu.args = {
+  // primary: true,
+  // label: 'Button',
+};
 Menu.decorators = [
   vueRouter(routes, (to, from) =>
     action('ROUTE CHANGED')({ to: to, from: from }),

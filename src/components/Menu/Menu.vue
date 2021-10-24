@@ -34,6 +34,28 @@ export default {
 </script>
 
 <template>
+  <div :class="$style.menuWrap">
+    <div :class="menuClasses" @mouseleave="hideMenu">
+      <div :class="$style.item">
+        <router-link to="/" @click="hideMenu">Home</router-link>
+      </div>
+      <div :class="$style.item">
+        <router-link to="/work" @click="hideMenu">Work</router-link>
+      </div>
+      <div :class="$style.item">
+        <router-link to="/wip" @click="hideMenu">In Progress</router-link>
+      </div>
+      <div :class="$style.item">
+        <router-link to="/culture" @click="hideMenu">Culture</router-link>
+      </div>
+      <div :class="$style.item">
+        <router-link to="/team" @click="hideMenu">Team</router-link>
+      </div>
+      <div :class="$style.item">
+        <router-link to="/contact" @click="hideMenu">Contact</router-link>
+      </div>
+    </div>
+  </div>
   <div :class="$style.container">
     <div :class="$style.burgerWrap">
       <app-button
@@ -45,53 +67,24 @@ export default {
         <img :src="burgerSrc" alt="Menu" @click="showMenu" />
       </app-button>
     </div>
-    <div :class="$style.menuWrap">
-      <div :class="menuClasses" @mouseleave="hideMenu">
-        <div :class="$style.item">
-          <router-link to="/">Home</router-link>
-        </div>
-        <div :class="$style.item">
-          <router-link to="/work">Work</router-link>
-        </div>
-        <div :class="$style.item">
-          <router-link to="/wip">In Progress</router-link>
-        </div>
-        <div :class="$style.item">
-          <router-link to="/culture">Culture</router-link>
-        </div>
-        <div :class="$style.item">
-          <router-link to="/team">Team</router-link>
-        </div>
-        <div :class="$style.item">
-          <router-link to="/contact">Contact</router-link>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <style module>
 .container {
-  display: flex;
-  justify-content: right;
-  min-height: 100%;
-  overflow: hidden;
   position: relative;
+  align-self: center;
 }
 .burgerWrap {
-  cursor: pointer;
-  width: 210px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  position: relative;
 }
 .menuWrap {
-  height: 365px;
-  pointer-events: none;
   position: absolute;
-  right: 0;
   top: 0;
-  width: 210px;
+  right: 0;
+  width: 230px;
+  height: 385px;
+  pointer-events: none;
 }
 .menu {
   background-color: var(--white);
@@ -106,11 +99,13 @@ export default {
   position: absolute;
   right: 0;
   top: -365px;
-  transition: top 0.5s, box-shadow 0.5s;
+  transition: top 0.5s, box-shadow 0.5s, opacity 0.5s;
   width: 210px;
+  z-index: 100;
 }
 .menu a {
   color: var(--header-menu-link-color);
+  text-decoration: none;
 }
 .menuOn {
   top: 0;
