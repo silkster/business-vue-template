@@ -13,15 +13,6 @@ module.exports = {
     };
     config.resolve.extensions.push('.ts', '.tsx');
 
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: [
-        require.resolve('vue-style-loader'),
-        require.resolve('css-loader'),
-        require.resolve('sass-loader'),
-      ],
-    });
-
     return {
       ...config,
       module: {
