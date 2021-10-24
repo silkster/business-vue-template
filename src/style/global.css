@@ -13,6 +13,9 @@
   --font-weight-light: 300;
   --font-weight-medium: 400;
   --font-weight-bold: 700;
+  --font-size-small: 15px;
+  --font-size-med: 30px;
+  --font-size-large: 60px;
   
   /* headings */
   --h1-font-size: 60px;
@@ -36,8 +39,8 @@
 body {
   background-color: var(--body-background-color);
   font-family: var(--font-family);
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 h1 {
