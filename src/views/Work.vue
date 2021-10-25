@@ -1,9 +1,29 @@
 <script>
+// import AppContent from '@/components/Content/Content.vue';
+import AppGallery from '@/components/Gallery/Gallery.vue';
+
 export default {
   name: 'Work',
+  components: {
+    // AppContent,
+    AppGallery,
+  },
 };
 </script>
 
 <template>
-  <div>Work</div>
+  <div :class="$style.container">
+    <app-gallery />
+  </div>
 </template>
+
+<style module>
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  position: relative;
+}
+</style>
