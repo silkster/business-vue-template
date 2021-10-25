@@ -8,10 +8,11 @@
 
   /* typography */
   --heading-text-color: var(--black);
-  --text-color: var(--gray-med);
+  --text-color: var(--black);
   --font-family: "Roboto", Arial, Helvetica, sans-serif;
   --font-weight-light: 300;
   --font-weight-medium: 400;
+  --font-weight-medium-dark: 500;
   --font-weight-bold: 700;
   --font-size-small: 15px;
   --font-size-med: 30px;
@@ -47,10 +48,22 @@ h1 {
   color: var(--heading-text-color);
   font-size: var(--h1-font-size);
   font-weight: var(--font-weight-light);
+  margin: 0 0 10px;
+}
+
+h2 {
+  color: var(--heading-text-color);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
 }
 
 p {
   color: var(--text-color);
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-light);
+}
+
+b {
+  font-weight: var(--font-weight-medium-dark);
 }
