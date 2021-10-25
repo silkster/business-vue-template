@@ -11,6 +11,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    isWhite: {
+      type: Boolean,
+      default: false,
+    },
     logoSize: {
       type: String,
     },
@@ -22,9 +26,10 @@ export default {
   },
   computed: {
     headerClasses() {
-      const { $style, isFixed } = this;
+      const { $style, isFixed, isWhite } = this;
       return {
         [$style.fixed]: isFixed,
+        [$style.white]: isWhite,
       };
     },
     logoClasses() {
@@ -72,7 +77,6 @@ export default {
 header {
   padding: 0 72px 0 100px;
   height: 176px;
-  background-color: var(--white);
 }
 .fixed {
   background-color: transparent;
@@ -81,6 +85,9 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
+}
+.white {
+  background-color: var(--white);
 }
 .wrapper {
   align-items: flex-start;

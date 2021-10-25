@@ -3,7 +3,13 @@ import Contact from '@/views/Contact.vue';
 import Culture from '@/views/Culture.vue';
 import Home from '@/views/Home.vue';
 import InProgress from '@/views/InProgress.vue';
+
 import Team from '@/views/Team.vue';
+import PresidentBio from '@/views/team/President.vue';
+import VicePresidentBio from '@/views/team/VicePresident.vue';
+import ArchitectBio from '@/views/team/Architect.vue';
+import BusinessManagerBio from '@/views/team/BusinessManager.vue';
+
 import Work from '@/views/Work.vue';
 import WorkAsh from '@/views/work/Ash.vue';
 import WorkBhu from '@/views/work/Bhu.vue';
@@ -25,7 +31,7 @@ export const routes = [
     ...namedRoutes.home,
     component: Home,
     meta: {
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -33,6 +39,9 @@ export const routes = [
     component: Work,
     meta: {
       logo: 'small',
+      header: {
+        isWhite: true,
+      },
     },
   },
   {
@@ -45,7 +54,7 @@ export const routes = [
       photography: 'Alexander Nicholson',
       id: 'DEU',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -58,7 +67,7 @@ export const routes = [
       photography: 'Greg Hadley',
       id: 'KUZ',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -71,7 +80,7 @@ export const routes = [
       photography: 'Greg Hadley',
       id: 'MIL',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -84,7 +93,7 @@ export const routes = [
       photography: 'Greg Hadley',
       id: 'LYN',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -110,7 +119,7 @@ export const routes = [
       photography: 'Michael Johnson, Mt. Carroll, IL',
       id: 'DAV',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -123,7 +132,7 @@ export const routes = [
       photography: 'Greg Hadley',
       id: 'PAR',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -136,7 +145,7 @@ export const routes = [
       photography: 'Greg Hadley',
       id: 'ASH',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -149,7 +158,7 @@ export const routes = [
       photography: 'Greg Hadley',
       id: 'LAY',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -162,7 +171,7 @@ export const routes = [
       photography: 'Greg Hadley',
       id: 'WRI',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -175,7 +184,7 @@ export const routes = [
       photography: 'Greg Hadley',
       id: 'BHU',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -189,7 +198,7 @@ export const routes = [
       editorial: 'Jennifer Sergent',
       id: 'STO',
       logo: 'small',
-      header: 'fixed',
+      header: { isFixed: true },
     },
   },
   {
@@ -211,6 +220,50 @@ export const routes = [
     component: Team,
     meta: {
       logo: 'small',
+      header: {
+        isFixed: false,
+        isWhite: false,
+      },
+    },
+  },
+  {
+    name: 'president',
+    path: '/team/president',
+    component: PresidentBio,
+    meta: {
+      logo: 'small',
+      fullName: 'Tom Flach, AIA',
+      title: 'President',
+    },
+  },
+  {
+    name: 'vice-president',
+    path: '/team/vice-president',
+    component: VicePresidentBio,
+    meta: {
+      logo: 'small',
+      fullName: 'Jeremy Potter, AIA',
+      title: 'Vice President',
+    },
+  },
+  {
+    name: 'architect',
+    path: '/team/architect',
+    component: ArchitectBio,
+    meta: {
+      logo: 'small',
+      fullName: 'Chris Chatfield, AIA',
+      title: 'Architect',
+    },
+  },
+  {
+    name: 'studio-manager',
+    path: '/team/studio-manager',
+    component: BusinessManagerBio,
+    meta: {
+      logo: 'small',
+      fullName: 'Tracey Flach',
+      title: 'Studio Manager',
     },
   },
   {

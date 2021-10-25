@@ -14,13 +14,19 @@ export default {
   },
 
   computed: {
+    meta() {
+      return this.$router.currentRoute.value.meta || null;
+    },
     isFixed() {
-      const { $router } = this;
-      return $router.currentRoute.value.meta.header === 'fixed';
+      const { meta } = this;
+      return (meta && meta.header && meta.header.isFixed) || false;
+    },
+    isWhite() {
+      const { meta } = this;
+      return (meta && meta.header && meta.header.isWhite) || false;
     },
     logoSize() {
-      const { $router } = this;
-      const { meta } = $router.currentRoute.value || null;
+      const { meta } = this;
       return (meta && meta.logo) || null;
     },
   },
@@ -29,7 +35,7 @@ export default {
 };
 </script>
 <template>
-  <app-header :is-fixed="isFixed" :logo-size="logoSize" />
+  <app-header :is-fixed="isFixed" :is-white="isWhite" :logo-size="logoSize" />
 
   <router-view />
 
