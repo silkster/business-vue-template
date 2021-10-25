@@ -8,9 +8,17 @@ import img6 from '@/assets/landing/6_LOE.jpg';
 
 export default {
   name: 'app-slider',
+  props: {
+    photos: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+  },
   data() {
     return {
-      images: [img1, img2, img3, img4, img5, img6],
+      homePhotos: [img1, img2, img3, img4, img5, img6],
       active: 0,
       intervalId: null,
     };
@@ -24,6 +32,9 @@ export default {
       return {
         'background-image': `url(${this.img})`,
       };
+    },
+    images() {
+      return this.photos.length > 0 ? this.photos : this.homePhotos;
     },
   },
   mounted() {
