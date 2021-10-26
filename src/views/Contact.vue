@@ -62,7 +62,7 @@ export default {
             ></textarea>
           </div>
           <div :class="$style.field">
-            <app-button @click="sendMessage">Submit</app-button>
+            <app-button @click="sendMessage" size="large">Submit</app-button>
           </div>
         </div>
       </div>
