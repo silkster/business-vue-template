@@ -27,6 +27,7 @@ export default {
     </div>
     <div :class="$style.labels">
       <div :class="$style.fullName">{{ fullName }}</div>
+      <div :class="$style.separator">|</div>
       <div :class="$style.title">{{ title }}</div>
     </div>
   </div>
@@ -67,18 +68,20 @@ export default {
   align-items: center;
   height: 60px;
   font-size: 24px;
+  letter-spacing: 1px;
 }
-.fullName {
+.fullName,
+.separator {
   position: relative;
   color: var(--black);
   font-weight: var(--font-weight-bold);
-  padding-right: 16px;
-  margin-right: 16px;
-  border-right: 2px solid var(--orange);
+}
+.separator {
+  margin: 0 16px;
 }
 .title {
   position: relative;
-  font-weight: var(--font-weight-medium-dark);
+  font-weight: var(--font-weight-regular);
   color: var(--orange);
 }
 </style>

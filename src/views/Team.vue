@@ -16,7 +16,7 @@ export default {
     return {
       bios: [
         {
-          fullName: 'Tom Flach, AIA',
+          fullName: 'Thomas Flach, AIA',
           photo: TomFlach,
           title: 'President',
           id: 'president',
