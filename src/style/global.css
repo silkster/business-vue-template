@@ -114,10 +114,9 @@ h2 {
 p {
   color: var(--text-color);
   font-size: var(--p-font-size);
-  font-weight: var(--font-weight-light);
 }
 
 b {
-  font-weight: var(--font-weight-medium-dark);
+  font-weight: var(--font-weight-bold);
 }
 
