@@ -26,17 +26,21 @@ export default {
       <div :class="$style.companyName">
         <span :class="$style.company">
           <span :class="$style.kohlmark">KOHLMARK</span>
-          <span :class="$style.flach">FLACH</span></span
+          <span :class="$style.flach"> FLACH</span></span
         >
         ARCHITECTS
       </div>
     </div>
     <div :class="$style.contactInfo">
-      <div :class="$style.addressLine1">12644 Chapel Road</div>
-      <div :class="$style.addressLine2">Suite 209</div>
-      <div :class="$style.city">Clifton</div>
-      <div :class="$style.state">Virginia</div>
-      <div :class="$style.phone">703.932.2775</div>
+      <span :class="$style.addressLine1">12644 Chapel Road</span>
+      <span :class="$style.separator"> | </span>
+      <span :class="$style.addressLine2">Suite 209</span>
+      <span :class="$style.separator"> | </span>
+      <span :class="$style.city">Clifton</span>
+      <span :class="$style.separator"> | </span>
+      <span :class="$style.state">Virginia</span>
+      <span :class="$style.separator"> | </span>
+      <span :class="$style.phone">703.932.2775</span>
     </div>
     <div :class="$style.aiaLogo">
       <a href="https://aia.org" target="blank">
@@ -48,14 +52,16 @@ export default {
 
 <style module>
 footer {
-  background-color: var(--white);
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
-  height: 200px;
-  padding: 0 100px;
   box-sizing: border-box;
+  background-color: var(--white);
+  display: flex !important;
+  flex-wrap: nowrap;
+  font-size: 24px;
+  height: 200px;
+  justify-content: space-between;
+  line-height: 1;
+  padding: 0 100px;
 }
 .logo {
   display: flex;
@@ -64,9 +70,9 @@ footer {
 }
 .companyName {
   color: var(--black);
-  font-weight: var(--font-weight-light);
-  margin: 0 10px;
+  margin: 0 14px;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 .company {
   white-space: nowrap;
@@ -75,12 +81,17 @@ footer {
   color: var(--gray-med);
 }
 .flach {
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 .contactInfo {
   display: flex;
   white-space: nowrap;
   color: var(--gray-med);
+  align-items: center;
+}
+.separator {
+  font-size: 18px;
+  font-weight: var(--font-weight-black);
 }
 .addressLine1,
 .addressLine2,
@@ -88,7 +99,6 @@ footer {
 .state,
 .phone {
   padding: 0 18px;
-  border-right: 1.5px solid var(--orange);
 }
 .phone {
   border-right: 0;
