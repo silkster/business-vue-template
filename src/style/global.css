@@ -8,7 +8,7 @@
 
   /* typography */
   --heading-text-color: var(--black);
-  --text-color: var(--black);
+  --text-color: var(--gray-med);
   --font-family: "Roboto", Arial, Helvetica, sans-serif;
 
   /* FONT WEIGHT */
@@ -101,7 +101,7 @@ h1 {
   color: var(--heading-text-color);
   font-size: var(--h1-font-size);
   font-weight: var(--font-weight-light);
-  margin: 0 0 10px;
+  margin: 0 0 30px;
 }
 
 h2 {
@@ -114,6 +114,7 @@ h2 {
 p {
   color: var(--text-color);
   font-size: var(--p-font-size);
+  line-height: 1.5;
 }
 
 b {

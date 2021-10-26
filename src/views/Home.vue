@@ -23,12 +23,19 @@ export default {
       what's possible when a talented team of AIA architects work with you,
       please contact us!
     </p>
-    <app-button :class="$style.inquireButton" size="large">Inquire</app-button>
+    <div :class="$style.buttonContainer">
+      <app-button :class="$style.inquireButton" size="large"
+        >Inquire</app-button
+      >
+    </div>
   </app-content>
 </template>
 
 <style module>
 .inquireButton {
   margin: 0 auto;
+}
+.buttonContainer {
+  padding: 120px 0 100px;
 }
 </style>

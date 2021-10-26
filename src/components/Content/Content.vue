@@ -28,9 +28,8 @@ export default {
 <style module>
 .container {
   position: relative;
-  max-width: 1024px;
+  max-width: 1060px;
   margin: 60px auto;
-  min-height: 500px;
   text-align: center;
 }
 .fullWidth {
