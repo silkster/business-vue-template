@@ -11,9 +11,11 @@ import milPhoto from '@/assets/gallery/mil/MIL_01.jpg';
 import parPhoto from '@/assets/gallery/par/PAR_01.jpg';
 import stoPhoto from '@/assets/gallery/sto/STO_01.jpg';
 import wriPhoto from '@/assets/gallery/wri/WRI_01.jpg';
+import GalleryItem from '@/components/GalleryItem/GalleryItem.vue';
 
 export default {
   name: 'app-gallery',
+  components: { GalleryItem },
   data() {
     return {
       sets: [
@@ -32,7 +34,7 @@ export default {
           photo: kuzPhoto,
         },
         {
-          title: 'Milleens: Waterfront Timber Frame',
+          title: 'Milleens',
           location: 'Occoquan, VA',
           photography: 'Greg Hadley',
           id: 'MIL',
@@ -123,15 +125,12 @@ export default {
       :class="$style.itemWrap"
       @click="goto(set.id)"
     >
-      <div :class="$style.item">
-        <div :class="$style.photo">
-          <img :src="set.photo" :alt="set.title" />
-        </div>
-        <div :class="$style.caption">
-          <h2>{{ set.title }}</h2>
-          <p>{{ set.location }}</p>
-        </div>
-      </div>
+      <gallery-item
+        :photo="set.photo"
+        :title="set.title"
+        :location="set.location"
+        @click="goto(set.id)"
+      />
     </div>
   </div>
 </template>
@@ -140,64 +139,16 @@ export default {
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   position: relative;
   width: 100%;
+  row-gap: 8px;
 }
 .itemWrap {
+  flex: 0 1 33%;
   position: relative;
   background-color: brown;
-  flex-basis: 33.333%;
-  padding-top: 20%;
-  border: 2px solid var(--white);
   box-sizing: border-box;
   cursor: pointer;
-}
-.item {
-  width: 100%;
-  padding-top: 15%;
-  overflow: hidden;
-}
-.photo {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.photo img {
-  width: 100%;
-  height: 100%;
-}
-.caption {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.55);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  color: var(--white);
-}
-.caption:hover {
-  opacity: 1;
-}
-.caption h2 {
-  color: var(--white);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-med);
-  text-align: center;
-  margin: 0;
-}
-.caption p {
-  color: var(--white);
-  font-weight: var(--font-weigh-light);
-  font-size: var(--font-size-small);
-  text-align: center;
-  margin: 4px 0 0 0;
 }
 </style>

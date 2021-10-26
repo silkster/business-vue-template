@@ -15,6 +15,15 @@ export default {
         return [];
       },
     },
+    ratioDimensions: {
+      type: Object,
+      default() {
+        return {
+          height: 1280,
+          width: 1920,
+        };
+      },
+    },
   },
   data() {
     return {
@@ -24,6 +33,10 @@ export default {
     };
   },
   computed: {
+    ratio() {
+      const { height, width } = this.ratioDimensions;
+      return (height / width) * 100;
+    },
     img() {
       const { images, active } = this;
       return images[active];
@@ -31,6 +44,7 @@ export default {
     slideStyle() {
       return {
         'background-image': `url(${this.img})`,
+        'padding-top': `${this.ratio}%`,
       };
     },
     images() {
@@ -117,16 +131,16 @@ export default {
 
 <style module>
 .container {
-  display: flex;
-  position: relative;
-  height: auto;
-  max-width: 100%;
-  padding-top: 67%;
+  align-items: flex-end;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: background-image 1s ease-in-out;
-  align-items: flex-end;
+  display: flex;
+  height: auto;
   justify-content: center;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: background-image 1s ease-in-out;
 }
 .nav {
   width: 20px;
