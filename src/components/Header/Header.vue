@@ -1,11 +1,12 @@
 <script>
-import logoSrc from '@/assets/logo.png';
+import logoSrc from '@/assets/logo.svg';
 import namedRoutes from '@/router/namedRoutes.js';
 import AppMenu from '@/components/Menu/Menu.vue';
+import InlineSvg from 'vue-inline-svg';
 
 export default {
   name: 'app-header',
-  components: { AppMenu },
+  components: { AppMenu, InlineSvg },
   props: {
     isFixed: {
       type: Boolean,
@@ -59,12 +60,12 @@ export default {
     <div :class="$style.wrapper">
       <div :class="$style.logoWrap">
         <div :class="logoClasses" @click="logoClick">
-          <img
+          <inline-svg
             :src="logoSrc"
             alt="Kohlmark Flach logo"
             aria-label="Kohlmark Flach logo"
-            height="250"
-            width="190"
+            height="239"
+            width="179"
           />
         </div>
       </div>
@@ -75,7 +76,6 @@ export default {
 
 <style module>
 header {
-  padding: 0 72px 0 100px;
   height: 176px;
 }
 .fixed {
@@ -93,7 +93,7 @@ header {
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  padding: 0;
+  padding: 0 72px 0 108px;
 }
 .logoWrap {
   position: relative;
@@ -101,20 +101,22 @@ header {
   height: 175px;
 }
 .logo {
-  padding: 0px;
+  align-items: center;
   background: var(--white);
-  position: absolute;
-  top: 100px;
-  width: 190px;
-  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  height: 249px;
+  justify-content: center;
   overflow: hidden;
-  height: 255px;
+  padding: 0px;
+  position: absolute;
+  top: 106px;
+  width: 189px;
+  z-index: 1000;
 }
-.logo svg {
-  width: 100%;
-  height: 100%;
-}
-.logoSmall {
-  height: 145px;
+.logo.logoSmall {
+  height: 138px;
+  align-items: flex-start;
+  padding-top: 5px;
 }
 </style>
