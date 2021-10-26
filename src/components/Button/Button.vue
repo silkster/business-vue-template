@@ -75,8 +75,8 @@ export default {
   letter-spacing: var(--button-letter-spacing);
   line-height: 1;
   text-transform: var(--button-text-transform);
-  height: 50px;
   min-width: 306px;
+  height: 42px;
 }
 .buttonText {
   color: var(--button-text-color);
@@ -98,17 +98,14 @@ export default {
   height: auto;
 }
 .buttonSmall {
-  font-size: 12px;
-  padding: 10px 16px;
+  font-size: 14px;
 }
 .buttonMedium {
-  font-size: 14px;
-  padding: 11px 20px;
+  font-size: 18px;
 }
 .buttonLarge {
-  font-size: 30px;
-  font-weight: var(--font-weight-med);
+  font-size: 24px;
+  font-weight: var(--font-weight-medium);
   letter-spacing: 6px;
-  padding: 12px 24px;
 }
 </style>
