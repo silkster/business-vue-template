@@ -57,7 +57,6 @@ footer {
   background-color: var(--white);
   display: flex !important;
   flex-wrap: nowrap;
-  font-size: 24px;
   height: 200px;
   justify-content: space-between;
   line-height: 1;
@@ -70,12 +69,14 @@ footer {
 }
 .companyName {
   color: var(--black);
+  font-size: 24px;
   margin: 0 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 .company {
   white-space: nowrap;
+  font-size: 24px;
 }
 .kohlmark {
   color: var(--gray-med);
@@ -99,6 +100,7 @@ footer {
 .state,
 .phone {
   padding: 0 18px;
+  font-size: 24px;
 }
 .phone {
   border-right: 0;
