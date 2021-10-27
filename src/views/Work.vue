@@ -22,6 +22,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--white);
 }
 .container {
   position: relative;
