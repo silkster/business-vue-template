@@ -29,7 +29,8 @@ export default {
 .container {
   position: relative;
   max-width: 1060px;
-  margin: 60px auto;
+  padding: 60px 0;
+  margin: 0 auto;
   text-align: center;
 }
 .fullWidth {
