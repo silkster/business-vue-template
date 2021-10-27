@@ -4,10 +4,14 @@ export default {
   props: {
     backgroundColor: {
       type: String,
-      default: 'brown',
+      default: 'var(--white)',
     },
     photo: {
       type: String,
+    },
+    zoomIn: {
+      type: Boolean,
+      default: false,
     },
     ratioDimensions: {
       type: Object,
@@ -32,7 +36,14 @@ export default {
       const { height, width } = this.ratioDimensions;
       return (height / width) * 100;
     },
-    containerStyle() {
+    itemClasses() {
+      const { $style, zoomIn } = this;
+      return {
+        [$style.item]: true,
+        [$style.zoomIn]: zoomIn,
+      };
+    },
+    itemStyle() {
       const { backgroundColor, ratio, photo } = this;
       return {
         backgroundColor,
@@ -46,7 +57,7 @@ export default {
 
 <template>
   <div :class="$style.container">
-    <div :class="$style.item" :style="containerStyle">
+    <div :class="itemClasses" :style="itemStyle">
       <div :class="$style.caption">
         <h2>{{ title }}</h2>
         <p>{{ location }}</p>
@@ -65,6 +76,10 @@ export default {
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.zoomIn {
+  background-size: auto;
+  background-position: center;
 }
 .caption {
   position: absolute;
