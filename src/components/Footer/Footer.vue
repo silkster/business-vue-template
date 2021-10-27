@@ -1,9 +1,11 @@
 <script>
-import logoSmallSvg from '@/assets/logo-sm.png';
+import logoSmallSvg from '@/assets/logo-sm.svg';
 import aiaLogo from '@/assets/aia-logo.png';
+import InlineSvg from 'vue-inline-svg';
 
 export default {
   name: 'app-footer',
+  components: { InlineSvg },
   data() {
     return {
       aiaLogo,
@@ -14,15 +16,17 @@ export default {
 </script>
 
 <template>
-  <footer>
+  <footer :class="$style.container">
     <div :class="$style.logo">
-      <img
-        :src="logoSmallSvg"
-        alt="Kohlmark Flach logo"
-        aria-label="Kohlmark Flach logo"
-        height="65"
-        width="90"
-      />
+      <router-link to="/contact">
+        <inline-svg
+          :src="logoSmallSvg"
+          alt="Contact Kohlmark Flach"
+          aria-label="Contact Kohlmark Flach"
+          height="65"
+          width="90"
+        />
+      </router-link>
       <div :class="$style.companyName">
         <span :class="$style.company">
           <span :class="$style.kohlmark">KOHLMARK</span>
@@ -42,6 +46,7 @@ export default {
       <span :class="$style.separator"> | </span>
       <span :class="$style.phone">703.932.2775</span>
     </div>
+
     <div :class="$style.aiaLogo">
       <a href="https://aia.org" target="blank">
         <img :src="aiaLogo" alt="Go to AIA website" />
@@ -51,14 +56,14 @@ export default {
 </template>
 
 <style module>
-footer {
+.container {
   align-items: center;
   box-sizing: border-box;
   background-color: var(--white);
   display: flex !important;
   flex-wrap: nowrap;
   height: 200px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   line-height: 1;
   padding: 0 100px;
 }
@@ -66,6 +71,7 @@ footer {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
+  cursor: pointer;
 }
 .companyName {
   color: var(--black);
@@ -107,6 +113,9 @@ footer {
 }
 .aiaLogo {
   position: relative;
+  width: 15%;
+  display: flex;
+  justify-content: flex-end;
 }
 .aiaLogo a {
   border: 0;
