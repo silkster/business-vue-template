@@ -75,6 +75,7 @@ export default {
           photography: 'Greg Hadley',
           id: 'ASH',
           photo: ashPhoto,
+          zoomIn: true,
         },
         {
           title: 'Storybrook Cottage',
@@ -127,8 +128,9 @@ export default {
     >
       <gallery-item
         :photo="set.photo"
-        :title="set.title"
         :location="set.location"
+        :title="set.title"
+        :zoom-in="set.zoomIn"
         @click="goto(set.id)"
       />
     </div>
@@ -137,17 +139,17 @@ export default {
 
 <style module>
 .container {
+  background-color: var(--white);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
-  width: 100%;
   row-gap: 8px;
+  width: 100%;
 }
 .itemWrap {
   flex: 0 1 33%;
   position: relative;
-  background-color: brown;
   box-sizing: border-box;
   cursor: pointer;
 }
