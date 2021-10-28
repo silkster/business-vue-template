@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-  <app-slider />
+  <app-slider :nav-container-class="$style.sliderNavContainer" />
   <app-content>
     <h1>Enriching lives through design.</h1>
     <p>
@@ -37,5 +37,12 @@ export default {
 }
 .buttonContainer {
   padding: 120px 0 100px;
+}
+.sliderNavContainer {
+  position: absolute;
+  z-index: 1000;
+  top: calc(calc(100vw * 0.6666) - 60px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>

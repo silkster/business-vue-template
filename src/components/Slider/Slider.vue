@@ -24,6 +24,18 @@ export default {
         };
       },
     },
+    isFixed: {
+      type: Boolean,
+      default: false,
+    },
+    navContainerClass: {
+      type: String,
+      default: null,
+    },
+    containerClass: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {
@@ -43,12 +55,36 @@ export default {
     },
     slideStyle() {
       return {
-        'background-image': `url(${this.img})`,
         'padding-top': `${this.ratio}%`,
       };
     },
     images() {
-      return this.photos.length > 0 ? this.photos : this.homePhotos;
+      const { photos, homePhotos } = this;
+      const list = photos.length > 0 ? photos : homePhotos;
+      const images = list.map((item) => {
+        if (typeof item === 'string') {
+          return {
+            photo: item,
+            objectFit: 'cover',
+          };
+        }
+        return item;
+      });
+      return images;
+    },
+    navContainerClasses() {
+      const { $style, navContainerClass } = this;
+      return {
+        [$style.navContainer]: true,
+        ...(navContainerClass ? { [navContainerClass]: true } : {}),
+      };
+    },
+    containerClasses() {
+      const { $style, containerClass } = this;
+      return {
+        [$style.container]: true,
+        ...(containerClass ? { [containerClass]: true } : {}),
+      };
     },
   },
   mounted() {
@@ -63,9 +99,13 @@ export default {
         let action;
         for (let i = 0; i < images.length; i++) {
           action = i === active ? 'add' : 'remove';
-          const id = `nav${i}`;
-          const el = $refs[id];
-          if (el) el.classList[action]($style.navActive);
+          const navId = `nav${i}`;
+          const $nav = $refs[navId];
+          if ($nav) $nav.classList[action]($style.navActive);
+
+          const photoId = `photo${i}`;
+          const $photo = $refs[photoId];
+          if ($photo) $photo.classList[action]($style.photoActive);
         }
       },
     },
@@ -105,19 +145,30 @@ export default {
       this.active = key;
       this.start();
     },
+    getImageStyle(img) {
+      const { photo, ...style } = img;
+      console.log(photo, style);
+      return style;
+    },
   },
 };
 </script>
 
 <template>
-  <link
-    v-for="(img, key) in images"
-    rel="preload"
-    as="image"
-    :href="img"
-    :key="key"
-  />
-  <div :class="$style.container" :style="slideStyle" @click="toggleSlideshow">
+  <div :class="containerClasses" :style="slideStyle" @click="toggleSlideshow">
+    <div
+      v-for="(img, key) in images"
+      :class="{
+        [$style.photoContainer]: true,
+        [$style.photoActive]: key === 0,
+      }"
+      :ref="`photo${key}`"
+      :key="key"
+    >
+      <img :src="img.photo" :class="$style.photo" :style="getImageStyle(img)" />
+    </div>
+  </div>
+  <div :class="navContainerClasses">
     <div
       v-for="(img, key) in images"
       :ref="`nav${key}`"
@@ -140,14 +191,38 @@ export default {
   max-width: 100%;
   overflow: hidden;
   position: relative;
-  transition: background-image 1s ease-in-out;
+}
+.photoContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.photoActive {
+  opacity: 1;
+}
+.photo {
+  object-fit: scale-down;
+  min-height: 100%;
+  min-width: 100%;
+}
+.navContainer {
+  display: flex;
+  padding-bottom: 36px;
+  justify-content: space-between;
+  column-gap: 10px;
+  z-index: 100;
 }
 .nav {
   width: 20px;
   height: 20px;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.5);
-  margin: 0 10px 36px;
   transition: background-color 1s ease-in-out;
 }
 .navActive {
