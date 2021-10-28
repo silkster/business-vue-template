@@ -41,6 +41,7 @@ export default {
   height: 54px;
   justify-content: space-between;
   padding: 0 210px;
+  background-color: var(--gray-light);
 }
 .caption {
   position: relative;
