@@ -21,11 +21,23 @@ export default {
       };
     },
   },
+  methods: {
+    scrollContentTop() {
+      const vh = Math.max(
+        document.documentElement.clientHeight || 0,
+        window.innerHeight || 0,
+      );
+      window.scroll({
+        top: vh - 54,
+        behavior: 'smooth',
+      });
+    },
+  },
 };
 </script>
 
 <template>
-  <div :class="$style.container">
+  <div :class="$style.container" @click="scrollContentTop">
     <div :class="$style.caption">
       <span :class="$style.medium">{{ captionParts.left }}</span>
       {{ captionParts.right }}
@@ -45,6 +57,7 @@ export default {
 }
 .caption {
   position: relative;
+  cursor: pointer;
 }
 .medium {
   font-weight: var(--font-weight-medium);
