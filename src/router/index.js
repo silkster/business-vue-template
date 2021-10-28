@@ -280,4 +280,11 @@ const router = createRouter({
   routes,
 });
 
+router.afterEach(() => {
+  window.scroll({
+    top: 0,
+    behavior: 'smooth',
+  });
+});
+
 export default router;
