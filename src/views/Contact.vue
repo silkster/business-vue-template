@@ -61,7 +61,7 @@ export default {
               placeholder="Message"
             ></textarea>
           </div>
-          <div :class="$style.field">
+          <div :class="$style.buttonContainer">
             <app-button @click="sendMessage" size="large">Submit</app-button>
           </div>
         </div>
@@ -72,34 +72,42 @@ export default {
 
 <style module>
 .content {
-  margin-top: 210px;
+  margin-top: 80px;
+  padding: 0 210px;
+  max-width: unset;
 }
 .container {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 100px;
+  gap: 160px;
+  text-align: left;
 }
 .container h1 {
   font-size: 48px;
   margin-top: 0;
   text-align: left;
 }
-
+.form {
+  width: 100%;
+}
 .contactInfo {
   display: flex;
   flex-direction: column;
   color: var(--gray-med);
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 70px;
+  margin-top: 80px;
 }
 .addressLine1,
 .addressLine2,
 .city,
 .state,
 .phone {
-  padding: 0 18px;
+  padding: 0;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
 .phone {
   border-right: 0;
@@ -114,11 +122,19 @@ export default {
 }
 .field input,
 .field textarea {
-  border: 1px solid var(--black);
+  font-family: var(--font-family);
+  font-size: 24px;
+  font-weight: var(--font-weight-regular);
+  border: none;
   background-color: var(--white);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  height: 42px;
+  max-width: 964px;
 }
 .field textarea {
   height: 100px;
+}
+.buttonContainer {
+  padding: 0 0 200px;
 }
 </style>
