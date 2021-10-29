@@ -29,7 +29,7 @@ export default {
 .container {
   position: relative;
   max-width: 1060px;
-  padding: 60px 0;
+  padding: 68px 0;
   margin: 0 auto;
 }
 .container h1 {
