@@ -1,8 +1,5 @@
 <script>
-import AppButton from '@/components/Button/Button.vue';
-import AppSlider from '@/components/Slider/Slider.vue';
-import AppContent from '@/components/Content/Content.vue';
-import PhotoInfo from '@/components/PhotoInfo/PhotoInfo.vue';
+import ProjectContent from '@/components/ProjectContent/ProjectContent.vue';
 
 import Ash1 from '@/assets/gallery/ash/ASH_01.jpg';
 import Ash2 from '@/assets/gallery/ash/ASH_02.jpg';
@@ -22,10 +19,7 @@ import Ash14 from '@/assets/gallery/ash/ASH_14.jpg';
 export default {
   name: 'WorkAsh',
   components: {
-    AppButton,
-    AppContent,
-    AppSlider,
-    PhotoInfo,
+    ProjectContent,
   },
   data() {
     return {
@@ -51,135 +45,49 @@ export default {
       },
     };
   },
-  computed: {
-    title() {
-      return this.$router.currentRoute.value.meta.title;
-    },
-    location() {
-      return this.$router.currentRoute.value.meta.location;
-    },
-    photoCredit() {
-      return `Photography: ${this.$router.currentRoute.value.meta.photography}`;
-    },
-    editorial() {
-      return this.$router.currentRoute.value.meta.editorial;
-    },
-    isFixed() {
-      return true;
-    },
-  },
 };
 </script>
 
 <template>
-  <app-slider
-    :photos="photos"
-    :is-fixed="isFixed"
-    :container-class="$style.paralaxed"
-    :nav-container-class="$style.sliderNavContainer"
-  />
-  <div :class="$style.container">
-    <div :class="$style.paralaxedSpace"></div>
-    <div :class="$style.topContent">
-      <photo-info :credit="photoCredit" />
-
-      <app-content>
-        <h1>{{ title }}</h1>
-        <p>{{ location }}</p>
-        <div :class="$style.content">
-          <p>
-            This horse country estate has a rich history tracing back to 1790.
-            In the 1920's, noted architect William Bottomley expanded the simple
-            structure into a magnificent stone hunting lodge. However, in recent
-            times, the house was unoccupied and fell into disrepair. Our clients
-            purchased the structure with the goal of transforming the home into
-            a summer retreat suited for large gatherings while still preserving
-            the historic character and exterior of the home. The restoration
-            involved complete new mechanical, electrical and plumbing systems as
-            well as redesign of the spaces to accommodate a young family and
-            their visitors.
-          </p>
-          <p>
-            The original kitchen and garage wing were completely transformed
-            into a new open kitchen, great room and laundry space. The courtyard
-            wall of the garage was removed and replaced with large swinging
-            glass panels. The panels are salvaged from an old factory in
-            Philadelphia and transformed into a glass wall that can be
-            completely opened to the courtyard in the summer.
-          </p>
-          <p>
-            Original features such as the hand painted murals, gold leaf dome
-            ceiling, woodwork and phone booth were restored or repurposed to
-            serve the current needs of the client while retaining the historic
-            artifacts.
-          </p>
-          <p>
-            The floor plan was reimagined to create intimate spaces for the
-            family and additional rooms to accommodate a large number of weekend
-            visitors or parties. The right wing includes 3 bedrooms, the master
-            suite and an informal kitchen, breakfast area and great room. What
-            was originally a series of small rooms was reimagined as this space
-            for the family to gather on weekends. The central wing includes the
-            original parlor, a large formal dining room and a billiards space.
-            The attic was converted into a bunk room for visitors. The second
-            floor servant's quarters was removed to create a dramatic dining
-            space with cathedral ceilings.
-          </p>
-          <p>
-            With respect for the historic significance of the structure, the
-            home has been transformed and preserved to serve the needs of future
-            generations.
-          </p>
-
-          <h3 v-if="editorial">By {{ editorial }}</h3>
-        </div>
-        <app-button :class="$style.inquireButton" size="large"
-          >Inquire</app-button
-        >
-      </app-content>
-    </div>
-  </div>
+  <project-content :photos="photos" :ratio-info="ratioInfo">
+    <p>
+      This horse country estate has a rich history tracing back to 1790. In the
+      1920's, noted architect William Bottomley expanded the simple structure
+      into a magnificent stone hunting lodge. However, in recent times, the
+      house was unoccupied and fell into disrepair. Our clients purchased the
+      structure with the goal of transforming the home into a summer retreat
+      suited for large gatherings while still preserving the historic character
+      and exterior of the home. The restoration involved complete new
+      mechanical, electrical and plumbing systems as well as redesign of the
+      spaces to accommodate a young family and their visitors.
+    </p>
+    <p>
+      The original kitchen and garage wing were completely transformed into a
+      new open kitchen, great room and laundry space. The courtyard wall of the
+      garage was removed and replaced with large swinging glass panels. The
+      panels are salvaged from an old factory in Philadelphia and transformed
+      into a glass wall that can be completely opened to the courtyard in the
+      summer.
+    </p>
+    <p>
+      Original features such as the hand painted murals, gold leaf dome ceiling,
+      woodwork and phone booth were restored or repurposed to serve the current
+      needs of the client while retaining the historic artifacts.
+    </p>
+    <p>
+      The floor plan was reimagined to create intimate spaces for the family and
+      additional rooms to accommodate a large number of weekend visitors or
+      parties. The right wing includes 3 bedrooms, the master suite and an
+      informal kitchen, breakfast area and great room. What was originally a
+      series of small rooms was reimagined as this space for the family to
+      gather on weekends. The central wing includes the original parlor, a large
+      formal dining room and a billiards space. The attic was converted into a
+      bunk room for visitors. The second floor servant's quarters was removed to
+      create a dramatic dining space with cathedral ceilings.
+    </p>
+    <p>
+      With respect for the historic significance of the structure, the home has
+      been transformed and preserved to serve the needs of future generations.
+    </p>
+  </project-content>
 </template>
-
-<style module>
-.container {
-  width: 100% !important;
-  z-index: 100;
-}
-.inquireButton {
-  margin: 0 auto;
-}
-.content {
-  margin-bottom: 60px;
-}
-.content p {
-  text-align: left !important;
-}
-.photoCredit {
-  padding: 10px;
-  text-align: right;
-  font-weight: var(--font-weight-bold);
-}
-.paralaxed {
-  z-index: -2;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 54px;
-}
-.paralaxedSpace {
-  height: calc(100vh - 54px);
-  pointer-events: none;
-}
-.topContent {
-  background-color: #fff !important;
-}
-.sliderNavContainer {
-  position: absolute;
-  z-index: 1000;
-  top: calc(100vh - 110px);
-  left: 50%;
-  transform: translateX(-50%);
-}
-</style>

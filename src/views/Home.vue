@@ -34,6 +34,7 @@ export default {
 <style module>
 .container {
   text-align: center;
+  max-width: 1060px;
 }
 .container h1 {
   margin-bottom: 34px;
