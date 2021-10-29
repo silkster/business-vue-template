@@ -28,7 +28,6 @@ export default {
     },
     location: {
       type: String,
-      default: 'Gallery Item Location',
     },
   },
   computed: {
@@ -60,7 +59,7 @@ export default {
     <div :class="itemClasses" :style="itemStyle">
       <div :class="$style.caption">
         <h2>{{ title }}</h2>
-        <p>{{ location }}</p>
+        <p v-if="location">{{ location }}</p>
       </div>
     </div>
   </div>
