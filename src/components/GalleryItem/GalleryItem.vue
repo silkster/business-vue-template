@@ -17,8 +17,8 @@ export default {
       type: Object,
       default() {
         return {
-          width: 636,
-          height: 423,
+          width: 638,
+          height: 425,
         };
       },
     },
