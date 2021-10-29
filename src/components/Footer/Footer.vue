@@ -114,6 +114,7 @@ export default {
   justify-content: space-between;
   line-height: 1;
   padding: 0 112px;
+  max-width: 100%;
 }
 .fixed {
   position: fixed;
