@@ -69,8 +69,7 @@ export default {
 
       <app-content>
         <h1>{{ title }}</h1>
-        <h2>{{ location }}</h2>
-        <h3 v-if="editorial">By {{ editorial }}</h3>
+        <p>{{ location }}</p>
         <div :class="$style.content">
           <p>
             This 1980's contemporary had great curb appeal and proportions, but
@@ -112,6 +111,8 @@ export default {
             ceilings are now smooth. The kitchen and bathrooms were all
             renovated and updated.
           </p>
+
+          <h3 v-if="editorial">By {{ editorial }}</h3>
         </div>
         <app-button :class="$style.inquireButton" size="large"
           >Inquire</app-button

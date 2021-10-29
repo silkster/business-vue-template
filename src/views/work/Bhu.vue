@@ -73,8 +73,7 @@ export default {
 
       <app-content>
         <h1>{{ title }}</h1>
-        <h2>{{ location }}</h2>
-        <h3 v-if="editorial">By {{ editorial }}</h3>
+        <p>{{ location }}</p>
         <div :class="$style.content">
           <p>
             Modernism and traditionalism are just steps away from each other at
@@ -102,6 +101,8 @@ export default {
             pool deck was incorporated in the pool house in order to tie the
             pool house to the surrounding landscape as desired.
           </p>
+
+          <h3 v-if="editorial">By {{ editorial }}</h3>
         </div>
         <app-button :class="$style.inquireButton" size="large"
           >Inquire</app-button

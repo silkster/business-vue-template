@@ -67,8 +67,7 @@ export default {
 
       <app-content>
         <h1>{{ title }}</h1>
-        <h2>{{ location }}</h2>
-        <h3 v-if="editorial">By {{ editorial }}</h3>
+        <p>{{ location }}</p>
         <div :class="$style.content">
           <p>
             The existing three-bedroom home was originally constructed as a
@@ -110,6 +109,8 @@ export default {
             foyer and special lighting was incorporated to accent the entire
             home.
           </p>
+
+          <h3 v-if="editorial">By {{ editorial }}</h3>
         </div>
         <app-button :class="$style.inquireButton" size="large"
           >Inquire</app-button

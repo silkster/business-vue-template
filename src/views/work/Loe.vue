@@ -83,8 +83,7 @@ export default {
 
       <app-content>
         <h1>{{ title }}</h1>
-        <h2>{{ location }}</h2>
-        <h3 v-if="editorial">By {{ editorial }}</h3>
+        <p>{{ location }}</p>
         <div :class="$style.content">
           <p>
             Ensconced in a neighborhood with its own wooded trail leading down
@@ -185,6 +184,8 @@ export default {
             level also features an exercise room and a bathroom with a steam
             shower.
           </p>
+
+          <h3 v-if="editorial">By {{ editorial }}</h3>
         </div>
         <app-button :class="$style.inquireButton" size="large"
           >Inquire</app-button

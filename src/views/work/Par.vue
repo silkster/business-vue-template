@@ -73,8 +73,7 @@ export default {
 
       <app-content>
         <h1>{{ title }}</h1>
-        <h2>{{ location }}</h2>
-        <h3 v-if="editorial">By {{ editorial }}</h3>
+        <p>{{ location }}</p>
         <div :class="$style.content">
           <p>
             It's all about location and the owners of this dated 1990s colonial
@@ -107,6 +106,8 @@ export default {
             views. The new front porch provides a more welcome entrance and a
             new space for relaxing and connecting with the outdoors.
           </p>
+
+          <h3 v-if="editorial">By {{ editorial }}</h3>
         </div>
         <app-button :class="$style.inquireButton" size="large"
           >Inquire</app-button

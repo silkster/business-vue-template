@@ -31,7 +31,9 @@ export default {
   max-width: 1060px;
   padding: 60px 0;
   margin: 0 auto;
-  text-align: center;
+}
+.container h1 {
+  margin-bottom: 0;
 }
 .fullWidth {
   max-width: unset;

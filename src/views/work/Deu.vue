@@ -69,8 +69,7 @@ export default {
 
       <app-content>
         <h1>{{ title }}</h1>
-        <h2>{{ location }}</h2>
-        <h3 v-if="editorial">By {{ editorial }}</h3>
+        <p>{{ location }}</p>
         <div :class="$style.content">
           <p>
             There's something about Charlottesville. Once you've lived here,
@@ -228,6 +227,8 @@ export default {
             starting your own project, please reach out to us. We'd be honored
             to help you every step of the way.
           </p>
+
+          <h3 v-if="editorial">By {{ editorial }}</h3>
         </div>
         <app-button :class="$style.inquireButton" size="large"
           >Inquire</app-button

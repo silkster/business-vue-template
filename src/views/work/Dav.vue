@@ -67,8 +67,7 @@ export default {
 
       <app-content>
         <h1>{{ title }}</h1>
-        <h2>{{ location }}</h2>
-        <h3 v-if="editorial">By {{ editorial }}</h3>
+        <p>{{ location }}</p>
         <div :class="$style.content">
           <p>
             Our clients saw potential in this worn out post and beam house on a
@@ -124,6 +123,7 @@ export default {
             living room above without needing to pass through the master bedroom
             below.
           </p>
+          <h3 v-if="editorial">By {{ editorial }}</h3>
         </div>
         <app-button :class="$style.inquireButton" size="large"
           >Inquire</app-button
