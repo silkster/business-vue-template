@@ -15,7 +15,7 @@ export default {
 
 <template>
   <app-slider :nav-container-class="$style.sliderNavContainer" />
-  <app-content>
+  <app-content :class="$style.container">
     <h1>Enriching lives through design.</h1>
     <p>
       At Kohlmark Flach, we approach architecture with passion, creativity and a
@@ -32,11 +32,21 @@ export default {
 </template>
 
 <style module>
+.container {
+  text-align: center;
+}
+.container h1 {
+  margin-bottom: 34px;
+}
+.container p {
+  color: var(--gray-med);
+  font-size: 24px;
+}
 .inquireButton {
   margin: 0 auto;
 }
 .buttonContainer {
-  padding: 120px 0 100px;
+  padding: 80px 0 92px;
 }
 .sliderNavContainer {
   position: absolute;
