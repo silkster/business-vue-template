@@ -1,16 +1,17 @@
 <script>
-import deuPhoto from '@/assets/gallery/deu/DEU_01.jpg';
-import ashPhoto from '@/assets/gallery/ash/ASH_01.jpg';
-import bhuPhoto from '@/assets/gallery/bhu/BHU_01.jpg';
-import davPhoto from '@/assets/gallery/dav/DAV_01.jpg';
-import kuzPhoto from '@/assets/gallery/kuz/KUZ_01.jpg';
-import layPhoto from '@/assets/gallery/lay/LAY_01.jpg';
-import loePhoto from '@/assets/gallery/loe/LOE_01.jpg';
-import lynPhoto from '@/assets/gallery/lyn/LYN_01.jpg';
-import milPhoto from '@/assets/gallery/mil/MIL_01.jpg';
-import parPhoto from '@/assets/gallery/par/PAR_01.jpg';
-import stoPhoto from '@/assets/gallery/sto/STO_01.jpg';
-import wriPhoto from '@/assets/gallery/wri/WRI_01.jpg';
+import deuPhoto from '@/assets/gallery/landing/gallery-sm-deu.jpg';
+import ashPhoto from '@/assets/gallery/landing/gallery-sm-ash.jpg';
+import bhuPhoto from '@/assets/gallery/landing/gallery-sm-bhu.jpg';
+import davPhoto from '@/assets/gallery/landing/gallery-sm-dav.jpg';
+import kuzPhoto from '@/assets/gallery/landing/gallery-sm-kuz.jpg';
+import layPhoto from '@/assets/gallery/landing/gallery-sm-lay.jpg';
+import loePhoto from '@/assets/gallery/landing/gallery-sm-loe.jpg';
+import lynPhoto from '@/assets/gallery/landing/gallery-sm-lyn.jpg';
+import milPhoto from '@/assets/gallery/landing/gallery-sm-mil.jpg';
+import parPhoto from '@/assets/gallery/landing/gallery-sm-par.jpg';
+import stoPhoto from '@/assets/gallery/landing/gallery-sm-sto.jpg';
+import wriPhoto from '@/assets/gallery/landing/gallery-sm-wri.jpg';
+
 import GalleryItem from '@/components/GalleryItem/GalleryItem.vue';
 
 export default {
@@ -130,7 +131,6 @@ export default {
         :photo="set.photo"
         :location="set.location"
         :title="set.title"
-        :zoom-in="set.zoomIn"
         @click="goto(set.id)"
       />
     </div>
@@ -144,11 +144,11 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
-  row-gap: 8px;
+  row-gap: 3px;
   width: 100%;
 }
 .itemWrap {
-  flex: 0 1 33%;
+  flex: 0 1 33.25%;
   position: relative;
   box-sizing: border-box;
   cursor: pointer;
