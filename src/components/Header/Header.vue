@@ -29,8 +29,8 @@ export default {
     headerClasses() {
       const { $style, isFixed, isWhite } = this;
       return {
-        [$style.fixed]: isFixed,
-        [$style.white]: isWhite,
+        ...(isFixed ? { [$style.fixed]: true } : {}),
+        ...(isWhite ? { [$style.white]: true } : {}),
       };
     },
     logoClasses() {
