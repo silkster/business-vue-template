@@ -28,7 +28,7 @@ export default {
 <style module>
 .container {
   position: relative;
-  max-width: 1060px;
+  max-width: 960px;
   padding: 68px 0;
   margin: 0 auto;
 }
