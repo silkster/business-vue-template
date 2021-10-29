@@ -93,7 +93,7 @@ header {
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  padding: 0 72px 0 108px;
+  padding: 0 72px 0 112px;
 }
 .logoWrap {
   position: relative;
