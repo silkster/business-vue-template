@@ -1,4 +1,8 @@
 <script>
+import { string } from '@/util';
+
+const { shiftFirstWord } = string;
+
 export default {
   name: 'photo-info',
   props: {
@@ -13,12 +17,7 @@ export default {
   },
   computed: {
     captionParts() {
-      const { caption } = this;
-      const [left, ...right] = caption.split(' ');
-      return {
-        left,
-        right: right.join(' '),
-      };
+      return shiftFirstWord(this.caption);
     },
   },
   methods: {
@@ -42,7 +41,9 @@ export default {
       <span :class="$style.medium">{{ captionParts.left }}</span>
       {{ captionParts.right }}
     </div>
-    <div :class="$style.credit">{{ credit }}</div>
+    <div :class="$style.credit">
+      <span :class="$style.medium">Photography</span> {{ credit }}
+    </div>
   </div>
 </template>
 
