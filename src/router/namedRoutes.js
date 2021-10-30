@@ -11,9 +11,9 @@ export default {
     path: '/wip',
     name: 'In-Progress',
   },
-  culture: {
-    path: '/culture',
-    name: 'Culture',
+  about: {
+    path: '/about',
+    name: 'About',
   },
   team: {
     path: '/team',

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Contact from '@/views/Contact.vue';
-import Culture from '@/views/Culture.vue';
+import About from '@/views/About.vue';
 import Home from '@/views/Home.vue';
 import InProgress from '@/views/InProgress.vue';
 
@@ -46,7 +46,7 @@ export const routes = [
   },
   {
     name: 'deu',
-    path: '/work/deu',
+    path: '/work/barn-transformation',
     component: WorkDeu,
     meta: {
       title: 'Barn Transformation',
@@ -59,7 +59,7 @@ export const routes = [
   },
   {
     name: 'kuz',
-    path: '/work/kuz',
+    path: '/work/clifton-farmhouse',
     component: WorkKuz,
     meta: {
       title: 'Clifton Farmhouse',
@@ -72,7 +72,7 @@ export const routes = [
   },
   {
     name: 'mil',
-    path: '/work/mil',
+    path: '/work/milleens',
     component: WorkMil,
     meta: {
       title: 'Milleens: Waterfront Timber Frame',
@@ -85,7 +85,7 @@ export const routes = [
   },
   {
     name: 'lyn',
-    path: '/work/lyn',
+    path: '/work/craftsman-inspired-waterfront',
     component: WorkLyn,
     meta: {
       title: 'Craftsman Inspired Waterfront',
@@ -98,7 +98,7 @@ export const routes = [
   },
   {
     name: 'loe',
-    path: '/work/loe',
+    path: '/work/contemporary-solar-home',
     component: WorkLoe,
     meta: {
       title: 'Contemporary Solar Home',
@@ -107,11 +107,12 @@ export const routes = [
       editorial: 'Sharon Jaffe Dan',
       id: 'LOE',
       logo: 'small',
+      header: { isFixed: true },
     },
   },
   {
     name: 'dav',
-    path: '/work/dav',
+    path: '/work/deck-house',
     component: WorkDav,
     meta: {
       title: 'Deck House',
@@ -124,7 +125,7 @@ export const routes = [
   },
   {
     name: 'par',
-    path: '/work/par',
+    path: '/work/farmhouse-transformation',
     component: WorkPar,
     meta: {
       title: 'Farmhouse Transformation',
@@ -137,7 +138,7 @@ export const routes = [
   },
   {
     name: 'ash',
-    path: '/work/ash',
+    path: '/work/ashland-farm',
     component: WorkAsh,
     meta: {
       title: 'Ashland Farm',
@@ -150,7 +151,7 @@ export const routes = [
   },
   {
     name: 'lay',
-    path: '/work/lay',
+    path: '/work/storybrook-cottage',
     component: WorkLay,
     meta: {
       title: 'Storybrook Cottage',
@@ -163,7 +164,7 @@ export const routes = [
   },
   {
     name: 'wri',
-    path: '/work/wri',
+    path: '/work/bridge-house',
     component: WorkWri,
     meta: {
       title: 'Bridge House',
@@ -176,7 +177,7 @@ export const routes = [
   },
   {
     name: 'bhu',
-    path: '/work/bhu',
+    path: '/work/contemporary-pool-house',
     component: WorkBhu,
     meta: {
       title: 'Contemporary Pool House',
@@ -189,7 +190,7 @@ export const routes = [
   },
   {
     name: 'sto',
-    path: '/work/sto',
+    path: '/work/shingle-style-estate',
     component: WorkSto,
     meta: {
       title: 'Shingle-Style Estate',
@@ -209,10 +210,14 @@ export const routes = [
     },
   },
   {
-    ...namedRoutes.culture,
-    component: Culture,
+    ...namedRoutes.about,
+    component: About,
     meta: {
       logo: 'small',
+      header: {
+        isFixed: false,
+        isWhite: true,
+      },
     },
   },
   {
@@ -280,7 +285,7 @@ const router = createRouter({
   routes,
 });
 
-router.afterEach(() => {
+router.beforeEach(() => {
   window.scroll({
     top: 0,
     behavior: 'smooth',
