@@ -98,7 +98,7 @@ header {
 .logoWrap {
   position: relative;
   width: 200px;
-  height: 175px;
+  height: 176px;
 }
 .logo {
   align-items: center;
