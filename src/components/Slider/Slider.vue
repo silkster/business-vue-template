@@ -45,6 +45,9 @@ export default {
     };
   },
   computed: {
+    isSinglePhoto() {
+      return this.photos.length === 1;
+    },
     ratio() {
       const { height, width } = this.ratioDimensions;
       return (height / width) * 100;
@@ -73,10 +76,11 @@ export default {
       return images;
     },
     navContainerClasses() {
-      const { $style, navContainerClass } = this;
+      const { $style, navContainerClass, isSinglePhoto } = this;
       return {
         [$style.navContainer]: true,
         ...(navContainerClass ? { [navContainerClass]: true } : {}),
+        [$style.hidden]: isSinglePhoto,
       };
     },
     containerClasses() {
@@ -112,6 +116,9 @@ export default {
   },
   methods: {
     nextSlide() {
+      if (this.isSinglePhoto) {
+        return;
+      }
       const vm = this;
       let len = vm.images.length;
       let idx = vm.active + 1;
@@ -122,13 +129,20 @@ export default {
       }
     },
     start() {
-      this.intervalId = setInterval(this.nextSlide, 6500);
+      if (!this.isSinglePhoto) {
+        this.intervalId = setInterval(this.nextSlide, 6500);
+      }
     },
     stop() {
-      clearInterval(this.intervalId);
-      this.intervalId = null;
+      if (this.intervalId) {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+      }
     },
     toggleSlideshow() {
+      if (!this.isSinglePhoto) {
+        return;
+      }
       const { intervalId } = this;
 
       console.log('intervalId:', intervalId);
@@ -217,6 +231,9 @@ export default {
   justify-content: space-between;
   column-gap: 10px;
   z-index: 100;
+}
+.hidden {
+  display: none;
 }
 .nav {
   width: 20px;
