@@ -52,7 +52,7 @@ export default {
   <project-content :photos="photos" :ratio-info="ratioInfo">
     <p>
       This horse country estate has a rich history tracing back to 1790. In the
-      1920's, noted architect William Bottomley expanded the simple structure
+      1920’s, noted architect William Bottomley expanded the simple structure
       into a magnificent stone hunting lodge. However, in recent times, the
       house was unoccupied and fell into disrepair. Our clients purchased the
       structure with the goal of transforming the home into a summer retreat
@@ -82,7 +82,7 @@ export default {
       series of small rooms was reimagined as this space for the family to
       gather on weekends. The central wing includes the original parlor, a large
       formal dining room and a billiards space. The attic was converted into a
-      bunk room for visitors. The second floor servant's quarters was removed to
+      bunk room for visitors. The second floor servant’s quarters was removed to
       create a dramatic dining space with cathedral ceilings.
     </p>
     <p>
