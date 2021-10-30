@@ -46,7 +46,7 @@ export default {
         <router-link to="/wip" @click="hideMenu">In Progress</router-link>
       </div>
       <div :class="$style.item">
-        <router-link to="/culture" @click="hideMenu">Culture</router-link>
+        <router-link to="/about" @click="hideMenu">About</router-link>
       </div>
       <div :class="$style.item">
         <router-link to="/team" @click="hideMenu">Team</router-link>
