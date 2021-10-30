@@ -40,31 +40,30 @@ export default {
       />
       <div :class="$style.bio">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          aliquam, erat et ornare mollis, ligula turpis lobortis dui, at congue
-          eros orci aliquet erat. Integer cursus metus eu luctus vulputate.
-          Pellentesque vehicula, mi non gravida dignissim, magna enim gravida
-          diam, sit amet interdum mauris ligula a augue. Fusce quis massa lacus.
-          Vestibulum ultrices magna at risus pellentesque porttitor. Donec vitae
-          est suscipit, molestie ex non, varius elit. Donec cursus congue
-          vehicula. Integer ac urna accumsan, pharetra sem quis, sagittis urna.
-          Nunc dapibus bibendum enim, vitae elementum arcu facilisis a. Nullam
-          finibus pharetra libero eget vestibulum. Cras ut libero vitae tortor
-          mollis varius. Ut et ipsum ut tortor elementum gravida nec vitae
-          dolor. Pellentesque libero eros, congue non tortor vel, lobortis
-          bibendum dui. Suspendisse laoreet molestie ante quis finibus.
-          Vestibulum aliquet orci quis felis eleifend laoreet. Nunc hendrerit
-          dictum euismod.
+          Another Pennsylvania native, Chris’s early inspiration for building
+          and creating stemmed from countless hours in his father’s woodshop.
+          His exposure to woodworking, along with his love of math and geometry,
+          seemed ideally suited to the pursuit of architecture.
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at luctus
-          augue, at pharetra risus. Mauris nec pulvinar massa. Aliquam quam
-          lorem, ultricies non sem sit amet, tempor consequat ante. Aliquam a
-          convallis urna. Nullam a urna cursus, consequat metus at, interdum
-          risus. Mauris tincidunt rutrum ligula, ac vestibulum erat. Phasellus
-          eu erat et dolor pellentesque porta vel facilisis metus. Maecenas eu
-          enim purus. Donec feugiat condimentum ligula, non ullamcorper turpis
-          feugiat ut. Integer ut nisi sit amet leo fermentum mattis.
+          Throughout high school and college, Chris worked construction,
+          learning skills and trades that shaped his understanding of how houses
+          come together. The knowledge gained during those years have made Chris
+          a better architect and enable him to handle all construction needs on
+          his historic home in downtown Leesburg.
+        </p>
+        <p>
+          Despite his historic dwelling, Chris has always been drawn to clean,
+          modern architecture and looks forward to designing and building his
+          own home in the future.
+        </p>
+        <p>
+          Chris still enjoys woodworking and has built nearly all his home
+          furnishings. He volunteers with Makersmiths as a shop steward,
+          teaching woodworking and maintaining the wood shop in Leesburg. Away
+          from the sawdust and tools, Chris can be found cycling the gravel of
+          Loudoun County and traveling to mountain bike trails throughout the
+          region. Chris holds a degree in Architecture from Virginia Tech.
         </p>
       </div>
     </div>
