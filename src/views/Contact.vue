@@ -87,6 +87,7 @@ export default {
   font-size: 48px;
   margin-top: 0;
   text-align: left;
+  margin-bottom: 34px;
 }
 .form {
   width: 100%;
