@@ -42,7 +42,7 @@ export default {
     :is-fixed="isFixed"
     :container-class="$style.paralaxed"
     :nav-container-class="$style.sliderNavContainer"
-    :ratio-info="ratioInfo"
+    :ratio-dimensions="ratioInfo"
   />
   <div :class="$style.container">
     <div :class="$style.paralaxedSpace"></div>
