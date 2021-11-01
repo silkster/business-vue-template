@@ -10,9 +10,19 @@ export default {
     },
   },
   methods: {
-    goto(id) {
-      const name = id.toLowerCase();
-      this.$router.push({ name });
+    goto(set) {
+      const { id, title } = set;
+      this.$router.push({
+        name: 'project',
+        params: {
+          id: id.toLowerCase(),
+          slug: title
+            .toLowerCase()
+            .replace(/[^a-zA-Z\d\s:]/g, '')
+            .split(' ')
+            .join('-'),
+        },
+      });
     },
   },
 };
@@ -20,17 +30,12 @@ export default {
 
 <template>
   <div :class="$style.container" full-width="true">
-    <div
-      v-for="set in sets"
-      :key="set.id"
-      :class="$style.itemWrap"
-      @click="goto(set.id)"
-    >
+    <div v-for="set in sets" :key="set.id" :class="$style.itemWrap">
       <gallery-item
         :photo="set.photo"
         :location="set.location"
         :title="set.title"
-        @click="goto(set.id)"
+        @click="goto(set)"
       />
     </div>
   </div>
