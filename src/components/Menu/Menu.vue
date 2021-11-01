@@ -1,6 +1,10 @@
 <script>
+import { mapState } from 'vuex';
+import namedRoutes from '@/router/namedRoutes';
 import AppButton from '@/components/Button/Button.vue';
 import burgerSrc from '@/assets/burger.png';
+
+const { home, work, wip, about, team, contact } = namedRoutes;
 
 export default {
   name: 'app-menu',
@@ -9,17 +13,60 @@ export default {
   },
   data() {
     return {
+      activeLink: null,
       burgerSrc,
       menuOn: false,
+      menuItems: [
+        {
+          ...home,
+          displayName: 'Home',
+          isActive: true,
+        },
+        {
+          ...work,
+          displayName: 'Work',
+          isActive: false,
+        },
+        {
+          ...wip,
+          displayName: 'In Progress',
+          isActive: false,
+        },
+        {
+          ...about,
+          displayName: 'About',
+          isActive: false,
+        },
+        {
+          ...team,
+          displayName: 'Team',
+          isActive: false,
+        },
+        {
+          ...contact,
+          displayName: 'Contact',
+          isActive: false,
+        },
+      ],
     };
   },
   computed: {
+    ...mapState(['route']),
     menuClasses() {
       const { $style, menuOn } = this;
       return {
         [$style.menu]: true,
         [$style.menuOn]: menuOn,
       };
+    },
+  },
+  watch: {
+    route: {
+      immediate: true,
+      handler(route) {
+        const name = (route && route.name) || 'home';
+        this.setActiveItem(name);
+      },
     },
   },
   methods: {
@@ -29,6 +76,26 @@ export default {
     hideMenu() {
       this.menuOn = false;
     },
+    setActiveItem(routeName) {
+      const { menuItems } = this;
+      menuItems
+        .filter((item) => item.isActive)
+        .forEach((item) => {
+          item.isActive = false;
+        });
+      const item = menuItems.find((item) => item.name === routeName);
+      if (item) {
+        item.isActive = true;
+      }
+    },
+    getItemStyles(name) {
+      const { $style, route } = this;
+      const isActive = route.name === name;
+      return {
+        [$style.item]: true,
+        ...(isActive ? { [$style.active]: true } : {}),
+      };
+    },
   },
 };
 </script>
@@ -36,24 +103,47 @@ export default {
 <template>
   <div :class="$style.menuWrap">
     <div :class="menuClasses" @mouseleave="hideMenu">
+      <div
+        v-for="item in menuItems"
+        :class="getItemStyles(item.name)"
+        :key="item.name"
+      >
+        <router-link :to="item.path" @click="hideMenu" :class="$style.link">{{
+          item.displayName
+        }}</router-link>
+      </div>
+      <!--
       <div :class="$style.item">
-        <router-link to="/" @click="hideMenu">Home</router-link>
+        <router-link to="/" @click="hideMenu" :class="$style.link"
+          >Home</router-link
+        >
       </div>
       <div :class="$style.item">
-        <router-link to="/work" @click="hideMenu">Work</router-link>
+        <router-link to="/portfolio/work" @click="hideMenu" :class="$style.link"
+          >Work</router-link
+        >
       </div>
       <div :class="$style.item">
-        <router-link to="/wip" @click="hideMenu">In Progress</router-link>
+        <router-link to="/portfolio/wip" @click="hideMenu" :class="$style.link"
+          >In Progress</router-link
+        >
       </div>
       <div :class="$style.item">
-        <router-link to="/about" @click="hideMenu">About</router-link>
+        <router-link to="/about" @click="hideMenu" :class="$style.link"
+          >About</router-link
+        >
       </div>
       <div :class="$style.item">
-        <router-link to="/team" @click="hideMenu">Team</router-link>
+        <router-link to="/team" @click="hideMenu" :class="$style.link"
+          >Team</router-link
+        >
       </div>
       <div :class="$style.item">
-        <router-link to="/contact" @click="hideMenu">Contact</router-link>
+        <router-link to="/contact" @click="hideMenu" :class="$style.link"
+          >Contact</router-link
+        >
       </div>
+      -->
     </div>
   </div>
   <div :class="$style.container">
@@ -113,11 +203,19 @@ export default {
 }
 .item {
   align-items: center;
-  display: flex;
   font-family: var(--font-family);
   font-size: 30px;
   line-height: 1.3;
   text-align: left;
   white-space: nowrap;
+}
+.link {
+  display: block;
+  cursor: pointer;
+  color: var(--text-color);
+}
+.item:hover .link,
+.active .link {
+  color: var(--text-color-menu-hover);
 }
 </style>
