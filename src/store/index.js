@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import { viewport } from '@/util';
+import portfolio from './modules/portfolio';
 
 const $app = document.getElementById('app');
 const appHeight = ($app && $app.offsetHeight) || 0;
@@ -23,5 +24,7 @@ export default createStore({
     },
   },
   actions: {},
-  modules: {},
+  modules: {
+    portfolio,
+  },
 });
