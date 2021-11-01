@@ -4,12 +4,12 @@ export default {
     name: 'Home',
   },
   work: {
-    path: '/work',
     name: 'Work',
+    path: '/portfolio/work',
   },
   wip: {
-    path: '/wip',
-    name: 'In-Progress',
+    name: 'InProgress',
+    path: '/portfolio/wip',
   },
   about: {
     path: '/about',
