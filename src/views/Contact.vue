@@ -72,7 +72,7 @@ export default {
 
 <style module>
 .content {
-  margin-top: 80px;
+  margin-top: 178px;
   padding: 0 210px;
   max-width: unset;
 }
@@ -95,7 +95,7 @@ export default {
 .contactInfo {
   display: flex;
   flex-direction: column;
-  color: var(--gray-med);
+  color: var(--gray-dark);
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 80px;
