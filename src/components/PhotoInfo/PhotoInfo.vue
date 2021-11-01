@@ -14,14 +14,22 @@ export default {
       type: String,
       default: 'Photography credit',
     },
+    inProgress: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     captionParts() {
       return shiftFirstWord(this.caption);
     },
+    creditHeading() {
+      return this.inProgress ? 'Rendering' : 'Photography';
+    },
   },
   methods: {
     scrollContentTop() {
+      if (this.inProgress) return;
       const vh = Math.max(
         document.documentElement.clientHeight || 0,
         window.innerHeight || 0,
@@ -42,7 +50,7 @@ export default {
       {{ captionParts.right }}
     </div>
     <div :class="$style.credit">
-      <span :class="$style.medium">Photography</span> {{ credit }}
+      <span :class="$style.medium">{{ creditHeading }}:</span> {{ credit }}
     </div>
   </div>
 </template>

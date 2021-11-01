@@ -1,7 +1,9 @@
 <script>
+import { mapGetters } from 'vuex';
 import AppSlider from '@/components/Slider/Slider.vue';
 import AppContent from '@/components/Content/Content.vue';
 import PhotoInfo from '@/components/PhotoInfo/PhotoInfo.vue';
+
 export default {
   name: 'project-content',
   components: {
@@ -10,28 +12,70 @@ export default {
     PhotoInfo,
   },
   props: {
-    photos: { type: Array },
-    ratioInfo: { type: Object },
+    pagetype: {
+      type: String,
+    },
+    id: {
+      type: String,
+    },
+    slug: {
+      type: String,
+    },
+  },
+  data() {
+    return {
+      project: null,
+      inProgress: false,
+    };
   },
   computed: {
-    currentRoute() {
-      return this.$router.currentRoute.value;
+    photos() {
+      const { photo, photos } = this.project;
+      return photos || (photo && [photo]) || [];
     },
     title() {
-      return this.currentRoute.meta.title;
+      const { project } = this;
+      return (project && project.title) || '';
     },
     location() {
-      return this.currentRoute.meta.location;
+      const { project } = this;
+      return (project && project.location) || null;
+    },
+    caption() {
+      const { project } = this;
+      return project.inProgress
+        ? `Delivery ${project.delivery}`
+        : 'Project Description';
     },
     photoCredit() {
-      return `${this.currentRoute.meta.photography}`;
+      return this.project.photography;
     },
     editorial() {
-      return this.currentRoute.meta.editorial;
+      const { project } = this;
+      return (project && project.editorial) || null;
     },
     isFixed() {
       return true;
     },
+    showContent() {
+      return !this.inProgress;
+    },
+  },
+  watch: {
+    id: {
+      immediate: true,
+      handler(id) {
+        const getProject = this.getProject(id);
+
+        console.log('watch id > project', getProject(id));
+
+        this.project = getProject(id);
+        this.inProgress = this.project.inProgress || false;
+      },
+    },
+  },
+  methods: {
+    ...mapGetters('portfolio', ['getProject']),
   },
 };
 </script>
@@ -42,22 +86,26 @@ export default {
     :is-fixed="isFixed"
     :container-class="$style.paralaxed"
     :nav-container-class="$style.sliderNavContainer"
-    :ratio-dimensions="ratioInfo"
   />
   <div :class="$style.container">
     <div :class="$style.paralaxedSpace"></div>
     <div :class="$style.topContent">
-      <photo-info :credit="photoCredit" />
+      <photo-info
+        :credit="photoCredit"
+        :caption="caption"
+        :in-progress="inProgress"
+      />
 
-      <app-content>
-        <h1>{{ title }}</h1>
-        <p>{{ location }}</p>
-        <div :class="$style.content">
-          <slot></slot>
-
-          <h3 v-if="editorial">By {{ editorial }}</h3>
-        </div>
-      </app-content>
+      <template v-if="showContent">
+        <app-content>
+          <h1>{{ title }}</h1>
+          <p>{{ location }}</p>
+          <div :class="$style.content">
+            <div v-html="project.copy"></div>
+            <h3 v-if="editorial">By {{ editorial }}</h3>
+          </div>
+        </app-content>
+      </template>
     </div>
   </div>
 </template>
@@ -70,8 +118,11 @@ export default {
 .content {
   margin-bottom: 60px;
 }
-.content p {
+.container p {
   text-align: left !important;
+  color: var(--text-color-alt);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-light);
 }
 .photoCredit {
   padding: 10px;
