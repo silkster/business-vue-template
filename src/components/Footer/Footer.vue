@@ -14,27 +14,26 @@ export default {
       aiaLogo,
       logoSmallSvg,
       isInViewport: false,
+      footerClasses: {},
     };
   },
   computed: {
     ...mapState(['route']),
-    footerClasses() {
-      const { $style, isInViewport } = this;
-      return {
-        [$style.container]: true,
-        ...(isInViewport ? { [$style.fixed]: true } : {}),
-      };
-    },
+  },
+  created() {
+    this.footerClasses = {
+      [this.$style.container]: true,
+    };
   },
   watch: {
     route: {
       immediate: true,
       handler() {
-        this.isInViewport = false;
-        setTimeout(() => {
-          this.isInViewport = this.isContainerInViewport();
-        }, 0);
+        this.isInViewport = this.isContainerInViewport();
       },
+    },
+    isInViewport() {
+      this.updateFooterClasses();
     },
   },
   mounted() {
@@ -55,8 +54,22 @@ export default {
       return position.bottom;
     },
     isContainerInViewport() {
-      const screen = this.getScreenSize();
-      return screen.height > this.getContainerBottomPosition();
+      this.isInViewport = false;
+
+      setTimeout(() => {
+        const screen = this.getScreenSize();
+
+        console.log('footer > screen size:', screen);
+
+        return screen.height > this.getContainerBottomPosition();
+      }, 100);
+    },
+    updateFooterClasses() {
+      const { $style, isInViewport } = this;
+      this.footerClasses = {
+        [$style.container]: true,
+        ...(isInViewport ? { [$style.fixed]: true } : {}),
+      };
     },
   },
 };
@@ -141,7 +154,7 @@ export default {
   font-size: 24px;
 }
 .kohlmark {
-  color: var(--gray-med);
+  color: var(--gray-dark);
 }
 .flach {
   font-weight: var(--font-weight-medium);
@@ -149,7 +162,7 @@ export default {
 .contactInfo {
   display: flex;
   white-space: nowrap;
-  color: var(--gray-med);
+  color: var(--gray-dark);
   align-items: center;
 }
 .separator {
