@@ -47,7 +47,7 @@
   --button-letter-spacing: 2;
   --button-text-transform: uppercase;
 
-  --header-menu-link-color: var(--gray-med);
+  --header-menu-link-color: var(--gray-medium);
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
