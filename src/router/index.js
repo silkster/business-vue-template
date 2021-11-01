@@ -124,6 +124,9 @@ export const routes = [
     component: Contact,
     meta: {
       logo: 'small',
+      header: {
+        isWhite: true,
+      },
     },
   },
 ];
