@@ -10,6 +10,11 @@ export default {
     AppContent,
     AppSlider,
   },
+  methods: {
+    gotoContact() {
+      this.$router.push({ name: 'Contact' });
+    },
+  },
 };
 </script>
 
@@ -24,7 +29,10 @@ export default {
       please contact us!
     </p>
     <div :class="$style.buttonContainer">
-      <app-button :class="$style.inquireButton" size="large"
+      <app-button
+        :class="$style.inquireButton"
+        size="large"
+        @click="gotoContact"
         >Inquire</app-button
       >
     </div>
@@ -38,10 +46,6 @@ export default {
 }
 .container h1 {
   margin-bottom: 34px;
-}
-.container p {
-  color: var(--gray-med);
-  font-size: 24px;
 }
 .inquireButton {
   margin: 0 auto;
