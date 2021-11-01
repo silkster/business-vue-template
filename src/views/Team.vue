@@ -5,11 +5,14 @@ import TomFlach from '@/assets/team/Tom_Flach.jpg';
 import TraceyFlach from '@/assets/team/Tracey_Flach.jpg';
 import ChrisChatfield from '@/assets/team/Chris_Chatfield.jpg';
 import JeremyPotter from '@/assets/team/Jeremy_Potter.jpg';
+import AppSlider from '@/components/Slider/Slider.vue';
+import bannerJpg from '@/assets/banners/team.jpg';
 
 export default {
   name: 'Team',
   components: {
     AppContent,
+    AppSlider,
     HeadShot,
   },
   data() {
@@ -40,6 +43,11 @@ export default {
           id: 'studio-manager',
         },
       ],
+      photos: [bannerJpg],
+      ratioInfo: {
+        height: 700,
+        width: 1920,
+      },
     };
   },
   methods: {
@@ -51,6 +59,11 @@ export default {
 </script>
 
 <template>
+  <app-slider
+    :nav-container-class="$style.sliderNavContainer"
+    :photos="photos"
+    :ratio-dimensions="ratioInfo"
+  />
   <app-content :class="$style.content">
     <div :class="$style.container">
       <head-shot
@@ -71,7 +84,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 210px;
 }
 .container {
   position: relative;

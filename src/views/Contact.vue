@@ -1,15 +1,24 @@
 <script>
 import AppContent from '@/components/Content/Content.vue';
 import AppButton from '@/components/Button/Button.vue';
+import AppSlider from '@/components/Slider/Slider.vue';
+import bannerJpg from '@/assets/banners/contact.jpg';
 
 export default {
   name: 'Contact',
   components: {
     AppContent,
     AppButton,
+    AppSlider,
   },
   data() {
-    return {};
+    return {
+      photos: [bannerJpg],
+      ratioInfo: {
+        height: 700,
+        width: 1920,
+      },
+    };
   },
   methods: {
     sendMessage() {},
@@ -18,6 +27,11 @@ export default {
 </script>
 
 <template>
+  <app-slider
+    :nav-container-class="$style.sliderNavContainer"
+    :photos="photos"
+    :ratio-dimensions="ratioInfo"
+  />
   <app-content :class="$style.content">
     <div :class="$style.container">
       <div :class="$style.contactInfo">
@@ -72,8 +86,8 @@ export default {
 
 <style module>
 .content {
-  margin-top: 178px;
-  padding: 0 210px;
+  padding-right: 210px;
+  padding-left: 210px;
   max-width: unset;
 }
 .container {

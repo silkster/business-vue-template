@@ -1,7 +1,7 @@
 <script>
 import AppContent from '@/components/Content/Content.vue';
 import AppSlider from '@/components/Slider/Slider.vue';
-import bannerJpg from '@/assets/about/about-banner-1920.jpg';
+import bannerJpg from '@/assets/banners/about.jpg';
 
 export default {
   name: 'Culture',
@@ -13,7 +13,7 @@ export default {
     return {
       photos: [bannerJpg],
       ratioInfo: {
-        height: 854,
+        height: 700,
         width: 1920,
       },
     };
