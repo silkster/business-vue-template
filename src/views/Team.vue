@@ -1,58 +1,54 @@
 <script>
+import { mapState } from 'vuex';
 import AppContent from '@/components/Content/Content.vue';
 import HeadShot from '@/components/HeadShot/HeadShot.vue';
-import TomFlach from '@/assets/team/Tom_Flach.jpg';
-import TraceyFlach from '@/assets/team/Tracey_Flach.jpg';
-import ChrisChatfield from '@/assets/team/Chris_Chatfield.jpg';
-import JeremyPotter from '@/assets/team/Jeremy_Potter.jpg';
 import AppSlider from '@/components/Slider/Slider.vue';
+import AppBio from '@/components/Bio/Bio.vue';
 import bannerJpg from '@/assets/banners/team.jpg';
 
 export default {
   name: 'Team',
   components: {
+    AppBio,
     AppContent,
     AppSlider,
     HeadShot,
   },
   data() {
     return {
-      bios: [
-        {
-          fullName: 'Thomas Flach, AIA',
-          photo: TomFlach,
-          title: 'President',
-          id: 'president',
-        },
-        {
-          fullName: 'Jeremy Potter, AIA',
-          photo: JeremyPotter,
-          title: 'Vice President',
-          id: 'vice-president',
-        },
-        {
-          fullName: 'Chris Chatfield',
-          photo: ChrisChatfield,
-          title: 'Architect',
-          id: 'architect',
-        },
-        {
-          fullName: 'Tracey Flach',
-          photo: TraceyFlach,
-          title: 'Studio Manager',
-          id: 'studio-manager',
-        },
-      ],
       photos: [bannerJpg],
       ratioInfo: {
         height: 700,
         width: 1920,
       },
+      selectedBio: null,
+      showBio: false,
+      show: {
+        opacity: 1,
+      },
+      hide: {
+        opacity: 2,
+      },
     };
   },
+  computed: {
+    ...mapState('team', ['bios']),
+    modalStyle() {
+      const { showBio, show, hide } = this;
+      return {
+        ...(showBio ? show : hide),
+      };
+    },
+  },
+  watch: {
+    selectedBio(bio) {
+      this.showBio = !!bio;
+    },
+  },
   methods: {
-    goToBio(name) {
-      this.$router.push({ name });
+    openBio(bio) {
+      // this.$router.push({ name });
+      this.selectedBio = bio;
     },
   },
 };
@@ -72,9 +68,13 @@ export default {
         :full-name="bio.fullName"
         :photoSrc="bio.photo"
         :title="bio.title"
-        :class="$style.headShot"
-        @click="goToBio(bio.id)"
+        @click="openBio(bio)"
       />
+    </div>
+    <div :class="$style.modal" :style="modalStyle" v-if="selectedBio">
+      <div :class="$style.modalWrap">
+        <app-bio :bio="selectedBio" @back-to-team="selectedBio = null" />
+      </div>
     </div>
   </app-content>
 </template>
@@ -84,15 +84,33 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 1260px;
 }
 .container {
   position: relative;
   display: flex;
-  max-width: 920px;
   flex-wrap: wrap;
   margin-bottom: 200px;
+  transition: opacity 1s ease-in-out;
 }
 .headShot {
   cursor: pointer;
+}
+.modal {
+  position: absolute;
+  top: 68px;
+  right: 0;
+  left: 0;
+  bottom: 68px;
+  background-color: var(--gray-light);
+  overflow: auto;
+  transition: opacity 1s ease-in-out 0.5s;
+}
+.modalOpen {
+  opacity: 1;
+}
+.modalWrap {
+  position: relative;
+  padding: 0 60px 60px 0;
 }
 </style>
