@@ -4,11 +4,6 @@ import About from '@/views/About.vue';
 import Home from '@/views/Home.vue';
 
 import Team from '@/views/Team.vue';
-import Bio from '@/views/Bio.vue';
-import PresidentBio from '@/views/team/President.vue';
-import VicePresidentBio from '@/views/team/VicePresident.vue';
-import ArchitectBio from '@/views/team/Architect.vue';
-import BusinessManagerBio from '@/views/team/BusinessManager.vue';
 import Portfolio from '@/views/Portfolio.vue';
 import ProjectContent from '@/components/ProjectContent/ProjectContent.vue';
 
@@ -64,60 +59,6 @@ export const routes = [
         isFixed: false,
         isWhite: true,
       },
-    },
-    children: [
-      {
-        name: 'bio',
-        path: ':title/:name',
-        component: Bio,
-        meta: {
-          logo: 'small',
-          header: {
-            isAbsolute: true,
-            isWhite: true,
-          },
-        },
-      },
-    ],
-  },
-  {
-    name: 'president',
-    path: '/team/president',
-    component: PresidentBio,
-    meta: {
-      logo: 'small',
-      fullName: 'Tom Flach, AIA',
-      title: 'President',
-    },
-  },
-  {
-    name: 'vice-president',
-    path: '/team/vice-president',
-    component: VicePresidentBio,
-    meta: {
-      logo: 'small',
-      fullName: 'Jeremy Potter, AIA',
-      title: 'Vice President',
-    },
-  },
-  {
-    name: 'architect',
-    path: '/team/architect',
-    component: ArchitectBio,
-    meta: {
-      logo: 'small',
-      fullName: 'Chris Chatfield, AIA',
-      title: 'Architect',
-    },
-  },
-  {
-    name: 'studio-manager',
-    path: '/team/studio-manager',
-    component: BusinessManagerBio,
-    meta: {
-      logo: 'small',
-      fullName: 'Tracey Flach',
-      title: 'Studio Manager',
     },
   },
   {
