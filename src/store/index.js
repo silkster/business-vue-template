@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 import { viewport } from '@/util';
 import portfolio from './modules/portfolio';
+import team from './modules/team';
 
 const $app = document.getElementById('app');
 const appHeight = ($app && $app.offsetHeight) || 0;
@@ -11,6 +12,7 @@ const appHeight = ($app && $app.offsetHeight) || 0;
 // );
 
 export default createStore({
+  namespaced: true,
   state: {
     appHeight,
     viewport: viewport.getScreenSize(),
@@ -26,5 +28,6 @@ export default createStore({
   actions: {},
   modules: {
     portfolio,
+    team,
   },
 });
