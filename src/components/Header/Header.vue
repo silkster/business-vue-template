@@ -8,6 +8,10 @@ export default {
   name: 'app-header',
   components: { AppMenu, InlineSvg },
   props: {
+    isAbsolute: {
+      type: Boolean,
+      default: false,
+    },
     isFixed: {
       type: Boolean,
       default: true,
@@ -27,8 +31,9 @@ export default {
   },
   computed: {
     headerClasses() {
-      const { $style, isFixed, isWhite } = this;
+      const { $style, isAbsolute, isFixed, isWhite } = this;
       return {
+        ...(isAbsolute ? { [$style.absolute]: true } : {}),
         ...(isFixed ? { [$style.fixed]: true } : {}),
         ...(isWhite ? { [$style.white]: true } : {}),
       };
@@ -78,14 +83,21 @@ export default {
 header {
   height: 176px;
 }
+.absolute,
 .fixed {
   background-color: transparent;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
 }
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+
 .white {
   background-color: var(--white);
 }

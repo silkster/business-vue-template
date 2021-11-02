@@ -39,7 +39,7 @@ export const routes = [
         props: true,
         meta: {
           logo: 'small',
-          header: { isFixed: true, isWhite: false },
+          header: { isWhite: false, isAbsolute: true },
         },
       },
     ],
@@ -73,6 +73,7 @@ export const routes = [
         meta: {
           logo: 'small',
           header: {
+            isAbsolute: true,
             isWhite: true,
           },
         },

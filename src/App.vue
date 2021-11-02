@@ -17,6 +17,10 @@ export default {
     meta() {
       return this.$router.currentRoute.value.meta || null;
     },
+    isAbsolute() {
+      const { meta } = this;
+      return (meta && meta.header && meta.header.isAbsolute) || false;
+    },
     isFixed() {
       const { meta } = this;
       return (meta && meta.header && meta.header.isFixed) || false;
@@ -35,7 +39,12 @@ export default {
 };
 </script>
 <template>
-  <app-header :is-fixed="isFixed" :is-white="isWhite" :logo-size="logoSize" />
+  <app-header
+    :is-absolute="isAbsolute"
+    :is-fixed="isFixed"
+    :is-white="isWhite"
+    :logo-size="logoSize"
+  />
 
   <router-view />
 
