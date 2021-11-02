@@ -145,5 +145,10 @@ b {
 }
 input, textarea {
   color: var(--text-color);
-  padding: 0 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+textarea {
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
