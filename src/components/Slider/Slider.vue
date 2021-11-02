@@ -83,6 +83,27 @@ export default {
         [$style.hidden]: isSinglePhoto,
       };
     },
+    navArrowClasses() {
+      const { $style, isSinglePhoto } = this;
+      return {
+        [$style.navArrow]: true,
+        [$style.hidden]: isSinglePhoto,
+      };
+    },
+    navArrowLeftClasses() {
+      const { $style, navArrowClasses } = this;
+      return {
+        ...navArrowClasses,
+        [$style.navArrowLeft]: true,
+      };
+    },
+    navArrowRightClasses() {
+      const { $style, navArrowClasses } = this;
+      return {
+        ...navArrowClasses,
+        [$style.navArrowRight]: true,
+      };
+    },
     containerClasses() {
       const { $style, containerClass } = this;
       return {
@@ -164,6 +185,18 @@ export default {
       console.log(photo, style);
       return style;
     },
+    navigateNext() {
+      const { active, images, navigate } = this;
+      const len = images.length;
+      const next = active === len - 1 ? 0 : active + 1;
+      navigate(next);
+    },
+    navigatePrev() {
+      const { active, images, navigate } = this;
+      const len = images.length;
+      const prev = active === 0 ? len - 1 : active - 1;
+      navigate(prev);
+    },
   },
 };
 </script>
@@ -183,14 +216,22 @@ export default {
     </div>
   </div>
   <div :class="navContainerClasses">
-    <div
-      v-for="(img, key) in images"
-      :ref="`nav${key}`"
-      :id="`nav${key}`"
-      :class="{ [$style.nav]: true, [$style.navActive]: key === 0 }"
-      :key="key"
-      @click.stop="() => navigate(key)"
-    ></div>
+    <div :class="$style.navTabs">
+      <div
+        v-for="(img, key) in images"
+        :ref="`nav${key}`"
+        :id="`nav${key}`"
+        :class="{ [$style.nav]: true, [$style.navActive]: key === 0 }"
+        :key="key"
+        @click.stop="() => navigate(key)"
+      ></div>
+    </div>
+  </div>
+  <div :class="navArrowLeftClasses" @click="navigatePrev">
+    <div :class="$style.navArrowWrap">&lt;</div>
+  </div>
+  <div :class="navArrowRightClasses" @click="navigateNext">
+    <div :class="$style.navArrowWrap">&gt;</div>
   </div>
 </template>
 
@@ -226,11 +267,36 @@ export default {
   min-width: 100%;
 }
 .navContainer {
-  display: flex;
+  position: relative;
   padding-bottom: 36px;
+  z-index: 100;
+}
+.navTabs {
+  display: flex;
   justify-content: space-between;
   column-gap: 10px;
-  z-index: 100;
+}
+.navArrow {
+  position: absolute;
+  top: 0;
+  height: calc(100vh - 54px);
+  width: 100px;
+  cursor: pointer;
+}
+.navArrowWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: var(--font-weight-thin);
+  height: calc(100vh - 54px);
+}
+.navArrowLeft {
+  left: 0;
+}
+.navArrowRight {
+  right: 0;
 }
 .hidden {
   display: none;
