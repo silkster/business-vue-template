@@ -40,13 +40,13 @@ export default {
   height: 485px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 .container:nth-child(odd) {
-  margin-right: 30px;
+  margin-right: 60px;
 }
 .container:nth-child(even) {
-  margin-left: 30px;
+  margin-left: 60px;
 }
 .photo {
   position: relative;
