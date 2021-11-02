@@ -76,6 +76,10 @@ export default {
   },
   methods: {
     ...mapGetters('portfolio', ['getProject']),
+    gotoGallery() {
+      const { $router, pagetype } = this;
+      $router.push({ path: `/portfolio/${pagetype}` });
+    },
   },
 };
 </script>
@@ -94,6 +98,7 @@ export default {
         :credit="photoCredit"
         :caption="caption"
         :in-progress="inProgress"
+        @back-to-gallery="gotoGallery"
       />
 
       <template v-if="showContent">

@@ -39,6 +39,9 @@ export default {
         behavior: 'smooth',
       });
     },
+    navigateBack() {
+      this.$emit('back-to-gallery');
+    },
   },
 };
 </script>
@@ -48,6 +51,10 @@ export default {
     <div :class="$style.caption">
       <span :class="$style.medium">{{ captionParts.left }}</span>
       {{ captionParts.right }}
+    </div>
+    <div :class="$style.back" @click.prevent="navigateBack">
+      <div :class="$style.upArrow"></div>
+      Gallery
     </div>
     <div :class="$style.credit">
       <span :class="$style.medium">{{ creditHeading }}:</span> {{ credit }}
@@ -74,5 +81,17 @@ export default {
 .credit {
   justify-self: flex-end;
   text-align: right;
+}
+.back {
+  font-weight: var(--font-weight-regular);
+  cursor: pointer;
+}
+.upArrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 14px solid var(--black);
+  display: inline-block;
 }
 </style>
