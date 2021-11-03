@@ -95,9 +95,8 @@ header {
   position: absolute;
 }
 .fixed {
-  position: fixed;
+  position: absolute;
 }
-
 .white {
   background-color: var(--white);
 }
@@ -141,6 +140,9 @@ header {
   padding-top: 5px;
 }
 @media screen and (min-width: 984px) {
+  .fixed {
+    position: fixed;
+  }
   .logo {
     margin-top: 56%;
   }
