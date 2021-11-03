@@ -112,38 +112,6 @@ export default {
           item.displayName
         }}</router-link>
       </div>
-      <!--
-      <div :class="$style.item">
-        <router-link to="/" @click="hideMenu" :class="$style.link"
-          >Home</router-link
-        >
-      </div>
-      <div :class="$style.item">
-        <router-link to="/portfolio/work" @click="hideMenu" :class="$style.link"
-          >Work</router-link
-        >
-      </div>
-      <div :class="$style.item">
-        <router-link to="/portfolio/wip" @click="hideMenu" :class="$style.link"
-          >In Progress</router-link
-        >
-      </div>
-      <div :class="$style.item">
-        <router-link to="/about" @click="hideMenu" :class="$style.link"
-          >About</router-link
-        >
-      </div>
-      <div :class="$style.item">
-        <router-link to="/team" @click="hideMenu" :class="$style.link"
-          >Team</router-link
-        >
-      </div>
-      <div :class="$style.item">
-        <router-link to="/contact" @click="hideMenu" :class="$style.link"
-          >Contact</router-link
-        >
-      </div>
-      -->
     </div>
   </div>
   <div :class="$style.container">
