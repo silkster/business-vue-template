@@ -105,30 +105,44 @@ header {
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  padding: 0 72px 0 112px;
+  padding: 0 3.75% 0 5.8333%;
 }
 .logoWrap {
   position: relative;
-  width: 200px;
-  height: 176px;
+  width: 9.8vw;
+  height: 9.1666vw;
+  max-width: 189px;
+  max-height: 176px;
+  min-width: 100px;
+  min-height: 93px;
 }
 .logo {
   align-items: center;
   background: var(--white);
   cursor: pointer;
   display: flex;
-  height: 249px;
   justify-content: center;
   overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  top: 106px;
-  width: 189px;
+  padding: 5px 0;
+  position: relative;
+  margin-top: 35%;
+  width: 100%;
+  max-width: 189px;
+  max-height: 249px;
   z-index: 1000;
+}
+.logo svg {
+  width: 95%;
+  height: 96%;
 }
 .logo.logoSmall {
   height: 138px;
   align-items: flex-start;
   padding-top: 5px;
+}
+@media screen and (min-width: 984px) {
+  .logo {
+    margin-top: 56%;
+  }
 }
 </style>
