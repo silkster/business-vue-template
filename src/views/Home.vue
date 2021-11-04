@@ -45,13 +45,13 @@ export default {
   max-width: 1060px;
 }
 .container h1 {
-  margin-bottom: 34px;
+  margin-bottom: 20px !important;
 }
 .inquireButton {
   margin: 0 auto;
 }
 .buttonContainer {
-  padding: 80px 0 92px;
+  padding: 0 0 20px;
 }
 .sliderNavContainer {
   position: absolute;
@@ -59,5 +59,14 @@ export default {
   top: calc(calc(100vw * 0.6666) - 60px);
   left: 50%;
   transform: translateX(-50%);
+}
+
+@media screen and (min-width: 984px) {
+  .container h1 {
+    margin-bottom: 34px !important;
+  }
+  .buttonContainer {
+    padding: 80px 0 92px;
+  }
 }
 </style>
