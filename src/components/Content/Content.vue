@@ -28,8 +28,8 @@ export default {
 <style module>
 .container {
   position: relative;
-  max-width: 960px;
-  padding: 68px 0;
+  max-width: 90%;
+  padding: 32px;
   margin: 0 auto;
 }
 .container h1 {
@@ -37,5 +37,13 @@ export default {
 }
 .fullWidth {
   max-width: unset;
+}
+
+@media screen and (min-width: 1025px) {
+  .container {
+    max-width: 960px;
+    padding: 68px 0;
+    margin: 0 auto;
+  }
 }
 </style>
