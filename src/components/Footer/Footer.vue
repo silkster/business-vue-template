@@ -101,7 +101,7 @@ export default {
 
 <template>
   <div ref="container"></div>
-  <footer :class="footerClasses" :style="footerStyle">
+  <footer :class="footerClasses">
     <div :class="$style.logo">
       <router-link to="/contact">
         <inline-svg
