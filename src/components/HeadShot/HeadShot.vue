@@ -36,22 +36,20 @@ export default {
 <style module>
 .container {
   position: relative;
-  width: 430px;
-  height: 485px;
+  width: 80vw;
+  height: 95vw;
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
-}
-.container:nth-child(odd) {
-  margin-right: 60px;
-}
-.container:nth-child(even) {
-  margin-left: 60px;
+  margin: 20px auto;
+  max-width: 384px;
+  max-height: 478px;
 }
 .photo {
   position: relative;
-  height: 430px;
-  width: 430px;
+  height: 80vw;
+  width: 80vw;
+  max-height: 384px;
+  max-width: 384px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -83,5 +81,30 @@ export default {
   position: relative;
   font-weight: var(--font-weight-regular);
   color: var(--orange);
+}
+
+@media screen and (min-width: 630px) {
+  .container {
+    width: 430px;
+    height: 485px;
+    margin-bottom: 60px;
+    max-width: unset;
+    max-height: unset;
+  }
+
+  .photo {
+    height: 430px;
+    width: 430px;
+    max-width: unset;
+    max-height: unset;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .container:nth-child(odd) {
+    margin-right: 60px;
+  }
+  .container:nth-child(even) {
+    margin-left: 60px;
+  }
 }
 </style>
