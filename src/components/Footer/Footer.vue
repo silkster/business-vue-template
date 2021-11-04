@@ -15,10 +15,17 @@ export default {
       logoSmallSvg,
       isInViewport: false,
       footerClasses: {},
+      fontScale: 100,
     };
   },
   computed: {
     ...mapState(['route']),
+    fontScaleStyle() {
+      const { fontScale } = this;
+      return {
+        '--footer-font-scale': `${fontScale}%`,
+      };
+    },
   },
   created() {
     this.footerClasses = {
@@ -34,6 +41,12 @@ export default {
     },
     isInViewport() {
       this.updateFooterClasses();
+    },
+    screen: {
+      immediate: true,
+      handler() {
+        this.setFontScale();
+      },
     },
   },
   mounted() {
@@ -71,13 +84,24 @@ export default {
         ...(isInViewport ? { [$style.fixed]: true } : {}),
       };
     },
+    setFontScale() {
+      const { screen } = this;
+      const baseWidth = 1920;
+      const baseScale = 100;
+      if (screen.width < baseWidth) {
+        const scale = (screen.width / baseWidth) * 100;
+        this.fontScale = scale < 50 ? 50 : scale;
+      } else {
+        this.fontScale = baseScale;
+      }
+    },
   },
 };
 </script>
 
 <template>
   <div ref="container"></div>
-  <footer :class="footerClasses">
+  <footer :class="footerClasses" :style="footerStyle">
     <div :class="$style.logo">
       <router-link to="/contact">
         <inline-svg
@@ -88,7 +112,7 @@ export default {
           width="90"
         />
       </router-link>
-      <div :class="$style.companyName">
+      <div :class="$style.companyName" :style="fontScaleStyle">
         <span :class="$style.company">
           <span :class="$style.kohlmark">KOHLMARK</span>
           <span :class="$style.flach"> FLACH</span></span
@@ -96,7 +120,7 @@ export default {
         ARCHITECTS
       </div>
     </div>
-    <div :class="$style.contactInfo">
+    <div :class="$style.contactInfo" :style="fontScaleStyle">
       <span :class="$style.addressLine1">12644 Chapel Road</span>
       <span :class="$style.separator"> | </span>
       <span :class="$style.addressLine2">Suite 209</span>
@@ -108,7 +132,7 @@ export default {
       <span :class="$style.phone">703.932.2775</span>
     </div>
 
-    <div :class="$style.aiaLogo">
+    <div :class="$style.aiaLogo" :style="fontScaleStyle">
       <a href="https://aia.org" target="blank">
         <img :src="aiaLogo" alt="Go to AIA website" />
       </a>
@@ -122,12 +146,13 @@ export default {
   box-sizing: border-box;
   background-color: var(--white);
   display: flex !important;
-  flex-wrap: nowrap;
   height: 200px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   line-height: 1;
-  padding: 0 112px;
+  padding: 0 3.75% 0 5.8333%;
   max-width: 100%;
+  font-size: 24px;
+  flex-direction: column;
 }
 .fixed {
   position: fixed;
@@ -138,20 +163,15 @@ export default {
 .logo {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
   cursor: pointer;
   padding: 5px;
 }
 .companyName {
   color: var(--black);
-  font-size: 24px;
   margin: 0 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-.company {
-  white-space: nowrap;
-  font-size: 24px;
+  font-size: var(--footer-font-scale);
 }
 .kohlmark {
   color: var(--gray-dark);
@@ -160,22 +180,21 @@ export default {
   font-weight: var(--font-weight-medium);
 }
 .contactInfo {
-  display: flex;
-  white-space: nowrap;
   color: var(--gray-dark);
   align-items: center;
+  font-size: var(--footer-font-scale);
+  line-height: 1.4;
+  text-align: center;
 }
 .separator {
-  font-size: 18px;
-  font-weight: var(--font-weight-black);
+  font-size: 75%;
 }
 .addressLine1,
 .addressLine2,
 .city,
 .state,
 .phone {
-  padding: 0 18px;
-  font-size: 24px;
+  padding: 0 3px;
 }
 .phone {
   border-right: 0;
@@ -185,8 +204,43 @@ export default {
   width: 15%;
   display: flex;
   justify-content: flex-end;
+  width: 35px;
+  height: 35px;
 }
 .aiaLogo a {
   border: 0;
+}
+.aiaLogo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+@media screen and (min-width: 984px) {
+  .container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .logo {
+    flex-wrap: nowrap;
+  }
+  .contactInfo {
+    display: flex;
+    white-space: nowrap;
+    text-align: inherit;
+  }
+  .company {
+    white-space: nowrap;
+  }
+  .addressLine1,
+  .addressLine2,
+  .city,
+  .state,
+  .phone {
+    padding: 0 18px;
+  }
+  .aiaLogo {
+    width: 60px;
+    height: 60px;
+  }
 }
 </style>
