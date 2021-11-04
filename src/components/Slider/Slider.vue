@@ -277,11 +277,7 @@ export default {
   column-gap: 10px;
 }
 .navArrow {
-  position: absolute;
-  top: 0;
-  height: calc(100vh - 54px);
-  width: 100px;
-  cursor: pointer;
+  display: none;
 }
 .navArrowWrap {
   display: flex;
@@ -310,5 +306,14 @@ export default {
 }
 .navActive {
   background-color: rgba(255, 255, 255, 1);
+}
+@media screen and (min-width: 984px) {
+  .navArrow {
+    position: absolute;
+    top: 0;
+    height: calc(100vh - 54px);
+    width: 100px;
+    cursor: pointer;
+  }
 }
 </style>
