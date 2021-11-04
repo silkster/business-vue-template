@@ -30,12 +30,14 @@
   --font-size-large: 60px;
   
   /* headings */
-  --h1-font-size: 60px;
+  --h1-font-size: 30px;
+  --h1-font-size-large: 60px;
   --h2-font-size: 40px;
   --h3-font-size: 20px;
 
   /* paragraph */
-  --p-font-size: 24px;
+  --p-font-size: 18px;
+  --p-font-size-large: 24px;
 
   /* layout */
   --body-background-color: var(--gray-light);
@@ -48,6 +50,8 @@
   --button-text-transform: uppercase;
 
   --header-menu-link-color: var(--gray-medium);
+
+  --footer-font-scale: 100%;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -107,9 +111,10 @@ body {
 
 h1 {
   font-size: var(--h1-font-size);
-  font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-regular);
   color: var(--text-color-heading);
   margin: 0 0 30px;
+  line-height: 1.2;
 }
 
 h2 {
@@ -123,8 +128,7 @@ h3 {
   font-size: var(--h3-font-size);
   font-weight: var(--font-weight-light);
   color: var(--text-color-heading);
-}
-  
+}  
 
 p {
   color: var(--text-color);
@@ -151,4 +155,20 @@ input, textarea {
 textarea {
   padding-top: 6px;
   padding-bottom: 6px;
+}
+
+@media screen and (min-width: 984px) {
+  h1 {
+    font-size: var(--h1-font-size-large);
+    font-weight: var(--font-weight-light);
+  }
+    
+  p {
+    color: var(--text-color);
+    font-size: var(--p-font-size);
+    font-weight: var(--font-weight-light);
+    line-height: 1.5;
+    margin: 0 0 40px 0;
+  }
+
 }
