@@ -46,7 +46,13 @@ const { getScreenSize } = viewport;
 
 export default {
   data: {
-    screen,
+    screen: getScreenSize(),
+  },
+  created() {
+    const vm = this;
+    vm.$onResize(() => {
+      vm.screen = getScreenSize();
+    });
   },
   methods: {
     addListener,
