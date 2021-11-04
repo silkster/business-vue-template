@@ -70,12 +70,6 @@ export default {
 </template>
 
 <style module>
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--white);
-}
 .container {
   position: relative;
 }
