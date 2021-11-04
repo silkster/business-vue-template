@@ -80,9 +80,6 @@ export default {
 </template>
 
 <style module>
-header {
-  height: 176px;
-}
 .absolute,
 .fixed {
   background-color: transparent;
@@ -135,9 +132,15 @@ header {
   height: 96%;
 }
 .logo.logoSmall {
-  height: 138px;
+  height: 7.185vw;
   align-items: flex-start;
   padding-top: 5px;
+  min-height: 70px;
+}
+.logo.logoSmall svg {
+  height: auto;
+  width: auto;
+  padding: 5px;
 }
 @media screen and (min-width: 984px) {
   .fixed {
@@ -145,6 +148,11 @@ header {
   }
   .logo {
     margin-top: 56%;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .logo.logoSmall {
+    height: 138px;
   }
 }
 </style>
