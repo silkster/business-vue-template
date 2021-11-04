@@ -110,7 +110,7 @@ export default {
   max-width: 189px;
   max-height: 176px;
   min-width: 100px;
-  min-height: 93px;
+  min-height: 77px;
 }
 .logo {
   align-items: center;
