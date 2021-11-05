@@ -1,4 +1,5 @@
 <script>
+import { mapState } from 'vuex';
 import AppContent from '@/components/Content/Content.vue';
 import AppButton from '@/components/Button/Button.vue';
 import AppSlider from '@/components/Slider/Slider.vue';
@@ -20,6 +21,9 @@ export default {
       },
     };
   },
+  computed: {
+    ...mapState(['fontScaleStyle']),
+  },
   methods: {
     sendMessage() {},
   },
@@ -34,13 +38,13 @@ export default {
   />
   <app-content :class="$style.content">
     <div :class="$style.container">
-      <div :class="$style.contactInfo">
+      <div :class="$style.contactInfo" :style="fontScaleStyle">
         <div :class="$style.addressLine1">12644 Chapel Road | Suite 209</div>
         <div :class="$style.city">Clifton | Virginia 20124</div>
         <div :class="$style.phone">703.932.2775</div>
       </div>
       <div :class="$style.form">
-        <h1>Inquire</h1>
+        <h1 :class="$style.containerHeading">Inquire</h1>
         <div :class="$style.contactForm">
           <div :class="$style.field">
             <input
@@ -86,46 +90,16 @@ export default {
 
 <style module>
 .content {
-  padding-right: 210px;
-  padding-left: 210px;
   max-width: unset;
 }
-.container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 160px;
-  text-align: left;
-}
-.container h1 {
-  font-size: 48px;
-  margin-top: 0;
-  text-align: left;
+h1.containerHeading {
   margin-bottom: 34px;
+}
+.contactInfo {
+  display: none;
 }
 .form {
   width: 100%;
-}
-.contactInfo {
-  display: flex;
-  flex-direction: column;
-  color: var(--gray-dark);
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-top: 80px;
-}
-.addressLine1,
-.addressLine2,
-.city,
-.state,
-.phone {
-  padding: 0;
-  line-height: 1.5;
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
-.phone {
-  border-right: 0;
 }
 .contactForm {
   position: relative;
@@ -134,6 +108,7 @@ export default {
 .field input,
 .field textarea {
   width: 100%;
+  box-sizing: border-box;
 }
 .field input,
 .field textarea {
@@ -149,7 +124,53 @@ export default {
 .field textarea {
   height: 100px;
 }
-.buttonContainer {
-  padding: 0 0 200px;
+@media screen and (min-width: 768px) {
+  .content {
+    padding-right: 10.9375vw;
+    padding-left: 10.9375vw;
+  }
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8.3333vw;
+    text-align: left;
+  }
+  h1.containerHeading {
+    margin-top: 0;
+    text-align: left;
+    margin-bottom: 34px !important;
+  }
+  .contactInfo {
+    display: flex;
+    flex-direction: column;
+    color: var(--gray-dark);
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 80px;
+    font-size: var(--font-scale);
+  }
+  .addressLine1,
+  .addressLine2,
+  .city,
+  .state,
+  .phone {
+    padding: 0;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .phone {
+    border-right: 0;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .content {
+    padding-right: 210px;
+    padding-left: 210px;
+  }
+  .container {
+    gap: 160px;
+  }
 }
 </style>
