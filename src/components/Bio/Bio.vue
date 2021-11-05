@@ -44,6 +44,7 @@ export default {
 }
 .headshotContainer {
   position: relative;
+  margin-bottom: 0px;
 }
 .headShot {
   flex-grow: 1;
@@ -62,21 +63,24 @@ export default {
 .buttonWrap {
   display: flex;
   justify-content: center;
-  margin: -30px auto 30px;
+  margin: -10px auto 30px;
 }
 .backButton {
   min-width: unset;
   padding: 0 30px 0 10px;
   margin: 0 auto;
 }
+
+@media screen and (min-width: 630px) {
+  .buttonWrap {
+    margin: -20px auto 30px;
+  }
+}
 @media screen and (min-width: 1025px) {
   .container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-  }
-  .buttonWrap {
-    margin: 0 0 0 60px;
   }
 }
 </style>

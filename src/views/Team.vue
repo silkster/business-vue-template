@@ -113,14 +113,23 @@ export default {
 .modalWrap {
   position: relative;
 }
-@media screen and (min-width: 1025) {
+@media screen and (min-width: 1025px) {
+  .modal {
+    padding-top: 32px;
+  }
+  .modalWrap {
+    position: relative;
+  }
+}
+@media screen and (min-width: 1220px) {
   .modal {
     position: absolute;
     top: 68px;
     bottom: 68px;
+    padding: 0;
+    margin-left: 140px;
   }
   .modalWrap {
-    position: relative;
     padding: 0 60px 60px 0;
   }
 }
