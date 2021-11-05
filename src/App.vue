@@ -42,7 +42,6 @@ export default {
     const vm = this;
     vm.updateFontScale();
     vm.$onResize(() => {
-      console.log('App > updateFontScale()');
       vm.updateFontScale();
     });
   },
