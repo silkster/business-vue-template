@@ -8,4 +8,9 @@ export default {
   setFontScale(state, scale) {
     state.fontScale = scale;
   },
+  setFontScaleStyle(state, scale) {
+    state.fontScaleStyle = {
+      '--font-scale': `${scale}%`,
+    };
+  },
 };

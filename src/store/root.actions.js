@@ -11,8 +11,10 @@ export default {
     if (width < baseWidth) {
       const scale = (width / baseWidth) * 100;
       commit('setFontScale', scale < 50 ? 50 : scale);
+      commit('setFontScaleStyle', scale < 50 ? 50 : scale);
     } else {
       commit('setFontScale', baseScale);
+      commit('setFontScaleStyle', baseScale);
     }
   },
 };

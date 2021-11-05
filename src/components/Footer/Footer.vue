@@ -18,13 +18,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['route', 'fontScale']),
-    fontScaleStyle() {
-      const { fontScale } = this;
-      return {
-        '--footer-font-scale': `${fontScale}%`,
-      };
-    },
+    ...mapState(['route', 'fontScaleStyle']),
   },
   created() {
     this.footerClasses = {
@@ -160,7 +154,7 @@ export default {
   margin: 0 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: var(--footer-font-scale);
+  font-size: var(--font-scale);
 }
 .kohlmark {
   color: var(--gray-dark);
@@ -171,7 +165,7 @@ export default {
 .contactInfo {
   color: var(--gray-dark);
   align-items: center;
-  font-size: var(--footer-font-scale);
+  font-size: var(--font-scale);
   line-height: 1.4;
   text-align: center;
 }
