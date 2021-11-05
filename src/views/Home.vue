@@ -33,8 +33,8 @@ export default {
         :class="$style.inquireButton"
         size="large"
         @click="gotoContact"
-        >Inquire</app-button
-      >
+        label="Inquire"
+      />
     </div>
   </app-content>
 </template>
