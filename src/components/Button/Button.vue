@@ -1,4 +1,6 @@
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'app-button',
 
@@ -34,6 +36,7 @@ export default {
   emits: ['click'],
 
   computed: {
+    ...mapState(['fontScaleStyle']),
     buttonSize() {
       const { size } = this;
       return `button${size[0].toUpperCase()}${size.substr(1)}`;
@@ -59,7 +62,9 @@ export default {
 
 <template>
   <button type="button" :class="classes" @click="onClick">
-    <span v-if="showLabel" :class="$style.btnText">{{ label }}</span>
+    <span v-if="showLabel" :class="$style.buttonText" :style="fontScaleStyle">{{
+      label
+    }}</span>
     <slot></slot>
   </button>
 </template>
@@ -70,13 +75,16 @@ export default {
   border-radius: 0;
   color: var(--buton-text-color);
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: var(--button-font-family);
   letter-spacing: var(--button-letter-spacing);
   line-height: 1;
   text-transform: var(--button-text-transform);
-  min-width: 306px;
   height: 42px;
+  padding: 0 16px;
+  min-width: 16vw;
 }
 .buttonText {
   color: var(--button-text-color);
@@ -98,14 +106,34 @@ export default {
   height: auto;
 }
 .buttonSmall {
-  font-size: 14px;
+  font-size: 24px;
 }
 .buttonMedium {
-  font-size: 18px;
+  font-size: 28px;
 }
 .buttonLarge {
-  font-size: 24px;
+  font-size: 34px;
   font-weight: var(--font-weight-medium);
   letter-spacing: 6px;
+}
+.buttonText {
+  font-size: var(--font-scale);
+}
+
+@media screen and (min-width: 1025px) {
+  .buttonSmall {
+    font-size: 14px;
+  }
+  .buttonMedium {
+    font-size: 18px;
+  }
+  .buttonLarge {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .button {
+    min-width: 306px;
+  }
 }
 </style>

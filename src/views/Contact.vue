@@ -80,7 +80,7 @@ export default {
             ></textarea>
           </div>
           <div :class="$style.buttonContainer">
-            <app-button @click="sendMessage" size="large">Submit</app-button>
+            <app-button @click="sendMessage" size="large" label="Submit" />
           </div>
         </div>
       </div>
