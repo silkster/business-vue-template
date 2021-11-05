@@ -68,7 +68,7 @@ export default {
   display: flex;
   height: 54px;
   justify-content: space-between;
-  padding: 0 210px;
+  padding: 0 10.9375vw;
   background-color: var(--gray-light);
 }
 .caption {
@@ -83,8 +83,7 @@ export default {
   text-align: right;
 }
 .back {
-  font-weight: var(--font-weight-regular);
-  cursor: pointer;
+  display: none;
 }
 .upArrow {
   width: 0;
@@ -93,5 +92,13 @@ export default {
   border-right: 6px solid transparent;
   border-bottom: 14px solid var(--black);
   display: inline-block;
+}
+
+@media screen and (min-width: 768px) {
+  .back {
+    display: block;
+    font-weight: var(--font-weight-regular);
+    cursor: pointer;
+  }
 }
 </style>
