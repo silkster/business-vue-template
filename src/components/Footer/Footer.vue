@@ -63,7 +63,6 @@ export default {
     },
     getContainerBottomPosition() {
       const position = this.getContainerPosition();
-      console.log('Footer Bounding: ', position);
       return position.bottom;
     },
     isContainerInViewport() {
@@ -71,9 +70,6 @@ export default {
 
       setTimeout(() => {
         const screen = this.getScreenSize();
-
-        console.log('footer > screen size:', screen);
-
         return screen.height > this.getContainerBottomPosition();
       }, 100);
     },

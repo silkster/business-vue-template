@@ -166,8 +166,6 @@ export default {
       }
       const { intervalId } = this;
 
-      console.log('intervalId:', intervalId);
-
       if (intervalId) {
         this.stop();
       } else {
@@ -181,8 +179,7 @@ export default {
       this.start();
     },
     getImageStyle(img) {
-      const { photo, ...style } = img;
-      console.log(photo, style);
+      const { ...style } = img;
       return style;
     },
     navigateNext() {

@@ -66,9 +66,6 @@ export default {
       immediate: true,
       handler(id) {
         const getProject = this.getProject(id);
-
-        console.log('watch id > project', getProject(id));
-
         this.project = getProject(id);
         this.inProgress = this.project.inProgress || false;
       },
