@@ -15,11 +15,10 @@ export default {
       logoSmallSvg,
       isInViewport: false,
       footerClasses: {},
-      fontScale: 100,
     };
   },
   computed: {
-    ...mapState(['route']),
+    ...mapState(['route', 'fontScale']),
     fontScaleStyle() {
       const { fontScale } = this;
       return {
@@ -41,12 +40,6 @@ export default {
     },
     isInViewport() {
       this.updateFooterClasses();
-    },
-    screen: {
-      immediate: true,
-      handler() {
-        this.setFontScale();
-      },
     },
   },
   mounted() {

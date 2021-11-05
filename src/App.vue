@@ -1,11 +1,14 @@
 <script>
 import AppHeader from '@/components/Header/Header.vue';
 import AppFooter from '@/components/Footer/Footer.vue';
+import { mapActions } from 'vuex';
+import eventListenerMixin from '@/mixins/events';
 
 export default {
   name: 'app',
 
   components: { AppHeader, AppFooter },
+  mixins: [eventListenerMixin],
 
   props: {
     user: {
@@ -33,6 +36,18 @@ export default {
       const { meta } = this;
       return (meta && meta.logo) || null;
     },
+  },
+
+  created() {
+    const vm = this;
+    vm.$onResize(() => {
+      console.log('App > updateFontScale()');
+      vm.updateFontScale();
+    });
+  },
+
+  methods: {
+    ...mapActions(['updateFontScale']),
   },
 
   emits: ['login', 'logout', 'createAccount'],
