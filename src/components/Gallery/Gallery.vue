@@ -52,9 +52,15 @@ export default {
   width: 100%;
 }
 .itemWrap {
-  flex: 0 1 33.25%;
+  flex: 0 1 100%;
   position: relative;
   box-sizing: border-box;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .itemWrap {
+    flex: 0 1 33.25%;
+  }
 }
 </style>
