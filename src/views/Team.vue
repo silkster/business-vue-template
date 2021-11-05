@@ -98,19 +98,30 @@ export default {
 }
 .modal {
   position: absolute;
-  top: 68px;
+  top: 0;
   right: 0;
   left: 0;
-  bottom: 68px;
+  bottom: 32px;
   background-color: var(--gray-light);
   overflow: auto;
   transition: opacity 1s ease-in-out 0.5s;
+  padding: 32px;
 }
 .modalOpen {
   opacity: 1;
 }
 .modalWrap {
   position: relative;
-  padding: 0 60px 60px 0;
+}
+@media screen and (min-width: 1025) {
+  .modal {
+    position: absolute;
+    top: 68px;
+    bottom: 68px;
+  }
+  .modalWrap {
+    position: relative;
+    padding: 0 60px 60px 0;
+  }
 }
 </style>

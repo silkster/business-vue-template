@@ -18,7 +18,7 @@ export default {
 
 <template>
   <div :class="$style.container">
-    <div :class="headshotContainer">
+    <div :class="$style.headshotContainer">
       <head-shot
         :photo-src="bio.photo"
         :full-name="bio.fullName"
@@ -40,9 +40,10 @@ export default {
 
 <style module>
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  position: relative;
+}
+.headshotContainer {
+  position: relative;
 }
 .headShot {
   flex-grow: 1;
@@ -59,10 +60,23 @@ export default {
   line-height: 1.5;
 }
 .buttonWrap {
-  margin-right: 60px;
+  display: flex;
+  justify-content: center;
+  margin: -30px auto 30px;
 }
 .backButton {
   min-width: unset;
   padding: 0 30px 0 10px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1025px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .buttonWrap {
+    margin: 0 0 0 60px;
+  }
 }
 </style>
