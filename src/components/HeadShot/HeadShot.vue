@@ -61,12 +61,10 @@ export default {
 }
 .labels {
   position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 60px;
-  font-size: 24px;
+  height: 40px;
+  font-size: 16px;
   letter-spacing: 1px;
+  line-height: 1.2;
 }
 .fullName,
 .separator {
@@ -75,7 +73,7 @@ export default {
   font-weight: var(--font-weight-bold);
 }
 .separator {
-  margin: 0 16px;
+  display: none;
 }
 .title {
   position: relative;
@@ -91,12 +89,20 @@ export default {
     max-width: unset;
     max-height: unset;
   }
-
   .photo {
     height: 430px;
     width: 430px;
     max-width: unset;
     max-height: unset;
+  }
+  .labels {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .separator {
+    display: block;
+    margin: 0 16px;
   }
 }
 @media screen and (min-width: 1025px) {
@@ -105,6 +111,10 @@ export default {
   }
   .container:nth-child(even) {
     margin-left: 60px;
+  }
+  .labels {
+    height: 60px;
+    font-size: 24px;
   }
 }
 </style>
