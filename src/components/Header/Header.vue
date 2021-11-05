@@ -134,7 +134,7 @@ export default {
 .logo.logoSmall {
   height: 7.185vw;
   align-items: flex-start;
-  padding-top: 5px;
+  padding-top: 0px;
   min-height: 70px;
 }
 .logo.logoSmall svg {
