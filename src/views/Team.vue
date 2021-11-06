@@ -43,11 +43,14 @@ export default {
   watch: {
     selectedBio(bio) {
       this.showBio = !!bio;
+      window.scroll({
+        top: 0,
+        behavior: 'smooth',
+      });
     },
   },
   methods: {
     openBio(bio) {
-      // this.$router.push({ name });
       this.selectedBio = bio;
     },
   },
