@@ -112,6 +112,15 @@ export default {
           item.displayName
         }}</router-link>
       </div>
+      <app-button
+        @click="hideMenu"
+        :showLabel="false"
+        :isPrimary="false"
+        :isIcon="true"
+        :class="$style.closeButton"
+      >
+        <div :class="$style.closeIcon"></div>
+      </app-button>
     </div>
   </div>
   <div :class="$style.container">
@@ -140,34 +149,50 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  width: 230px;
-  height: 385px;
+  width: 100vw;
+  height: 100vw;
   pointer-events: none;
 }
 .menu {
+  align-items: flex-end;
   background-color: var(--white);
   box-shadow: none;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 365px;
-  justify-content: center;
-  padding: 0 30px;
+  justify-content: flex-start;
+  left: 0;
+  padding: 200px 30px 0;
   pointer-events: all;
+  height: 100vh;
   position: absolute;
   right: 0;
-  top: -365px;
-  transition: top 0.5s, box-shadow 0.5s, opacity 0.5s;
-  width: 210px;
+  top: calc(-100vh - 12px);
+  transition: top 0.33s, box-shadow 0.5s, opacity 0.5s;
+  width: 100vw;
   z-index: 100;
 }
 .menu a {
   color: var(--header-menu-link-color);
   text-decoration: none;
 }
+@media screen and (min-width: 768px) {
+  .menuWrap {
+    width: 330px;
+    height: 176px;
+  }
+  .menu {
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+    height: 465px;
+    justify-content: center;
+    left: unset;
+    padding-top: 0;
+    top: -485px;
+    width: 310px;
+  }
+}
 .menuOn {
   top: 0;
-  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
 }
 .item {
   align-items: center;
@@ -176,6 +201,7 @@ export default {
   line-height: 1.3;
   text-align: left;
   white-space: nowrap;
+  width: 210px;
 }
 .link {
   display: block;
@@ -185,5 +211,33 @@ export default {
 .item:hover .link,
 .active .link {
   color: var(--text-color-menu-hover);
+}
+.closeButton {
+  position: absolute;
+  right: 44px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+}
+.closeIcon {
+  opacity: 0.3;
+}
+.closeIcon:hover {
+  opacity: 1;
+}
+.closeIcon:before,
+.closeIcon:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.closeIcon:before {
+  transform: rotate(45deg);
+}
+.closeIcon:after {
+  transform: rotate(-45deg);
 }
 </style>
