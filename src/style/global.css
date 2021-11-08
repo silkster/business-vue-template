@@ -1,11 +1,12 @@
 :root {
   /* colors */
-  --orange: #ff5200;
   --black: #000;
-  --white: #fff;
   --gray-light: #f0eeee;
   --gray-medium: #bab09d;
   --gray-dark: #98908c;
+  --orange: #ff5200;
+  --red: #f00;
+  --white: #fff;
 
   /* typography */
   --font-family: "Roboto", Arial, Helvetica, sans-serif;
@@ -71,11 +72,14 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);
+	line-height: 1;
+	margin: 0;
+	padding: 0;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -102,11 +106,8 @@ table {
 
 body {
   background-color: var(--body-background-color);
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-light);
   margin: 0 !important;
   padding: 0 !important;
-	line-height: 1;
 }
 
 h1 {
