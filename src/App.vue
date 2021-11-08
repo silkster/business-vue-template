@@ -3,12 +3,13 @@ import AppHeader from '@/components/Header/Header.vue';
 import AppFooter from '@/components/Footer/Footer.vue';
 import { mapActions } from 'vuex';
 import eventListenerMixin from '@/mixins/events';
+import device from '@/mixins/device';
 
 export default {
   name: 'app',
 
   components: { AppHeader, AppFooter },
-  mixins: [eventListenerMixin],
+  mixins: [device, eventListenerMixin],
 
   props: {
     user: {
@@ -44,6 +45,7 @@ export default {
     vm.$onResize(() => {
       vm.updateFontScale();
     });
+    document.title = 'Kohlmark Flach Architects';
   },
 
   methods: {
