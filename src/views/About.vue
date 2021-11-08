@@ -66,6 +66,6 @@ export default {
   position: relative;
 }
 .container h1 {
-  margin-bottom: 40px;
+  margin-bottom: 34px;
 }
 </style>
