@@ -4,6 +4,8 @@ import AppContent from '@/components/Content/Content.vue';
 import AppButton from '@/components/Button/Button.vue';
 import AppSlider from '@/components/Slider/Slider.vue';
 import bannerJpg from '@/assets/banners/contact.jpg';
+import BaseInput from '@/components/BaseInput/BaseInput';
+import BaseTextarea from '@/components/BaseTextarea/BaseTextarea';
 
 export default {
   name: 'Contact',
@@ -11,6 +13,8 @@ export default {
     AppContent,
     AppButton,
     AppSlider,
+    BaseInput,
+    BaseTextarea,
   },
   data() {
     return {
@@ -47,37 +51,38 @@ export default {
         <h1 :class="$style.containerHeading">Inquire</h1>
         <div :class="$style.contactForm">
           <div :class="$style.field">
-            <input
+            <base-input
               type="text"
               id="name"
-              required
-              :class="$style.fieldName"
-              placeholder="Name (required)"
+              name="name"
+              label="Name (required)"
             />
           </div>
           <div :class="$style.field">
-            <input
-              type="tel"
-              id="phone"
-              :class="$style.fieldPhone"
-              placeholder="Phone"
-            />
-          </div>
-          <div :class="$style.field">
-            <input
+            <base-input
               type="email"
               id="email"
               required
-              placeholder="Email (required)"
+              label="Email (required)"
               :class="$style.fieldEmail"
             />
           </div>
           <div :class="$style.field">
-            <textarea
+            <base-input
+              type="tel"
+              input-id="phone"
+              name="phone"
+              label="Phone"
+              required
+            />
+          </div>
+          <div :class="$style.field">
+            <base-textarea
               id="message"
-              :class="$style.fieldMessage"
-              placeholder="Message"
-            ></textarea>
+              name="message"
+              label="Message"
+              required
+            />
           </div>
           <div :class="$style.buttonContainer">
             <app-button @click="sendMessage" size="large" label="Submit" />
@@ -112,13 +117,14 @@ h1.containerHeading {
 }
 .field input,
 .field textarea {
-  font-family: var(--font-family);
-  font-size: 24px;
-  font-weight: var(--font-weight-regular);
-  border: none;
   background-color: var(--white);
-  margin-bottom: 25px;
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
   height: 42px;
+  margin-bottom: 25px;
   max-width: 964px;
 }
 .field textarea {
@@ -171,6 +177,10 @@ h1.containerHeading {
   }
   .container {
     gap: 160px;
+  }
+  .field input,
+  .field textarea {
+    font-size: 24px;
   }
 }
 </style>
