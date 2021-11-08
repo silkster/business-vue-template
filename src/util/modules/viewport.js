@@ -1,7 +1,3 @@
-import config from '@/config';
-
-const DEFAULT_MOBILE_BREAKPOINT = config.viewport.breakpoints.tablet.min;
-
 export const getScreenSize = () => {
   return {
     width:
@@ -17,15 +13,6 @@ export const getScreenWidth = () => {
   return getScreenSize().width;
 };
 
-export const isMobile = (breakpoint = DEFAULT_MOBILE_BREAKPOINT) => {
-  const width = getScreenWidth();
-  return width <= breakpoint ? true : false;
-};
-
-export const isDesktop = (breakpoint = DEFAULT_MOBILE_BREAKPOINT) => {
-  return !isMobile(breakpoint);
-};
-
 export const isScreenWidthInRange = (min, max) => {
   const width = getScreenWidth();
   return width >= min && width <= max;
@@ -34,7 +21,5 @@ export const isScreenWidthInRange = (min, max) => {
 export default {
   getScreenSize,
   getScreenWidth,
-  isMobile,
-  isDesktop,
   isScreenWidthInRange,
 };

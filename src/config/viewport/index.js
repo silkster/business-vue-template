@@ -1,9 +1,9 @@
 export default {
   breakpoints: {
-    min: 320,
+    min: 374,
     mobile: {
       min: 375,
-      max: 480,
+      max: 767,
     },
     tablet: {
       min: 768,
@@ -11,7 +11,7 @@ export default {
     },
     desktop: {
       min: 1025,
-      max: 1440,
+      max: 1919,
     },
     max: 1920,
   },
