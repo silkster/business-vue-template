@@ -53,6 +53,16 @@
   --header-menu-link-color: var(--gray-medium);
 
   --font-scale: 100%;
+
+  --z-index-base: -1;
+  --z-index-content: 0;
+  --z-index-content-level-1: 1;
+  --z-index-content-level-2: 2;
+  --z-index-content-fixed: 5;
+  --z-index-absolute: 10;
+  --z-index-fixed: 20;
+  --z-index-fixed-menu: 25;
+  --z-index-modal: 30;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 

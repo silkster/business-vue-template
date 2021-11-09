@@ -115,7 +115,7 @@ export default {
 <style module>
 .container {
   width: 100% !important;
-  z-index: 100;
+  z-index: var(--z-index-content);
 }
 .content {
   margin-bottom: 60px;
@@ -132,7 +132,7 @@ export default {
   font-weight: var(--font-weight-bold);
 }
 .paralaxed {
-  z-index: -2;
+  z-index: var(--z-index-base);
   position: fixed;
   top: 0;
   left: 0;
@@ -148,7 +148,7 @@ export default {
 }
 .sliderNavContainer {
   position: absolute;
-  z-index: 1000;
+  z-index: var(--z-index-content-level-1);
   top: calc(100vh - 110px);
   left: 50%;
   transform: translateX(-50%);

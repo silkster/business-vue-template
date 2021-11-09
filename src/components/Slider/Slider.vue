@@ -266,7 +266,7 @@ export default {
 .navContainer {
   position: relative;
   padding-bottom: 36px;
-  z-index: 100;
+  z-index: var(--z-index-content);
 }
 .navTabs {
   display: flex;

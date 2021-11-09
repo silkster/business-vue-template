@@ -86,7 +86,7 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: var(--z-index-fixed);
 }
 .absolute {
   position: absolute;
@@ -125,7 +125,7 @@ export default {
   width: 100%;
   max-width: 189px;
   max-height: 249px;
-  z-index: 1000;
+  z-index: var(--z-index-fixed);
 }
 .logo svg {
   width: 95%;
