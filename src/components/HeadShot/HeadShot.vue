@@ -40,7 +40,7 @@ export default {
   height: 95vw;
   display: flex;
   flex-direction: column;
-  margin: 20px auto;
+  margin: 12px auto 20px;
   max-width: 384px;
   max-height: 478px;
 }
@@ -65,6 +65,7 @@ export default {
   font-size: 16px;
   letter-spacing: 1px;
   line-height: 1.2;
+  margin-top: 6px;
 }
 .fullName,
 .separator {
@@ -85,7 +86,7 @@ export default {
   .container {
     width: 430px;
     height: 485px;
-    margin-bottom: 60px;
+    margin: 20px auto 60px;
     max-width: unset;
     max-height: unset;
   }
