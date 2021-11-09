@@ -83,15 +83,13 @@ export default {
 .absolute,
 .fixed {
   background-color: transparent;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: var(--z-index-fixed);
 }
 .absolute {
-  position: absolute;
-}
-.fixed {
   position: absolute;
 }
 .white {
@@ -143,9 +141,6 @@ export default {
   padding: 5px;
 }
 @media screen and (min-width: 984px) {
-  .fixed {
-    position: fixed;
-  }
   .logo {
     margin-top: 56%;
   }
