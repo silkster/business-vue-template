@@ -31,7 +31,7 @@ export default {
     <div :class="$style.buttonContainer">
       <app-button
         :class="$style.inquireButton"
-        size="large"
+        size="medium"
         @click="gotoContact"
         label="Inquire"
       />
@@ -46,6 +46,9 @@ export default {
 }
 .container h1 {
   margin-bottom: 20px !important;
+}
+.container p {
+  font-size: 1.5rem;
 }
 .inquireButton {
   margin: 0 auto;

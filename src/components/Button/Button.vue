@@ -62,9 +62,7 @@ export default {
 
 <template>
   <button type="button" :class="classes" @click="onClick">
-    <span v-if="showLabel" :class="$style.buttonText" :style="fontScaleStyle">{{
-      label
-    }}</span>
+    <span v-if="showLabel" :class="$style.buttonText">{{ label }}</span>
     <slot></slot>
   </button>
 </template>
@@ -73,27 +71,40 @@ export default {
 .button {
   border: 0;
   border-radius: 0;
-  color: var(--buton-text-color);
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--button-font-family);
-  letter-spacing: var(--button-letter-spacing);
   line-height: 1;
-  text-transform: var(--button-text-transform);
   height: 42px;
   padding: 0 16px;
-  min-width: 16vw;
+  min-width: 210px;
 }
+.button,
 .buttonText {
   color: var(--button-text-color);
+  font-family: var(--button-font-family);
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--button-letter-spacing);
+  text-transform: var(--button-text-transform);
 }
-.buttonPrimary {
+.buttonMedium,
+.buttonMedium .buttonText {
+  font-size: 1.5rem;
+}
+.buttonLarge,
+.buttonLarge .buttonText {
+  font-size: 1.75rem;
+}
+
+.buttonPrimary,
+.buttonPrimary .buttonText {
   color: var(--button-text-color);
   background-color: var(--button-background-color);
 }
-.buttonSecondary {
+.buttonSecondary,
+.buttonSecondary .buttonText {
   color: #333;
   background-color: transparent;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
@@ -104,32 +115,6 @@ export default {
   box-shadow: none;
   min-width: unset;
   height: auto;
-}
-.buttonSmall {
-  font-size: 24px;
-}
-.buttonMedium {
-  font-size: 28px;
-}
-.buttonLarge {
-  font-size: 34px;
-  font-weight: var(--font-weight-medium);
-  letter-spacing: 6px;
-}
-.buttonText {
-  font-size: var(--font-scale);
-}
-
-@media screen and (min-width: 1025px) {
-  .buttonSmall {
-    font-size: 14px;
-  }
-  .buttonMedium {
-    font-size: 18px;
-  }
-  .buttonLarge {
-    font-size: 24px;
-  }
 }
 @media screen and (min-width: 1920px) {
   .button:not(.buttonIcon) {
