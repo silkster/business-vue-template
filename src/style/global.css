@@ -25,10 +25,10 @@
   --font-weight-bold: 700;
   --font-weight-black: 900;
 
-  --font-size-regular: 24px;
-  --font-size-small: 15px;
-  --font-size-med: 30px;
-  --font-size-large: 60px;
+  --font-size-regular: 1rem;
+  --font-size-small: 0.75rem;
+  --font-size-med: 2rem;
+  --font-size-large: 3.75rem;
   
   /* headings */
   --h1-font-size: 30px;

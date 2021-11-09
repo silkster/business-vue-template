@@ -91,11 +91,11 @@ export default {
 }
 .buttonMedium,
 .buttonMedium .buttonText {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .buttonLarge,
 .buttonLarge .buttonText {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 .buttonPrimary,
@@ -116,7 +116,17 @@ export default {
   min-width: unset;
   height: auto;
 }
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 480px) {
+  .button:not(.buttonIcon) {
+    min-width: 240px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .button:not(.buttonIcon) {
+    min-width: 280px;
+  }
+}
+@media screen and (min-width: 1025px) {
   .button:not(.buttonIcon) {
     min-width: 306px;
   }
