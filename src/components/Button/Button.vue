@@ -132,7 +132,7 @@ export default {
   }
 }
 @media screen and (min-width: 1920px) {
-  .button {
+  .button:not(.buttonIcon) {
     min-width: 306px;
   }
 }
