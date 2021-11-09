@@ -113,13 +113,13 @@ export default {
 <style module>
 .formGroup {
   position: relative;
-  z-index: 0;
+  z-index: var(--z-index-content);
   margin: 0 0 space(5);
 }
 
 .input {
   position: relative;
-  z-index: 1;
+  z-index: var(--z-index-content-level-1);
   height: 40px;
   background-color: transparent;
 }
@@ -153,7 +153,7 @@ export default {
   transition: 0.3s;
   transform-origin: 0 0;
   transform: scale(1) translate(0, 0);
-  z-index: 2;
+  z-index: var(--z-index-content-level-2);
 }
 
 .errorMessage {
