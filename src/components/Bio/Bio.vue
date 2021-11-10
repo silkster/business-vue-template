@@ -1,4 +1,5 @@
 <script>
+import { mapState } from 'vuex';
 import HeadShot from '@/components/HeadShot/HeadShot';
 import AppButton from '@/components/Button/Button';
 
@@ -13,6 +14,16 @@ export default {
       },
     },
   },
+  computed: {
+    ...mapState('device', ['isMobile', 'isSmall', 'isTablet']),
+    isSmallScreen() {
+      const { isSmall, isMobile, isTablet } = this;
+      return isSmall || isMobile || isTablet;
+    },
+    isBio() {
+      return true;
+    },
+  },
 };
 </script>
 
@@ -24,17 +35,22 @@ export default {
         :full-name="bio.fullName"
         :title="bio.title"
         :class="$style.headShot"
+        :is-bio="isBio"
       />
-      <div :class="$style.buttonWrap">
-        <app-button
-          size="medium"
-          :class="$style.backButton"
-          @click="$emit('back-to-team')"
-          >&larr; Back to Team</app-button
+      <div :class="$style.buttonWrap" v-if="!isSmallScreen">
+        <app-button size="medium" @click="$emit('back-to-team')"
+          >Back to Team</app-button
         >
       </div>
     </div>
     <div :class="$style.bio" v-html="bio.copy"></div>
+    <app-button
+      v-if="isSmallScreen"
+      size="medium"
+      @click="$emit('back-to-team')"
+      label="Back to Team"
+      :class="$style.lowerButton"
+    />
   </div>
 </template>
 
@@ -66,12 +82,11 @@ export default {
   justify-content: center;
   margin: -10px auto 30px;
 }
-.backButton {
-  min-width: unset;
-  padding: 0 30px 0 10px;
-  margin: 0 auto;
+.lowerButton {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 8px;
 }
-
 @media screen and (min-width: 630px) {
   .buttonWrap {
     margin: -20px auto 30px;
