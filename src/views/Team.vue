@@ -64,7 +64,7 @@ export default {
     :ratio-dimensions="ratioInfo"
   />
   <app-content :class="$style.content">
-    <div :class="$style.container">
+    <div :class="$style.container" v-if="!selectedBio">
       <head-shot
         v-for="bio in bios"
         :key="bio.id"
@@ -74,11 +74,11 @@ export default {
         @click="openBio(bio)"
       />
     </div>
-    <div :class="$style.modal" :style="modalStyle" v-if="selectedBio">
-      <div :class="$style.modalWrap">
-        <app-bio :bio="selectedBio" @back-to-team="selectedBio = null" />
-      </div>
-    </div>
+    <app-bio
+      v-if="selectedBio"
+      :bio="selectedBio"
+      @back-to-team="selectedBio = null"
+    />
   </app-content>
 </template>
 
@@ -93,7 +93,6 @@ export default {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 200px;
   transition: opacity 1s ease-in-out;
 }
 .headShot {
