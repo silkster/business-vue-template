@@ -308,6 +308,9 @@ export default {
   background-color: rgba(255, 255, 255, 1);
 }
 @media screen and (min-width: 1024px) {
+  .navContainer {
+    top: calc(100vh - 94px);
+  }
   .navArrow {
     position: absolute;
     top: 0;
