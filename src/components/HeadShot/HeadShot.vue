@@ -64,7 +64,6 @@ export default {
   height: 40px;
   font-size: 16px;
   letter-spacing: 1px;
-  line-height: 1.2;
   margin-top: 6px;
 }
 .fullName,
@@ -80,6 +79,12 @@ export default {
   position: relative;
   font-weight: var(--font-weight-regular);
   color: var(--orange);
+}
+.labels,
+.fullName,
+.separator,
+.title {
+  line-height: 1.2;
 }
 
 @media screen and (min-width: 630px) {
