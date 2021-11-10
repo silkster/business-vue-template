@@ -64,11 +64,11 @@ export default {
 
 <style module>
 .container {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   height: 54px;
   justify-content: space-between;
-  padding: 0 10.9375vw;
+  padding: 10px 32px;
   background-color: var(--gray-light);
 }
 .caption {
@@ -80,7 +80,9 @@ export default {
 }
 .credit {
   justify-self: flex-end;
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 .back {
   display: none;
@@ -94,7 +96,12 @@ export default {
   display: inline-block;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
+  .credit {
+    text-align: right;
+    display: block;
+    flex-direction: unset;
+  }
   .back {
     display: block;
     font-weight: var(--font-weight-regular);
