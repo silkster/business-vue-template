@@ -1,34 +1,53 @@
 import config from '@/config';
 import viewport from '@/util/modules/viewport';
+import { mapMutations, mapState } from 'vuex';
 
 const { isScreenWidthInRange, getScreenSize } = viewport;
 
 const { breakpoints } = config.viewport;
 
 export default {
-  data() {
-    return {
-      device: {
-        isSmall: null,
-        isMobile: null,
-        isTablet: null,
-        isTabletLandscape: null,
-        isDesktop: null,
-        isLarge: null,
-      },
-    };
+  computed: {
+    ...mapState('device', [
+      'isDesktop',
+      'isLarge',
+      'isMobile',
+      'isSmall',
+      'isTablet',
+      'isTabletLandscape',
+      'screen',
+    ]),
   },
   created() {
-    this.checkViewport();
-    window.addEventListener('resize', this.checkViewport);
+    this.setScreenSize();
+    window.addEventListener('resize', this.setScreenSize);
   },
   destroyed() {
-    window.removeEventListener('resize', this.checkViewport);
+    window.removeEventListener('resize', this.setScreenSize);
+  },
+  watch: {
+    screen: {
+      immediate: true,
+      handler(screen) {
+        this.checkViewport(screen);
+      },
+    },
   },
   methods: {
-    checkViewport() {
-      this.setScreenSize();
-      const { height, width } = this.device.screen;
+    ...mapMutations('device', [
+      'setIsDesktop',
+      'setIsLarge',
+      'setIsMobile',
+      'setIsSmall',
+      'setIsTablet',
+      'setIsTabletLandscape',
+      'setScreen',
+    ]),
+    checkViewport(screen) {
+      if (!screen) {
+        return;
+      }
+      const { height, width } = screen;
       const { min, mobile, tablet, desktop, max } = breakpoints;
       const [isMinScreen, isMobile, isTablet, isDesktop, isMaxScreen] = [
         isScreenWidthInRange(0, min),
@@ -37,15 +56,15 @@ export default {
         isScreenWidthInRange(desktop.min, desktop.max),
         isScreenWidthInRange(max, Infinity),
       ];
-      this.device.isSmall = isMinScreen;
-      this.device.isMobile = isMobile;
-      this.device.isTablet = isTablet;
-      this.device.isTabletLandscape = isTablet && width > height;
-      this.device.isDesktop = isDesktop;
-      this.device.isLarge = isMaxScreen;
+      this.setIsSmall(isMinScreen);
+      this.setIsMobile(isMobile);
+      this.setIsTablet(isTablet && width < height);
+      this.setIsTabletLandscape(isTablet && width > height);
+      this.setIsDesktop(isDesktop);
+      this.setIsLarge(isMaxScreen);
     },
     setScreenSize() {
-      this.device.screen = getScreenSize();
+      this.setScreen(getScreenSize());
     },
   },
 };
