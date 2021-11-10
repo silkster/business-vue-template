@@ -77,7 +77,7 @@ export default {
   align-items: center;
   line-height: 1;
   height: 42px;
-  padding: 0 16px;
+  padding: 0 16px 0 22px;
   min-width: 210px;
 }
 .button,
@@ -115,6 +115,7 @@ export default {
   box-shadow: none;
   min-width: unset;
   height: auto;
+  padding: 0;
 }
 @media screen and (min-width: 480px) {
   .button:not(.buttonIcon) {
