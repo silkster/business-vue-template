@@ -56,7 +56,8 @@ export default {
 }
 .bio p {
   text-align: left;
-  font-size: var(--font-size-regular);
+  font-size: var(--font-size-normal);
+  color: var(--text-color-alt);
   margin-top: 0;
   line-height: 1.5;
 }

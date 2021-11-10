@@ -68,4 +68,7 @@ export default {
 .container h1 {
   margin-bottom: 34px;
 }
+.container p {
+  font-size: var(--p-font-size-large);
+}
 </style>
