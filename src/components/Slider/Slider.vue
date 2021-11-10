@@ -264,8 +264,11 @@ export default {
   min-width: 100%;
 }
 .navContainer {
-  position: relative;
-  padding-bottom: 36px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: calc(66.6667vw - 40px);
+  width: 100%;
   z-index: var(--z-index-content);
 }
 .navTabs {
@@ -304,7 +307,7 @@ export default {
 .navActive {
   background-color: rgba(255, 255, 255, 1);
 }
-@media screen and (min-width: 984px) {
+@media screen and (min-width: 1024px) {
   .navArrow {
     position: absolute;
     top: 0;
