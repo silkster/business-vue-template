@@ -16,12 +16,25 @@ export default {
       type: String,
       default: 'TBD',
     },
+    isBio: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    containerClasses() {
+      const { $style, isBio } = this;
+      return {
+        [$style.container]: true,
+        [$style.isBio]: isBio,
+      };
+    },
   },
 };
 </script>
 
 <template>
-  <div :class="$style.container">
+  <div :class="containerClasses">
     <div :class="$style.photo">
       <img :src="photoSrc" :alt="title" />
     </div>
@@ -43,6 +56,9 @@ export default {
   margin: 12px auto 20px;
   max-width: 384px;
   max-height: 478px;
+}
+.isBio {
+  height: auto;
 }
 .photo {
   position: relative;
