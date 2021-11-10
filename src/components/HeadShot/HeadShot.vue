@@ -107,7 +107,7 @@ export default {
   .container {
     width: 430px;
     height: 485px;
-    margin: 20px auto 60px;
+    margin: 20px auto;
     max-width: unset;
     max-height: unset;
   }

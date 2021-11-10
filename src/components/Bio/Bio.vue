@@ -71,15 +71,16 @@ export default {
   overflow-y: auto;
 }
 .bio p {
-  text-align: left;
-  font-size: var(--font-size-normal);
   color: var(--text-color-alt);
-  margin-top: 0;
+  font-size: var(--font-size-normal);
   line-height: 1.5;
+  margin-top: 0;
+  max-width: 490px;
+  text-align: left;
 }
 .buttonWrap {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin: -10px auto 30px;
 }
 .lowerButton {

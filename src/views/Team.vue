@@ -98,41 +98,4 @@ export default {
 .headShot {
   cursor: pointer;
 }
-.modal {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 32px;
-  background-color: var(--gray-light);
-  overflow: auto;
-  transition: opacity 1s ease-in-out 0.5s;
-  padding: 32px;
-}
-.modalOpen {
-  opacity: 1;
-}
-.modalWrap {
-  position: relative;
-}
-@media screen and (min-width: 1025px) {
-  .modal {
-    padding-top: 32px;
-  }
-  .modalWrap {
-    position: relative;
-  }
-}
-@media screen and (min-width: 1220px) {
-  .modal {
-    position: absolute;
-    top: 68px;
-    bottom: 68px;
-    padding: 0;
-    margin-left: 140px;
-  }
-  .modalWrap {
-    padding: 0 60px 60px 0;
-  }
-}
 </style>
