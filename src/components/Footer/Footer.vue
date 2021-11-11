@@ -4,6 +4,7 @@ import aiaLogo from '@/assets/aia-logo.png';
 import InlineSvg from 'vue-inline-svg';
 import eventListenerMixin from '@/mixins/events';
 import { mapState } from 'vuex';
+import { nextTick } from 'vue';
 
 export default {
   name: 'app-footer',
@@ -12,13 +13,26 @@ export default {
   data() {
     return {
       aiaLogo,
-      logoSmallSvg,
-      isInViewport: false,
+      containerPosition: null,
       footerClasses: {},
+      isInViewport: false,
+      logoSmallSvg,
     };
   },
   computed: {
     ...mapState(['route', 'fontScaleStyle']),
+    ...mapState('device', ['screen']),
+    bottomPosition() {
+      const { containerPosition } = this;
+      return (containerPosition && containerPosition.bottom) || 0;
+    },
+    containerHeight() {
+      const { containerPosition } = this;
+      return (containerPosition && containerPosition.height) || 0;
+    },
+    isDocumentBottomInViewport() {
+      return document.body.scrollHeight <= this.screen.height;
+    },
   },
   created() {
     this.footerClasses = {
@@ -29,38 +43,41 @@ export default {
     route: {
       immediate: true,
       handler() {
-        this.isInViewport = this.isContainerInViewport();
+        const vm = this;
+        const wait = async () => {
+          await nextTick();
+
+          vm.setContainerPosition();
+          vm.setIsInViewport();
+        };
+        wait();
       },
-    },
-    isInViewport() {
-      this.updateFooterClasses();
     },
   },
   mounted() {
     const vm = this;
-    vm.getContainerBottomPosition();
-    vm.isInViewport = vm.isContainerInViewport();
+    vm.setContainerPosition();
+    vm.setIsInViewport();
+
     vm.$onResize(() => {
-      vm.isInViewport = vm.isContainerInViewport();
+      vm.setContainerPosition();
+      vm.setIsInViewport();
     });
   },
   methods: {
-    getContainerPosition() {
-      return this.$refs.container.getBoundingClientRect();
+    setContainerPosition() {
+      const { $refs } = this;
+      const bounds =
+        ($refs.container && $refs.container.getBoundingClientRect()) || null;
+      this.containerPosition = bounds || document.body.scrollHeight;
     },
-    getContainerBottomPosition() {
-      const position = this.getContainerPosition();
-      return position.bottom;
+    setIsInViewport() {
+      this.isInViewport =
+        screen.height >=
+        this.bottomPosition + this.containerHeight + window.scrollY;
+      this.setFooterClasses();
     },
-    isContainerInViewport() {
-      this.isInViewport = false;
-
-      setTimeout(() => {
-        const screen = this.getScreenSize();
-        return screen.height > this.getContainerBottomPosition();
-      }, 100);
-    },
-    updateFooterClasses() {
+    setFooterClasses() {
       const { $style, isInViewport } = this;
       this.footerClasses = {
         [$style.container]: true,
@@ -83,8 +100,7 @@ export default {
 </script>
 
 <template>
-  <div ref="container"></div>
-  <footer :class="footerClasses">
+  <footer :class="footerClasses" ref="container">
     <div :class="$style.logo">
       <router-link to="/contact">
         <inline-svg
