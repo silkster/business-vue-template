@@ -8,7 +8,7 @@ export default {
     path: '/portfolio/work',
   },
   wip: {
-    name: 'InProgress',
+    name: 'wip',
     path: '/portfolio/wip',
   },
   about: {

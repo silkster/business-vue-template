@@ -92,7 +92,10 @@ export default {
     },
     getItemStyles(name) {
       const { $style, route } = this;
-      const isActive = route.name === name;
+      let isActive = route.name === name;
+      if (route.name === 'Portfolio') {
+        isActive = name.toLowerCase() === route.params.pagetype;
+      }
       return {
         [$style.item]: true,
         ...(isActive ? { [$style.active]: true } : {}),
