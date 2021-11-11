@@ -52,7 +52,6 @@ export default {
     <textarea
       :id="inputId"
       :name="inputName"
-      :inputmode="numberInputMode"
       :class="inputClasses"
       required
       :value="value"
