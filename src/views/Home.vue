@@ -54,7 +54,7 @@ export default {
   margin: 0 auto;
 }
 .buttonContainer {
-  padding: 0 0 20px;
+  padding: 40px 0;
 }
 .sliderNavContainer {
   position: absolute;
