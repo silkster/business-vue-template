@@ -48,7 +48,7 @@ export default {
   margin-bottom: 20px !important;
 }
 .container p {
-  font-size: 1.5rem;
+  font-size: var(--p-font-size-special);
 }
 .inquireButton {
   margin: 0 auto;
@@ -63,9 +63,12 @@ export default {
   transform: translateX(-50%);
 }
 
-@media screen and (min-width: 984px) {
+@media screen and (min-width: 768px) {
   .container h1 {
     margin-bottom: 34px !important;
+  }
+  .container p {
+    font-size: var(--p-font-size-special-large);
   }
   .buttonContainer {
     padding: 80px 0 92px;
