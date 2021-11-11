@@ -1,5 +1,4 @@
 <script>
-import { mapState } from 'vuex';
 import AppContent from '@/components/Content/Content.vue';
 import AppButton from '@/components/Button/Button.vue';
 import AppSlider from '@/components/Slider/Slider.vue';
@@ -25,9 +24,6 @@ export default {
       },
     };
   },
-  computed: {
-    ...mapState(['fontScaleStyle']),
-  },
   methods: {
     sendMessage() {},
   },
@@ -42,7 +38,7 @@ export default {
   />
   <app-content :class="$style.content">
     <div :class="$style.container">
-      <div :class="$style.contactInfo" :style="fontScaleStyle">
+      <div :class="$style.contactInfo">
         <div :class="$style.addressLine1">12644 Chapel Road | Suite 209</div>
         <div :class="$style.city">Clifton | Virginia 20124</div>
         <div :class="$style.phone">703.932.2775</div>
@@ -154,7 +150,6 @@ h1.containerHeading {
     justify-content: flex-start;
     align-items: flex-start;
     margin-top: 80px;
-    font-size: var(--font-scale);
   }
   .addressLine1,
   .addressLine2,
