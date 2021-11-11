@@ -1,4 +1,5 @@
 <script>
+import { mapState } from 'vuex';
 import logoSrc from '@/assets/logo.svg';
 import namedRoutes from '@/router/namedRoutes.js';
 import AppMenu from '@/components/Menu/Menu.vue';
@@ -30,11 +31,34 @@ export default {
     };
   },
   computed: {
+    ...mapState('device', [
+      'isDesktop',
+      'isLarge',
+      'isLandscape',
+      'isPortrait',
+      'isTablet',
+      'isSmall',
+      'isMobile',
+    ]),
+    shouldFixHeader() {
+      return (
+        !this.isAbsolute &&
+        this.isFixed &&
+        !(this.isSmall || this.isMobile || (this.isTablet && this.isPortrait))
+      );
+    },
+    shouldNotFixHeader() {
+      return (
+        this.isAbsolute ||
+        (this.isFixed &&
+          (this.isSmall || this.isMobile || (this.isTablet && this.isPortrait)))
+      );
+    },
     headerClasses() {
-      const { $style, isAbsolute, isFixed, isWhite } = this;
+      const { $style, shouldFixHeader, shouldNotFixHeader, isWhite } = this;
       return {
-        ...(isAbsolute ? { [$style.absolute]: true } : {}),
-        ...(isFixed ? { [$style.fixed]: true } : {}),
+        ...(shouldNotFixHeader ? { [$style.absolute]: true } : {}),
+        ...(shouldFixHeader ? { [$style.fixed]: true } : {}),
         ...(isWhite ? { [$style.white]: true } : {}),
       };
     },
@@ -83,11 +107,13 @@ export default {
 .absolute,
 .fixed {
   background-color: transparent;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: var(--z-index-fixed);
+}
+.fixed {
+  position: fixed;
 }
 .absolute {
   position: absolute;
