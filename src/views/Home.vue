@@ -58,7 +58,6 @@ export default {
 }
 .sliderNavContainer {
   position: absolute;
-  top: calc(calc(100vw * 0.6666) - 60px);
   left: 50%;
   transform: translateX(-50%);
 }
