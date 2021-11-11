@@ -50,7 +50,6 @@ import loe1 from '@/assets/gallery/loe/LOE_01.jpg';
 import loe2 from '@/assets/gallery/loe/LOE_02.jpg';
 import loe3 from '@/assets/gallery/loe/LOE_03.jpg';
 import loe4 from '@/assets/gallery/loe/LOE_04.jpg';
-import loe5 from '@/assets/gallery/loe/LOE_05.jpg';
 import loe6 from '@/assets/gallery/loe/LOE_06.jpg';
 import loe7 from '@/assets/gallery/loe/LOE_07.jpg';
 import loe8 from '@/assets/gallery/loe/LOE_08.jpg';
@@ -130,6 +129,8 @@ import lonLarge from '@/assets/gallery/lon/lon-large.jpg';
 import nibLarge from '@/assets/gallery/nib/nib-large.jpg';
 import rohLarge from '@/assets/gallery/roh/roh-large.jpg';
 
+const objectFit = 'scale-down';
+
 export default {
   projects: {
     deu: {
@@ -139,7 +140,7 @@ export default {
       photography: 'Alexander Nicholson',
       id: 'DEU',
       photo: deuPhoto,
-      photos: [deu1, deu2, deu3, deu4, deu5, deu6],
+      photos: [deu1, deu2, deu3, deu4, deu5, { photo: deu6, objectFit }],
       copy: `
       <p>There's something about Charlottesville. Once you've lived here, walked the Lawn, and seen the Blue Ridge, you're part of a community, and you'll always be able to call this place home. It's a story we hear from so many clients. They came back to raise a family. They came back for retirement. Or they never left. They feel a connection to Virginia, to Charlottesville, and to the red brick, the standing seam, the rustic barn, or the front porch. The enduring architecture that dots our landscape is part of the experience. It's a unique blend of southern gentility, rural vernacular style, and local creative initiative.</p>
       <p>In the Spring of 2020, a new client reached out to us with a familiar vision. They'd bought a farm west of town. They wanted to turn it into a "generational property." Somewhere their family could always call home.</p>
@@ -165,7 +166,16 @@ export default {
       photography: 'Greg Hadley',
       id: 'KUZ',
       photo: kuzPhoto,
-      photos: [kuz1, kuz2, kuz3, kuz4, kuz5, kuz6, kuz7, kuz8],
+      photos: [
+        kuz1,
+        kuz2,
+        kuz3,
+        kuz4,
+        kuz5,
+        { photo: kuz6, objectFit },
+        { photo: kuz7, objectFit },
+        kuz8,
+      ],
       copy: `
       <p>The owners of this historic farmhouse sought a comprehensive addition to expand the living and entertaining spaces while bringing the family together with a more open, fluid and friendly layout.</p>
       <p>The small rooms, low ceilings and dark, interior kitchen have given way to open spaces, vaulted ceilings and a spectacular relocated kitchen. A floor-to-ceiling folding door opens the entire great room to the outdoors while the visually stunning timber frame trusses support the vaulted ceiling and hint to the traditional barn on site.</p>
@@ -182,7 +192,18 @@ export default {
       photography: 'Greg Hadley',
       id: 'MIL',
       photo: milPhoto,
-      photos: [mil1, mil2, mil3, mil4, mil5, mil6, mil7, mil8, mil9, mil10],
+      photos: [
+        mil1,
+        mil2,
+        mil3,
+        mil4,
+        mil5,
+        mil6,
+        { photo: mil7, objectFit },
+        { photo: mil8, objectFit },
+        mil9,
+        mil10,
+      ],
       copy: `
       <p>The design of this home was driven by the owners' desire for a three-bedroom waterfront home that showcased the spectacular views and park-like setting. As nature lovers, they wanted their home to be organic, minimize any environmental impact on the sensitive site and embrace nature.</p>
       <p>This unique home is sited on a high ridge with a 45° slope to the water on the right and a deep ravine on the left. The five-acre site is completely wooded and tree preservation was a major emphasis. Very few trees were removed and special care was taken to protect the trees and environment throughout the project. To further minimize disturbance, grades were not changed and the home was designed to take full advantage of the site's natural topography. Oak from the home site was re-purposed for the mantle, powder room counter and select furniture.</p>
@@ -198,7 +219,15 @@ export default {
       photography: 'Greg Hadley',
       id: 'LYN',
       photo: lynPhoto,
-      photos: [lyn1, lyn2, lyn3, lyn4, lyn5, lyn6, lyn7],
+      photos: [
+        lyn1,
+        lyn2,
+        lyn3,
+        lyn4,
+        { photo: lyn5, objectFit },
+        { photo: lyn6, objectFit },
+        lyn7,
+      ],
       copy: `
       <p>The Owners of this riverfront property requested a home that was designed to showcase the spectacular setting while remaining comfortable for large parties or just two people. Every major room features magnificent water views and the generous use of rich woods, stone, color and scale create warm and inviting spaces despite the size.</p>
       <p>High winds, humidity, and intense reflective sun are some of the unique challenges of living on the river and needed to be addressed. To overcome these, tinted windows, spray foam insulation, whole house radiant heat, and VRF cooling were incorporated to make the house energy efficient and comfortable year round.</p>
@@ -217,15 +246,14 @@ export default {
       photos: [
         loe1,
         loe2,
-        loe3,
+        { photo: loe3, objectFit },
         loe4,
-        loe5,
-        loe6,
+        { photo: loe6, objectFit },
         loe7,
-        loe8,
+        { photo: loe8, objectFit },
         loe9,
-        loe10,
-        loe11,
+        { photo: loe10, objectFit },
+        { photo: loe11, objectFit },
         loe12,
         loe13,
       ],
@@ -266,7 +294,16 @@ export default {
       photography: 'Greg Hadley',
       id: 'PAR',
       photo: parPhoto,
-      photos: [par1, par2, par3, par4, par5, par6, par7, par8],
+      photos: [
+        par1,
+        par2,
+        par3,
+        { photo: par4, objectFit },
+        par5,
+        par6,
+        par7,
+        par8,
+      ],
       copy: `
       <p>It's all about location and the owners of this dated 1990s colonial purchased the home for its spectacular views and setting. Unfortunately, the design of the existing home did not live up to its potential. An awkwardly placed mudroom blocked an otherwise magnificent view from the existing kitchen and breakfast room while the second floor turned its back on the amazing high views of the vineyard and mountains beyond. The unfinished basement did little to connect with the beautiful rear yard and the “builder grade” windows and exterior materials were at the end of their useful life.</p>
       <p>A rear two-story addition created special spaces on each level. On the second floor, the master suite was expanded to create a retreat in the sky with glass on all sides. On the first floor, a new large mud room with dog shower and a larger open breakfast area created a functional space that maximized the views. In addition, a new deck and stair connects the house to the yard and the new pool and spa. The new basement includes all of the spaces required for entertaining including a billiards area, home office, media room and wet bar. In addition, a covered lower outdoor entertainment area with a two sided fireplace connects the indoors and the outdoors.</p>
@@ -292,9 +329,9 @@ export default {
         Ash9,
         Ash10,
         Ash11,
-        Ash12,
-        Ash13,
-        Ash14,
+        { photo: Ash12, objectFit },
+        { photo: Ash13, objectFit },
+        { photo: Ash14, objectFit },
       ],
       copy: `
       <p>This horse country estate has a rich history tracing back to 1790. In the 1920’s, noted architect William Bottomley expanded the simple structure into a magnificent stone hunting lodge. However, in recent times, the house was unoccupied and fell into disrepair. Our clients purchased the structure with the goal of transforming the home into a summer retreat suited for large gatherings while still preserving the historic character and exterior of the home. The restoration involved complete new mechanical, electrical and plumbing systems as well as redesign of the spaces to accommodate a young family and their visitors.</p>
@@ -311,7 +348,7 @@ export default {
       photography: 'Greg Hadley',
       id: 'LAY',
       photo: layPhoto,
-      photos: [lay1, lay2, lay3, lay4, lay5, lay6],
+      photos: [lay1, lay2, lay3, lay4, { photo: lay5, objectFit }, lay6],
       copy: `
       <p>This 1980's contemporary had great curb appeal and proportions, but contained many awkward and poorly designed spaces. While the primary focus was to address the design deficiencies with additions and a more livable and useful floor plan, extensive work was done to transform the interior and exterior into a more traditional craftsman-style cottage.</p>
       <p>The addition to the right of the house addressed the need for a main level garage with an in-law suite above. By moving the garage out of the basement, space became available for a billiard room and allowed the lower level to open to the rear yard. The laundry was relocated to the addition, and the old dark kitchen was expanded and relocated to the outside corner walls to allow for more windows and natural light.</p>
@@ -327,7 +364,13 @@ export default {
       photography: 'Greg Hadley',
       id: 'WRI',
       photo: wriPhoto,
-      photos: [wri1, wri2, wri3, wri4, wri5],
+      photos: [
+        wri1,
+        wri2,
+        wri3,
+        { photo: wri4, objectFit },
+        { photo: wri5, objectFit },
+      ],
       copy: `
       <p>The existing three-bedroom home was originally constructed as a carriage house to serve a future estate and never intended to be a primary residence. Though full of charm, the small place lacked the space and functionality typically found in today's homes. With a growing family and defined limitations, the long-time owners wanted to remodel and expand.</p>
       <p>We were asked to design a new foyer, living room and master suite with adjacent study above grade and incorporate an exercise room and unfinished workspace in the basement. A constant consideration throughout the design process was to make sure all work seamlessly integrated with the original stone house. Equally challenging and important to the design was the home's location at the bottom of a steep rural site. A large swale located directly adjacent to the existing residence acted as a natural watershed for a large portion of the property. To address and overcome this challenge, we designed the living room as a bridge, literally spanning the existing swale and joining the carriage house with the new master bedroom wing.</p>
@@ -359,14 +402,14 @@ export default {
       photos: [
         sto1,
         sto2,
-        sto3,
-        sto4,
+        { photo: sto3, objectFit },
+        { photo: sto4, objectFit },
         sto5,
         sto6,
-        sto7,
-        sto8,
+        { photo: sto7, objectFit },
+        { photo: sto8, objectFit },
         sto9,
-        sto10,
+        { photo: sto10, objectFit },
         sto11,
         sto12,
       ],
