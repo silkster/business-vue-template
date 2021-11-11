@@ -16,7 +16,7 @@ export default {
     name: 'About',
   },
   team: {
-    path: '/team',
+    path: '/leadership',
     name: 'Team',
   },
   contact: {

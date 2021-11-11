@@ -41,7 +41,7 @@ export default {
         },
         {
           ...team,
-          displayName: 'Team',
+          displayName: 'Leadership',
           isActive: false,
         },
         {
