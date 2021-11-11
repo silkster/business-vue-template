@@ -14,6 +14,7 @@ export default {
     return {
       aiaLogo,
       containerPosition: null,
+      footerHeight: 0,
       footerClasses: {},
       isInViewport: false,
       logoSmallSvg,
@@ -25,10 +26,6 @@ export default {
     bottomPosition() {
       const { containerPosition } = this;
       return (containerPosition && containerPosition.bottom) || 0;
-    },
-    containerHeight() {
-      const { containerPosition } = this;
-      return (containerPosition && containerPosition.height) || 0;
     },
     isDocumentBottomInViewport() {
       return document.body.scrollHeight <= this.screen.height;
@@ -67,14 +64,21 @@ export default {
   methods: {
     setContainerPosition() {
       const { $refs } = this;
+      this.setFooterHeight();
       const bounds =
         ($refs.container && $refs.container.getBoundingClientRect()) || null;
       this.containerPosition = bounds || document.body.scrollHeight;
     },
+    setFooterHeight() {
+      const { $refs } = this;
+      const bounds =
+        ($refs.footer && $refs.footer.getBoundingClientRect()) || null;
+      this.footerHeight = (bounds && bounds.height) || 200;
+    },
     setIsInViewport() {
       this.isInViewport =
         screen.height >=
-        this.bottomPosition + this.containerHeight + window.scrollY;
+        this.bottomPosition + this.footerHeight + window.scrollY;
       this.setFooterClasses();
     },
     setFooterClasses() {
@@ -100,7 +104,8 @@ export default {
 </script>
 
 <template>
-  <footer :class="footerClasses" ref="container">
+  <div ref="container"></div>
+  <footer :class="footerClasses" ref="footer">
     <div :class="$style.logo">
       <router-link to="/contact">
         <inline-svg
