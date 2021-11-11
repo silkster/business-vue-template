@@ -4,6 +4,7 @@ export default {
   isMobile: null,
   isSmall: null,
   isTablet: null,
-  isTabletLandscape: null,
+  isLandscape: null,
+  isPortrait: null,
   screen: null,
 };

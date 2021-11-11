@@ -40,14 +40,14 @@ export default {
       'setIsMobile',
       'setIsSmall',
       'setIsTablet',
-      'setIsTabletLandscape',
+      'setIsLandscape',
+      'setIsPortrait',
       'setScreen',
     ]),
     checkViewport(screen) {
       if (!screen) {
         return;
       }
-      const { height, width } = screen;
       const { min, mobile, tablet, desktop, max } = breakpoints;
       const [isMinScreen, isMobile, isTablet, isDesktop, isMaxScreen] = [
         isScreenWidthInRange(0, min),
@@ -58,8 +58,9 @@ export default {
       ];
       this.setIsSmall(isMinScreen);
       this.setIsMobile(isMobile);
-      this.setIsTablet(isTablet && width < height);
-      this.setIsTabletLandscape(isTablet && width > height);
+      this.setIsTablet(isTablet);
+      this.setIsLandscape();
+      this.setIsPortrait();
       this.setIsDesktop(isDesktop);
       this.setIsLarge(isMaxScreen);
     },

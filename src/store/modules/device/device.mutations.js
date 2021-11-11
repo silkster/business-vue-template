@@ -14,8 +14,11 @@ export default {
   setIsTablet(state, value) {
     state.isTablet = value;
   },
-  setIsTabletLandscape(state, value) {
-    state.isTabletLandscape = value;
+  setIsLandscape(state) {
+    state.isLandscape = state.screen.width > state.screen.height;
+  },
+  setIsPortrait(state) {
+    state.isPortrait = state.screen.width < state.screen.height;
   },
   setScreen(state, value) {
     state.screen = value;
