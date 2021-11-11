@@ -17,8 +17,8 @@ export default {
   computed: {
     ...mapState('device', ['isMobile', 'isSmall', 'isTablet']),
     isSmallScreen() {
-      const { isSmall, isMobile, isTablet } = this;
-      return isSmall || isMobile || isTablet;
+      const { isSmall, isMobile } = this;
+      return isSmall || isMobile;
     },
     isBio() {
       return true;
@@ -69,10 +69,12 @@ export default {
   position: relative;
   flex-grow: 3;
   overflow-y: auto;
+  width: 80vw;
+  max-width: 384px;
 }
 .bio p {
   color: var(--text-color-alt);
-  font-size: var(--font-size-normal);
+  font-size: var(--font-size-small);
   line-height: 1.5;
   margin-top: 0;
   max-width: 490px;
@@ -89,15 +91,22 @@ export default {
   margin: 0 auto 8px;
 }
 @media screen and (min-width: 630px) {
+  .bio {
+    width: 430px;
+    max-width: unset;
+    padding-top: 16px;
+  }
   .buttonWrap {
-    margin: -20px auto 30px;
+    margin: 0 auto 30px;
+    padding-top: 20px;
   }
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 965px) {
   .container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    column-gap: 5px;
   }
 }
 </style>

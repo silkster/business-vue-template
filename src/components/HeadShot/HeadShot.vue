@@ -127,16 +127,24 @@ export default {
     margin: 0 16px;
   }
 }
+@media screen and (min-width: 965px) {
+  .container:nth-child(odd) {
+    margin-right: 20px;
+  }
+  .container:nth-child(even) {
+    margin-left: 20px;
+  }
+  .labels {
+    height: 60px;
+    font-size: 24px;
+  }
+}
 @media screen and (min-width: 1025px) {
   .container:nth-child(odd) {
     margin-right: 60px;
   }
   .container:nth-child(even) {
     margin-left: 60px;
-  }
-  .labels {
-    height: 60px;
-    font-size: 24px;
   }
 }
 </style>
