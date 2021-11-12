@@ -71,18 +71,21 @@ export default {
   padding: 10px 32px;
   background-color: var(--gray-light);
 }
-.caption {
-  position: relative;
-  cursor: pointer;
-}
 .medium {
   font-weight: var(--font-weight-medium);
 }
+.caption,
 .credit {
-  justify-self: flex-end;
+  line-height: 1.3;
   display: flex;
   flex-direction: column;
-  text-align: left;
+}
+.caption {
+  cursor: pointer;
+  justify-self: flex-start;
+}
+.credit {
+  justify-self: flex-end;
 }
 .back {
   display: none;
@@ -97,8 +100,8 @@ export default {
 }
 
 @media screen and (min-width: 1024px) {
+  .caption,
   .credit {
-    text-align: right;
     display: block;
     flex-direction: unset;
   }
