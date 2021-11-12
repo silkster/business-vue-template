@@ -69,6 +69,11 @@ export default {
   margin-bottom: 34px;
 }
 .container p {
-  font-size: var(--p-font-size-large);
+  font-size: var(--p-font-size-special);
+}
+@media screen and (min-width: 768px) {
+  .container p {
+    font-size: var(--p-font-size-large);
+  }
 }
 </style>
