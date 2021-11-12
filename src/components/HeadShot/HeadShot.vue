@@ -102,8 +102,7 @@ export default {
 .title {
   line-height: 1.2;
 }
-
-@media screen and (min-width: 630px) {
+@media screen and (min-width: 1025px) {
   .container {
     width: 430px;
     height: 485px;
@@ -111,40 +110,28 @@ export default {
     max-width: unset;
     max-height: unset;
   }
+  .container:nth-child(odd) {
+    margin-right: 60px;
+  }
+  .container:nth-child(even) {
+    margin-left: 60px;
+  }
   .photo {
     height: 430px;
     width: 430px;
     max-width: unset;
     max-height: unset;
   }
-  .labels {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
   .separator {
     display: block;
     margin: 0 16px;
   }
-}
-@media screen and (min-width: 965px) {
-  .container:nth-child(odd) {
-    margin-right: 20px;
-  }
-  .container:nth-child(even) {
-    margin-left: 20px;
-  }
   .labels {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     height: 60px;
     font-size: 24px;
-  }
-}
-@media screen and (min-width: 1025px) {
-  .container:nth-child(odd) {
-    margin-right: 60px;
-  }
-  .container:nth-child(even) {
-    margin-left: 60px;
   }
 }
 </style>

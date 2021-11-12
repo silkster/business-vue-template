@@ -14,14 +14,23 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      isSmallScreen: true,
+    };
+  },
   computed: {
-    ...mapState('device', ['isMobile', 'isSmall', 'isTablet']),
-    isSmallScreen() {
-      const { isSmall, isMobile } = this;
-      return isSmall || isMobile;
-    },
+    ...mapState('device', ['screen']),
     isBio() {
       return true;
+    },
+  },
+  watch: {
+    screen: {
+      immediate: true,
+      handler(screen) {
+        this.isSmallScreen = screen.width < 1024;
+      },
     },
   },
 };
@@ -44,8 +53,8 @@ export default {
       </div>
     </div>
     <div :class="$style.bio" v-html="bio.copy"></div>
+
     <app-button
-      v-if="isSmallScreen"
       size="medium"
       @click="$emit('back-to-team')"
       label="Back to Team"
@@ -86,11 +95,15 @@ export default {
   margin: -10px auto 30px;
 }
 .lowerButton {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto 8px;
+  margin-bottom: 92px;
 }
-@media screen and (min-width: 630px) {
+@media screen and (min-width: 1025px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    column-gap: 5px;
+  }
   .bio {
     width: 430px;
     max-width: unset;
@@ -99,14 +112,6 @@ export default {
   .buttonWrap {
     margin: 0 auto 30px;
     padding-top: 20px;
-  }
-}
-@media screen and (min-width: 965px) {
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    column-gap: 5px;
   }
 }
 </style>
