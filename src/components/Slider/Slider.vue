@@ -5,9 +5,15 @@ import img3 from '@/assets/landing/3_LOE.jpg';
 import img4 from '@/assets/landing/4_PAR.jpg';
 import img5 from '@/assets/landing/5_STO.jpg';
 import img6 from '@/assets/landing/6_LOE.jpg';
+import ButtonArrowLeft from '@/components/Button/ButtonArrowLeft';
+import ButtonArrowRight from '@/components/Button/ButtonArrowRight';
 
 export default {
   name: 'app-slider',
+  components: {
+    ButtonArrowLeft,
+    ButtonArrowRight,
+  },
   props: {
     photos: {
       type: Array,
@@ -211,6 +217,16 @@ export default {
     >
       <img :src="img.photo" :class="$style.photo" :style="getImageStyle(img)" />
     </div>
+    <div :class="navArrowLeftClasses" @click="navigatePrev">
+      <div :class="$style.navArrowWrap">
+        <button-arrow-left />
+      </div>
+    </div>
+    <div :class="navArrowRightClasses" @click="navigateNext">
+      <div :class="$style.navArrowWrap">
+        <button-arrow-right />
+      </div>
+    </div>
   </div>
   <div :class="navContainerClasses">
     <div :class="$style.navTabs">
@@ -223,12 +239,6 @@ export default {
         @click.stop="() => navigate(key)"
       ></div>
     </div>
-  </div>
-  <div :class="navArrowLeftClasses" @click="navigatePrev">
-    <div :class="$style.navArrowWrap">&lt;</div>
-  </div>
-  <div :class="navArrowRightClasses" @click="navigateNext">
-    <div :class="$style.navArrowWrap">&gt;</div>
   </div>
 </template>
 
@@ -277,7 +287,12 @@ export default {
   column-gap: 10px;
 }
 .navArrow {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 }
 .navArrowWrap {
   display: flex;
@@ -286,13 +301,13 @@ export default {
   font-size: 80px;
   color: rgba(255, 255, 255, 0.75);
   font-weight: var(--font-weight-thin);
-  height: calc(100vh - 54px);
+  /* height: calc(100vh - 54px); */
 }
 .navArrowLeft {
-  left: 0;
+  left: 10px;
 }
 .navArrowRight {
-  right: 0;
+  right: 10px;
 }
 .hidden {
   display: none;
@@ -310,13 +325,6 @@ export default {
 @media screen and (min-width: 1024px) {
   .navContainer {
     top: calc(100vh - 94px);
-  }
-  .navArrow {
-    position: absolute;
-    top: 0;
-    height: calc(100vh - 54px);
-    width: 100px;
-    cursor: pointer;
   }
 }
 </style>
