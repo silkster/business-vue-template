@@ -1,5 +1,6 @@
 <script>
 import { mapState } from 'vuex';
+import { nextTick } from 'vue';
 import HeadShot from '@/components/HeadShot/HeadShot';
 import AppButton from '@/components/Button/Button';
 
@@ -28,7 +29,8 @@ export default {
   watch: {
     screen: {
       immediate: true,
-      handler(screen) {
+      async handler(screen) {
+        await nextTick();
         this.isSmallScreen = screen.width < 1024;
       },
     },
@@ -55,6 +57,7 @@ export default {
     <div :class="$style.bio" v-html="bio.copy"></div>
 
     <app-button
+      v-if="isSmallScreen"
       size="medium"
       @click="$emit('back-to-team')"
       label="Back to Team"
@@ -97,7 +100,7 @@ export default {
 .lowerButton {
   margin-bottom: 92px;
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
   .container {
     display: flex;
     justify-content: space-between;
