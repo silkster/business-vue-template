@@ -115,6 +115,7 @@ export default {
 .container {
   width: 100% !important;
   z-index: var(--z-index-content);
+  pointer-events: none;
 }
 .content {
   margin-bottom: 60px;
@@ -135,9 +136,11 @@ export default {
 }
 .paralaxedSpace {
   display: none;
+  pointer-events: none;
 }
 .topContent {
   background-color: var(--gray-light);
+  pointer-events: all;
 }
 @media screen and (min-width: 1024px) {
   .paralaxed {
