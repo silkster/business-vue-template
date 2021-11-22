@@ -123,11 +123,17 @@ import nibPhoto from '@/assets/gallery/in-progress/gallery-sm-nib.jpg';
 import rohPhoto from '@/assets/gallery/in-progress/gallery-sm-roh.jpg';
 
 import albLarge from '@/assets/gallery/alb/alb-large.jpg';
+import alb2Large from '@/assets/gallery/alb/alb2-large.jpg';
 import fliLarge from '@/assets/gallery/fli/fli-large.jpg';
+import fli2Large from '@/assets/gallery/fli/fli2-large.jpg';
 import kinLarge from '@/assets/gallery/kin/kin-large.jpg';
+import kin2Large from '@/assets/gallery/kin/kin2-large.jpg';
 import lonLarge from '@/assets/gallery/lon/lon-large.jpg';
+import lon2Large from '@/assets/gallery/lon/lon2-large.jpg';
 import nibLarge from '@/assets/gallery/nib/nib-large.jpg';
+import nib2Large from '@/assets/gallery/nib/nib2-large.jpg';
 import rohLarge from '@/assets/gallery/roh/roh-large.jpg';
+import roh2Large from '@/assets/gallery/roh/roh2-large.jpg';
 
 const objectFit = 'scale-down';
 
@@ -438,7 +444,7 @@ export default {
       title: 'Browntown, VA',
       photography: 'Jeremy Potter, AIA',
       photo: rohPhoto,
-      photos: [rohLarge],
+      photos: [rohLarge, roh2Large],
       inProgress: true,
       delivery: 'Fall 2022',
     },
@@ -448,7 +454,7 @@ export default {
       title: 'Vienna, VA',
       photography: 'Jeremy Potter, AIA',
       photo: nibPhoto,
-      photos: [nibLarge],
+      photos: [nibLarge, nib2Large],
       inProgress: true,
       delivery: 'Fall 2022',
     },
@@ -458,7 +464,7 @@ export default {
       title: 'Charlottesville, VA',
       photography: 'Jeremy Potter, AIA',
       photo: lonPhoto,
-      photos: [lonLarge],
+      photos: [lonLarge, lon2Large],
       inProgress: true,
       delivery: 'Fall 2022',
     },
@@ -468,7 +474,7 @@ export default {
       title: 'McLean, VA',
       photography: 'Jeremy Potter, AIA',
       photo: kinPhoto,
-      photos: [kinLarge],
+      photos: [kinLarge, kin2Large],
       inProgress: true,
       delivery: 'Fall 2022',
     },
@@ -478,7 +484,7 @@ export default {
       title: 'Middleburg, VA',
       photography: 'Jeremy Potter, AIA',
       photo: albPhoto,
-      photos: [albLarge],
+      photos: [albLarge, alb2Large],
       inProgress: true,
       delivery: 'Fall 2022',
     },
@@ -488,7 +494,7 @@ export default {
       title: 'Vienna, VA',
       photography: 'Jeremy Potter, AIA',
       photo: fliPhoto,
-      photos: [fliLarge],
+      photos: [fliLarge, fli2Large],
       inProgress: true,
       delivery: 'Fall 2022',
     },
