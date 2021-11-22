@@ -50,22 +50,28 @@ export default {
 
   methods: {
     ...mapActions(['updateFontScale']),
+    swipe(direction) {
+      const swipe = new CustomEvent('swipe', { detail: { direction } });
+      document.dispatchEvent(swipe);
+    },
   },
 
   emits: ['login', 'logout', 'createAccount'],
 };
 </script>
 <template>
-  <app-header
-    :is-absolute="isAbsolute"
-    :is-fixed="isFixed"
-    :is-white="isWhite"
-    :logo-size="logoSize"
-  />
+  <div v-touch:swipe="swipe">
+    <app-header
+      :is-absolute="isAbsolute"
+      :is-fixed="isFixed"
+      :is-white="isWhite"
+      :logo-size="logoSize"
+    />
 
-  <router-view />
+    <router-view />
 
-  <app-footer />
+    <app-footer />
+  </div>
 </template>
 
 <style lang="scss" module>

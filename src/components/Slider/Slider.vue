@@ -7,9 +7,13 @@ import img5 from '@/assets/landing/5_STO.jpg';
 import img6 from '@/assets/landing/6_LOE.jpg';
 import ButtonArrowLeft from '@/components/Button/ButtonArrowLeft';
 import ButtonArrowRight from '@/components/Button/ButtonArrowRight';
+import { mapState } from 'vuex';
+import { nextTick } from 'vue';
+import eventListenerMixin from '@/mixins/events';
 
 export default {
   name: 'app-slider',
+  mixins: [eventListenerMixin],
   components: {
     ButtonArrowLeft,
     ButtonArrowRight,
@@ -48,9 +52,11 @@ export default {
       homePhotos: [img1, img2, img3, img4, img5, img6],
       active: 0,
       intervalId: null,
+      isSmallScreen: true,
     };
   },
   computed: {
+    ...mapState('device', ['screen']),
     isSinglePhoto() {
       return this.photos.length === 1;
     },
@@ -90,10 +96,11 @@ export default {
       };
     },
     navArrowClasses() {
-      const { $style, isSinglePhoto } = this;
+      const { $style, isSinglePhoto, isSmallScreen } = this;
       return {
         [$style.navArrow]: true,
         [$style.hidden]: isSinglePhoto,
+        [$style.navArrowAlt]: !isSmallScreen,
       };
     },
     navArrowLeftClasses() {
@@ -120,6 +127,8 @@ export default {
   },
   mounted() {
     this.start();
+
+    this.documentAddListener('swipe', ({ detail }) => this.swiped(detail));
   },
   watch: {
     active: {
@@ -138,6 +147,13 @@ export default {
           const $photo = $refs[photoId];
           if ($photo) $photo.classList[action]($style.photoActive);
         }
+      },
+    },
+    screen: {
+      immediate: true,
+      async handler(screen) {
+        await nextTick();
+        this.isSmallScreen = screen.width < 1025;
       },
     },
   },
@@ -200,6 +216,16 @@ export default {
       const prev = active === 0 ? len - 1 : active - 1;
       navigate(prev);
     },
+    swiped({ direction }) {
+      const { images, navigatePrev, navigateNext } = this;
+      if (images.length > 1) {
+        if (direction === 'right') {
+          navigatePrev();
+        } else {
+          navigateNext();
+        }
+      }
+    },
   },
 };
 </script>
@@ -217,18 +243,8 @@ export default {
     >
       <img :src="img.photo" :class="$style.photo" :style="getImageStyle(img)" />
     </div>
-    <div :class="navArrowLeftClasses" @click="navigatePrev">
-      <div :class="$style.navArrowWrap">
-        <button-arrow-left />
-      </div>
-    </div>
-    <div :class="navArrowRightClasses" @click="navigateNext">
-      <div :class="$style.navArrowWrap">
-        <button-arrow-right />
-      </div>
-    </div>
   </div>
-  <div :class="navContainerClasses">
+  <div :class="navContainerClasses" v-if="!isSmallScreen">
     <div :class="$style.navTabs">
       <div
         v-for="(img, key) in images"
@@ -238,6 +254,21 @@ export default {
         :key="key"
         @click.stop="() => navigate(key)"
       ></div>
+    </div>
+  </div>
+
+  <div v-if="!isSmallScreen" :class="navArrowLeftClasses" @click="navigatePrev">
+    <div :class="$style.navArrowWrap">
+      <button-arrow-left />
+    </div>
+  </div>
+  <div
+    v-if="!isSmallScreen"
+    :class="navArrowRightClasses"
+    @click="navigateNext"
+  >
+    <div :class="$style.navArrowWrap">
+      <button-arrow-right />
     </div>
   </div>
 </template>
@@ -293,6 +324,7 @@ export default {
   position: absolute;
   top: 0;
   bottom: 0;
+  padding: 10px;
 }
 .navArrowWrap {
   display: flex;
@@ -304,10 +336,10 @@ export default {
   /* height: calc(100vh - 54px); */
 }
 .navArrowLeft {
-  left: 10px;
+  left: 0px;
 }
 .navArrowRight {
-  right: 10px;
+  right: 0px;
 }
 .hidden {
   display: none;
@@ -325,6 +357,11 @@ export default {
 @media screen and (min-width: 1024px) {
   .navContainer {
     top: calc(100vh - 94px);
+  }
+  .navArrowAlt {
+    position: fixed;
+    bottom: auto;
+    height: calc(100vh - 54px);
   }
 }
 </style>
