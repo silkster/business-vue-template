@@ -48,11 +48,22 @@ export default {
         : 'Project Description';
     },
     photoCredit() {
-      return this.project.photography;
-    },
-    editorial() {
       const { project } = this;
-      return (project && project.editorial) || null;
+      const { photography } = project;
+      return photography.name ? null : photography;
+    },
+    photoCreditInfo() {
+      const { project } = this;
+      const { photography } = project;
+      return photography.name ? photography : null;
+    },
+    articleTitle() {
+      const { project } = this;
+      return (project && project.editorial && project.editorial.title) || null;
+    },
+    byLine() {
+      const { project } = this;
+      return (project && project.editorial && project.editorial.name) || '';
     },
     isFixed() {
       return true;
@@ -92,6 +103,7 @@ export default {
     <div :class="$style.topContent">
       <photo-info
         :credit="photoCredit"
+        :credit-info="photoCreditInfo"
         :caption="caption"
         :in-progress="inProgress"
         @back-to-gallery="gotoGallery"
@@ -102,8 +114,12 @@ export default {
           <h1>{{ title }}</h1>
           <p>{{ location }}</p>
           <div :class="$style.content">
+            <h2 vif="articleTitle">{{ articleTitle }}</h2>
+            <p v-if="project.editorial">
+              by
+              <a :href="project.editorial.url" target="_blank">{{ byLine }}</a>
+            </p>
             <div v-html="project.copy"></div>
-            <h3 v-if="editorial">By {{ editorial }}</h3>
           </div>
         </app-content>
       </template>
