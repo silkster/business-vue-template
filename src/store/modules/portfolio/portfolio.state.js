@@ -32,6 +32,15 @@ import deu3 from '@/assets/gallery/deu/DEU_03.jpg';
 import deu4 from '@/assets/gallery/deu/DEU_04.jpg';
 import deu5 from '@/assets/gallery/deu/DEU_05.jpg';
 import deu6 from '@/assets/gallery/deu/DEU_06.jpg';
+import deu7 from '@/assets/gallery/deu/DEU_07.jpg';
+import deu8 from '@/assets/gallery/deu/DEU_08.jpg';
+import deu9 from '@/assets/gallery/deu/DEU_09.jpg';
+import deu10 from '@/assets/gallery/deu/DEU_10.jpg';
+import deu11 from '@/assets/gallery/deu/DEU_11.jpg';
+import deu12 from '@/assets/gallery/deu/DEU_12.jpg';
+import deu13 from '@/assets/gallery/deu/DEU_13.jpg';
+import deu14 from '@/assets/gallery/deu/DEU_14.jpg';
+
 import kuz1 from '@/assets/gallery/kuz/KUZ_01.jpg';
 import kuz2 from '@/assets/gallery/kuz/KUZ_02.jpg';
 import kuz3 from '@/assets/gallery/kuz/KUZ_03.jpg';
@@ -143,19 +152,37 @@ export default {
       position: 0,
       title: 'Barn Transformation',
       location: 'Charlottesville, VA',
-      photography: 'Alexander Nicholson',
+      photography: {
+        name: 'Alexander Nicholson',
+        url: 'https://www.alexandernicholson.com/',
+      },
       id: 'DEU',
       photo: deuPhoto,
-      photos: [deu1, deu2, deu3, deu4, deu5, { photo: deu6, objectFit }],
+      photos: [
+        deu1,
+        deu2,
+        deu3,
+        deu4,
+        deu5,
+        deu6,
+        deu7,
+        deu8,
+        deu9,
+        { photo: deu10, objectFit },
+        { photo: deu11, objectFit },
+        { photo: deu12, objectFit },
+        deu13,
+        deu14,
+      ],
       copy: `
       <p>There's something about Charlottesville. Once you've lived here, walked the Lawn, and seen the Blue Ridge, you're part of a community, and you'll always be able to call this place home. It's a story we hear from so many clients. They came back to raise a family. They came back for retirement. Or they never left. They feel a connection to Virginia, to Charlottesville, and to the red brick, the standing seam, the rustic barn, or the front porch. The enduring architecture that dots our landscape is part of the experience. It's a unique blend of southern gentility, rural vernacular style, and local creative initiative.</p>
       <p>In the Spring of 2020, a new client reached out to us with a familiar vision. They'd bought a farm west of town. They wanted to turn it into a "generational property." Somewhere their family could always call home.</p>
-      <p>It just so happened that their new farm was already a generational property for Alexander Nicholson. Thirty years ago, our founders added a farm manager's apartment onto an old horse barn set in the rolling hills of the property.</p>
-      <p><b  >Now, the new owners saw potential in the original section of the  barn.</b >With a little work, they knew it could be a gathering place for their grown children and extended family - a place to drink, eat, sleep, read, and be together for the holidays. In this new golden age of Virginia libations, party barns and event barns are de rigueur - Alexander Nicholson has built several - but this would be our most ambitious barn conversion yet. The clients were passionate about preserving the historic character and rustic feel of the barn while seamlessly integrating luxurious finishes, light-filled spaces, and modern amenities.</p>
-      <p>When an owner has such a bold vision - that creative spark so often found in Charlottesville - the selection of a good architect is imperative. Design professionals partner with you to capture your dreams, and partner with us to bring them to fruition. For this project, the owners selected Tom Flach of Kohlmark Flach Architects - someone we hadn't worked with before. With creative input from the owners every step of the way, Tom drew brilliant plans for a restored barn with hidden rooms, salvaged wood, and dramatic expanses of glass. There would be a room for whiskey, a room for wine, and room for the whole family to gather.</p>
-      <p>Such a detailed project demanded skilled hands and traditional construction experience; we brought in Garrett Irwin as Superintendent and Max Henderson as Project Manager. Garrett is a master carpenter and conscientious team leader. Max has a lifetime of experience managing the construction of homes in Virginia. Together, they helped guide the owners through the entire renovation process. For Garrett and Max, every detail had to exceed the owner's expectations, as well as those they set for themselves.</p>
+      <p>It just so happened that their new farm was already a generational property for <a href="https://www.alexandernicholson.com/" target="_blank">Alexander Nicholson</a>. Thirty years ago, our founders added a farm manager's apartment onto an old horse barn set in the rolling hills of the property.</p>
+      <p><b>Now, the new owners saw potential in the original section of the  barn.</b >With a little work, they knew it could be a gathering place for their grown children and extended family - a place to drink, eat, sleep, read, and be together for the holidays. In this new golden age of Virginia libations, party barns and event barns are de rigueur - Alexander Nicholson has built several - but this would be our most ambitious barn conversion yet. The clients were passionate about preserving the historic character and rustic feel of the barn while seamlessly integrating luxurious finishes, light-filled spaces, and modern amenities.</p>
+      <p>When an owner has such a bold vision - that creative spark so often found in Charlottesville - the selection of a good architect is imperative. Design professionals partner with you to capture your dreams, and partner with us to bring them to fruition. For this project, the owners selected Tom Flach of <a href="/leadership">Kohlmark Flach Architects</a> - someone we hadn't worked with before. With creative input from the owners every step of the way, Tom drew brilliant plans for a restored barn with hidden rooms, salvaged wood, and dramatic expanses of glass. There would be a room for whiskey, a room for wine, and room for the whole family to gather.</p>
+      <p>Such a detailed project demanded skilled hands and traditional construction experience; we brought in <a href="https://www.alexandernicholson.com/team" target="_blank">Garrett Irwin</a> as Superintendent and <a href="https://www.alexandernicholson.com/team" target="_blank">Max Henderson</a> as Project Manager. Garrett is a master carpenter and conscientious team leader. Max has a lifetime of experience managing the construction of homes in Virginia. Together, they helped guide the owners through the entire renovation process. For Garrett and Max, every detail had to exceed the owner's expectations, as well as those they set for themselves.</p>
       <p><b>The project started with an entire week of concrete demolition.</b>Garrett and his team took three hour shifts on the jackhammer, removing an 8-inch thick slab of concrete on the ground floor. Next came the careful removal of the original siding, as well as the 1¾" thick oak boards that lined the interior of the barn. We saved both for re-use. With the barn down to its frame, we could fully assess its structural integrity.</p>
-      <p>As with any historic building, oddities and out-of-date building techniques had to be sympathetically addressed. With the help of Steve Barber of DMWPV Engineers, we removed and replaced both gable ends of the barn, and reframed the entire second floor hayloft to create the family's new gathering space. A structural collar was added, belting in the weight of the new second floor. Structural beams and columns were installed to make way for massive new window openings.</p>
+      <p>As with any historic building, oddities and out-of-date building techniques had to be sympathetically addressed. With the help of Steve Barber of <a href="https://dmwpv.com/" target="_blank">DMWPV Engineers</a>, we removed and replaced both gable ends of the barn, and reframed the entire second floor hayloft to create the family's new gathering space. A structural collar was added, belting in the weight of the new second floor. Structural beams and columns were installed to make way for massive new window openings.</p>
       <p>With the barn stabilized, cleaned, and inspected, it was time for the owners' vision to come to life. New glass entry doors let light in from each end of the barn, which is refracted through the dark bars and beams of the original horse stalls. We poured and polished a new concrete slab on the first floor - a classed-up homage to the original. The entryway opens into a hallway of original horse stalls, which define the new floor plan. To the left, a floating stairway is made from massive reclaimed wooden beams. Above, the original hay bale loft was repurposed as a balcony, complete with its original bale lift pulley as a decorative element.</p>
       <p>Down the hall and behind an original sliding door, one horse stall became a whiskey room. It features a copper sink, copper shelving, and a private bar built from reclaimed wood. Opposite is the "tack room," an elegant restroom with equestrian inspiration and custom cabinetry built from more reclaimed wood. In the back, there's a guest bedroom with bunks made from salvaged structural beams, closets behind hidden doors, and a wine cellar in the hallway. Throughout the entire first floor, walls are covered with the thick oak boards we salvaged at the beginning of the project. Instead of putting them back exactly as we found them, we flipped them over, concealing the worn, painted, horse-kicked side and revealing beautiful raw patinated wood that'd been preserved behind the wall for 70 years.</p>
       <p>On the second floor, the dark, whiskey-tinged tones of aged wood give way to a bright, airy living loft with space for the entire family. White clapboards cover the walls and roof eaves. It's a dramatically light-filled room interspersed with rustic details. Reclaimed floors from The Heartpine Company match a few original structural timbers at the edges of the space. The entire loft is open, flowing out into the landscape at each gable-end through massive arched windows.</p>
@@ -169,7 +196,10 @@ export default {
       position: 1,
       title: 'Clifton Farmhouse',
       location: 'Clifton, VA',
-      photography: 'Greg Hadley',
+      photography: {
+        name: 'Greg Hadley',
+        url: 'https://www.greghadleyphotography.com/',
+      },
       id: 'KUZ',
       photo: kuzPhoto,
       photos: [
@@ -195,7 +225,10 @@ export default {
       position: 2,
       title: 'Milleens',
       location: 'Occoquan, VA',
-      photography: 'Greg Hadley',
+      photography: {
+        name: 'Greg Hadley',
+        url: 'https://www.greghadleyphotography.com/',
+      },
       id: 'MIL',
       photo: milPhoto,
       photos: [
@@ -213,7 +246,7 @@ export default {
       copy: `
       <p>The design of this home was driven by the owners' desire for a three-bedroom waterfront home that showcased the spectacular views and park-like setting. As nature lovers, they wanted their home to be organic, minimize any environmental impact on the sensitive site and embrace nature.</p>
       <p>This unique home is sited on a high ridge with a 45° slope to the water on the right and a deep ravine on the left. The five-acre site is completely wooded and tree preservation was a major emphasis. Very few trees were removed and special care was taken to protect the trees and environment throughout the project. To further minimize disturbance, grades were not changed and the home was designed to take full advantage of the site's natural topography. Oak from the home site was re-purposed for the mantle, powder room counter and select furniture.</p>
-      <p>The visually powerful twin pavilions were born from the need for level ground and parking on an otherwise challenging site. Fill dirt excavated from the main home provided the foundation. All structures are anchored with a natural stone base and exterior materials include timber framing, fir ceilings, shingle siding, a partial metal roof and corten steel walls. Stone, wood, metal and glass transition the exterior to the interior and large wood windows flood the home with light and showcase the setting. Interior finishes include reclaimed heart pine floors, Douglas fir trim, dry-stacked stone, rustic cherry cabinets and soapstone counters.</p>
+      <p>The visually powerful <a href="https://www.finehomebuilding.com/2015/11/11/parallel-parking" target="_blank">twin pavilions</a> were born from the need for level ground and parking on an otherwise challenging site. Fill dirt excavated from the main home provided the foundation. All structures are anchored with a natural stone base and exterior materials include timber framing, fir ceilings, shingle siding, a partial metal roof and corten steel walls. Stone, wood, metal and glass transition the exterior to the interior and large wood windows flood the home with light and showcase the setting. Interior finishes include reclaimed heart pine floors, Douglas fir trim, dry-stacked stone, rustic cherry cabinets and soapstone counters.</p>
       <p>Exterior spaces include a timber-framed porch, stone patio with fire pit and commanding views of the Occoquan reservoir. A second porch overlooks the ravine and a breezeway connects the garage to the home.</p>
       <p>Numerous energy-saving features have been incorporated, including LED lighting, on-demand gas water heating and special insulation. Smart technology helps manage and control the entire house.</p>
       `,
@@ -222,7 +255,10 @@ export default {
       position: 3,
       title: 'Craftsman Inspired Waterfront',
       location: 'Mason Neck, VA',
-      photography: 'Greg Hadley',
+      photography: {
+        name: 'Greg Hadley',
+        url: 'https://www.greghadleyphotography.com/',
+      },
       id: 'LYN',
       photo: lynPhoto,
       photos: [
@@ -245,8 +281,14 @@ export default {
       position: 4,
       title: 'Contemporary Solar Home',
       location: 'Potomac, MD',
-      photography: 'Greg Hadley',
-      editorial: 'Sharon Jaffe Dan',
+      photography: {
+        name: 'Greg Hadley',
+        url: 'https://www.greghadleyphotography.com/',
+      },
+      editorial: {
+        name: 'Sharon Jaffe Dan',
+        url: 'https://www.homeanddesign.com/2012/02/14/a-natural-balance/',
+      },
       id: 'LOE',
       photo: loePhoto,
       photos: [
@@ -282,7 +324,11 @@ export default {
       position: 5,
       title: 'Deck House',
       location: 'Arlington, VA',
-      photography: 'Michael Johnson, Mt. Carroll, IL',
+      photography: {
+        name: 'Michael Johnson',
+        location: 'Mt. Carroll, IL',
+        url: 'https://www.michaeljohnsonphotography.com/',
+      },
       id: 'DAV',
       photo: davPhoto,
       photos: [dav1, dav2, dav3, dav4, dav5],
@@ -297,7 +343,10 @@ export default {
       position: 6,
       title: 'Farmhouse Transformation',
       location: 'Waterford, VA',
-      photography: 'Greg Hadley',
+      photography: {
+        name: 'Greg Hadley',
+        url: 'https://www.greghadleyphotography.com/',
+      },
       id: 'PAR',
       photo: parPhoto,
       photos: [
@@ -320,7 +369,10 @@ export default {
       position: 7,
       title: 'Ashland Farm',
       location: 'Middleburg, VA',
-      photography: 'Greg Hadley',
+      photography: {
+        name: 'Greg Hadley',
+        url: 'https://www.greghadleyphotography.com/',
+      },
       id: 'ASH',
       photo: ashPhoto,
       photos: [
@@ -351,7 +403,10 @@ export default {
       position: 8,
       title: 'Storybrook Cottage',
       location: 'Great Falls, VA',
-      photography: 'Greg Hadley',
+      photography: {
+        name: 'Greg Hadley',
+        url: 'https://www.greghadleyphotography.com/',
+      },
       id: 'LAY',
       photo: layPhoto,
       photos: [lay1, lay2, lay3, lay4, { photo: lay5, objectFit }, lay6],
@@ -367,7 +422,10 @@ export default {
       position: 9,
       title: 'Bridge House',
       location: 'Clifton, VA',
-      photography: 'Greg Hadley',
+      photography: {
+        name: 'Greg Hadley',
+        url: 'https://www.greghadleyphotography.com/',
+      },
       id: 'WRI',
       photo: wriPhoto,
       photos: [
@@ -388,7 +446,10 @@ export default {
       position: 10,
       title: 'Contemporary Pool House',
       location: 'Vienna, VA',
-      photography: 'Greg Hadley',
+      photography: {
+        name: 'Greg Hadley',
+        url: 'https://www.greghadleyphotography.com/',
+      },
       id: 'BHU',
       photo: bhuPhoto,
       photos: [bhu1, bhu2, bhu3, bhu4, bhu5, bhu6, bhu7, bhu8],
@@ -401,8 +462,16 @@ export default {
       position: 11,
       title: 'Shingle-Style Estate',
       location: 'Oakton, VA',
-      photography: 'Maxine Schnitzer',
-      editorial: 'Jennifer Sergent',
+      photography: {
+        name: 'Maxine Schnitzer',
+        url: 'https://www.maxineschnitzer.com/',
+      },
+      editorial: {
+        name: 'Jennifer Sergent',
+        url: 'https://jennifersergent.com/',
+        title:
+          'Life of the Party: A retired couple upsizes to a new Oakton,Virginia, home built for year-round entertaining',
+      },
       id: 'STO',
       photo: stoPhoto,
       photos: [
@@ -420,7 +489,6 @@ export default {
         sto12,
       ],
       copy: `
-      <h2><i>Life of the Party: A retired couple upsizes to a new Oakton,Virginia, home built for year-round entertaining</i></h2>
       <p>Tom and Nancy Stout have always loved hosting parties, but it wasn't easy in the Oakton home they shared for 18 years, where typical gatherings of extended family and friends meant moving furniture and setting out multiple coolers. "Neither one of us wanted to leave Oakton," Nancy says, but the spread they envisioned didn't seem possible in an established suburb.</p>
       <p>Serendipity struck one day in 2013 when Nancy came across a lot for sale that backed up to Fairfax County parkland. The owner lived on the adjacent lot—and promised to sell them her remaining parcel when she retired.</p>
       <p>They waited two years to acquire the second lot that gave them two acres of forest-lined land, all the while assembling ideas for their new home and party compound—and the team to make it happen. "They had a unique opportunity to do something really special," says their architect, Tom Flach.</p>
@@ -428,7 +496,7 @@ export default {
       <p>In his plan, Flach set out to relate the home to the context of the neighborhood and provide visual and physical connections to the landscape. Meeting his clients' requirement for plenty of entertaining space, he says, "The challenge was creating a house that was comfortable for two people but scalable for 20 to stay over—or a party for 100." Despite the home's 11,800-square-foot size, he designed clearly defined public rooms that don't feel cavernous when visitors are not around and a master wing on the main level that serves as the Stouts' private retreat.</p>
       <p>The overall architecture was influenced by both Shingle-style and Arts and Crafts abodes. "I find inspiration in the material palette, the complex roof lines and the scale of these homes," says Flach. "I wanted the house to evoke memories of more traditional homes while feeling comfortable in a suburban neighborhood."</p>
       <p>Interior designer Sandra Meyers came on board early to ensure that everything from the interior architecture to the furnishings and décor suited the couple's aesthetic. "They wanted a casual but sophisticated house," she explains. "Everything is user-friendly, everything is easy—and coming to visit for the weekend is like going to a resort."</p>
-      <p>Meyers chose elements that are attractive yet durable, such as distressed-finish cabinetry and stain-resistant fabrics. The Stouts had asked for a mostly gray palette, but Meyers broke it up with shots of black and white. Wood and heritage metalworks imparted warmth and a sense of timelessness. She selected walnut ceiling beams and built-in shelving to add character to the family room and chose exposed-steel I-beams instead of drywall on structural-support columns in the basement. "When you mix materials," the designer comments, "it creates longevity that you don't get when you walk one style line."</p>
+      <p>Meyers chose elements that are attractive yet durable, such as distressed-finish cabinetry and stain-resistant fabrics. The Stouts had asked for a mostly gray palette, but Meyers broke it up with shots of black and white. Wood and <a href="https://www.homeanddesign.com/resources/listing/heritage-metalworks" target="_blank">heritage metalworks</a> imparted warmth and a sense of timelessness. She selected walnut ceiling beams and built-in shelving to add character to the family room and chose exposed-steel I-beams instead of drywall on structural-support columns in the basement. "When you mix materials," the designer comments, "it creates longevity that you don't get when you walk one style line."</p>
       <p>If one color stands out from the mix, it's the teal cabinetry in the pantry at the heart of the main level—easily accessible from every interior space and the outdoor grilling area. "It's basically a Tiffany box," says Nancy Stout, a former member of AOL's marketing team. Since the pantry is so central, it allowed Meyers to extend shades of teal and turquoise outward into the kitchen's seating area, on accent pillows in the family room and onto the dining-room rug.</p>
       <p>Also critical to the design was maintaining a seamless transition between indoors and out. Flach worked closely with landscape architect Howard Cohen to achieve that goal. "It's one of the most comprehensive processes I've ever gone through for a landscape," Cohen reports, noting that his team helped site the house and engineered grading on the property in addition to designing the pool house and pool. "The landscape is in scale with the house," he says. "You want the house to have a nice presence on its site."</p>
       <p>Meanwhile, builder Arjay West found a way to make Nancy's beloved screened porch an integral part of its surroundings: Both motor-controlled screens and clear vinyl panels designed for cooler weather roll up to create a covered terrace that perches over the pool. Beside it, a picturesque fountain sends water running down over a black-granite boulder. "The porch might be Nancy's favorite space," West says. "It really can be a four-season room—we installed infrared heaters on three sides and electric floor heat."</p>
