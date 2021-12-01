@@ -35,8 +35,8 @@
   /* headings */
   --h1-font-size: var(--font-size-large);         /* 40px */
   --h1-font-size-large: var(--font-size-xlarge);  /* 60px */
-  --h2-font-size: var(--font-size-large);         /* 40px */
-  --h3-font-size: var(--font-size-med);           /* 20px */
+  --h2-font-size: var(--font-size-med);         /* 40px */
+  --h3-font-size: var(--font-size-normal);           /* 20px */
 
   /* paragraph */
   --p-font-size: var(--font-size-small);
@@ -135,9 +135,9 @@ h1 {
 
 h2 {
   font-size: var(--h2-font-size);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-light);
   color: var(--text-color-heading);
-  margin: 0;
+  margin: 0 0 30px;
 }
 
 h3 {
@@ -156,6 +156,10 @@ p {
 
 b {
   font-weight: var(--font-weight-bold);
+}
+
+a {
+  color: var(--orange);
 }
 
 /* form field styles */
