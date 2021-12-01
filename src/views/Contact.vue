@@ -122,6 +122,7 @@ h1.containerHeading {
   height: 42px;
   margin-bottom: 25px;
   max-width: 964px;
+  outline: none;
 }
 .field textarea {
   height: 100px;
