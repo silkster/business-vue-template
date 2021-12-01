@@ -14,6 +14,12 @@ export default {
       type: String,
       default: 'Photography credit',
     },
+    creditInfo: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
     inProgress: {
       type: Boolean,
       default: false,
@@ -25,6 +31,11 @@ export default {
     },
     creditHeading() {
       return this.inProgress ? 'Rendering' : 'Photography';
+    },
+    location() {
+      const { creditInfo } = this;
+      const loc = (creditInfo && creditInfo.location) || null;
+      return loc ? `, ${creditInfo.location}` : '';
     },
   },
   methods: {
@@ -56,8 +67,14 @@ export default {
       <div :class="$style.upArrow"></div>
       Gallery
     </div>
-    <div :class="$style.credit">
+    <div v-if="credit" :class="$style.credit">
       <span :class="$style.medium">{{ creditHeading }}:</span> {{ credit }}
+    </div>
+    <div v-if="creditInfo" :class="$style.credit">
+      <span :class="$style.medium">{{ creditHeading }}: </span>
+      <a :href="creditInfo.url" target="_blank"
+        >{{ creditInfo.name }}{{ location }}</a
+      >
     </div>
   </div>
 </template>
@@ -100,15 +117,25 @@ export default {
 }
 
 @media screen and (min-width: 1024px) {
+  .container {
+    flex-basis: 33%;
+  }
+  .container > div {
+    width: 33%;
+  }
   .caption,
   .credit {
     display: block;
     flex-direction: unset;
   }
+  .credit {
+    text-align: right;
+  }
   .back {
     display: block;
     font-weight: var(--font-weight-regular);
     cursor: pointer;
+    text-align: center;
   }
 }
 </style>
