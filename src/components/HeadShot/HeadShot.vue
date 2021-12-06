@@ -124,14 +124,14 @@ export default {
   }
   .separator {
     display: block;
-    margin: 0 16px;
+    margin: 0 8px;
   }
   .labels {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 60px;
-    font-size: 24px;
+    height: 40px;
+    font-size: 20px;
   }
 }
 </style>
