@@ -43,9 +43,7 @@ export default {
     },
     caption() {
       const { project } = this;
-      return project.inProgress
-        ? `Delivery ${project.delivery}`
-        : 'Project Description';
+      return project.inProgress ? '' : 'Project Description';
     },
     photoCredit() {
       const { project } = this;
