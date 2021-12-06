@@ -36,7 +36,7 @@ export default {
       position: 2,
       fullName: 'Chris Chatfield',
       photo: ChrisChatfield,
-      title: 'Architect',
+      title: 'Senior Project Manager',
       copy: `
       <p>Another Pennsylvania native, Chris's early inspiration for building and creating stemmed from countless hours in his father's woodshop. His exposure to woodworking, along with his love of math and geometry, seemed ideally suited to the pursuit of architecture.</p>
       <p>Throughout high school and college, Chris worked construction, learning skills and trades that shaped his understanding of how houses come together. The knowledge gained during those years have made Chris a better designer and enable him to handle all construction needs on his historic home in downtown Leesburg.</p>
