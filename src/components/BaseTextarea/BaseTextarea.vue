@@ -23,12 +23,13 @@ export default {
       default: false,
     },
     label: [String],
-    value: [String, Number],
+    modelValue: [String, Number],
     validIcon: {
       type: String,
       default: 'icon-check',
     },
   },
+  emits: ['update:modelValue'],
   computed: {
     inputClasses() {
       const { $style, hasError, inputClass } = this;
@@ -54,11 +55,11 @@ export default {
       :name="inputName"
       :class="inputClasses"
       required
-      :value="value"
+      :value="modelValue"
       :autocomplete="inputAutocomplete"
       :maxlength="inputMaxLength"
       @keypress="$emit('keypress', $event)"
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('update:modelValue', $event.target.value)"
       @blur="$emit('blur')"
       @focus="$emit('focus')"
     />
